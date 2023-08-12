@@ -226,3 +226,6 @@ if ( ! function_exists( 'hello_elementor_body_open' ) ) {
 		wp_body_open();
 	}
 }
+
+// Load Package Main.
+require_once get_stylesheet_directory() . '/package-main/init-load.php';

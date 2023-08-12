@@ -1,0 +1,47 @@
+header {
+  .rat-header-top-nav {
+    .elementor-nav-menu {
+      gap: 1px;
+      > li {
+        &:not(:first-child) {
+         .elementor-item {
+           font-size: 13px;
+           line-height: 20px;
+           color: #FFFFFF;
+           background: $primary-color;
+           border-radius: 0 0 20px 20px;
+           &:hover {
+             color: #FFFFFF;
+             background: $accent-color;
+           }
+         }
+        }
+        .elementor-item {
+          display: inline-block;
+          min-width: 120px;
+          font-size: 16px;
+          text-align: center;
+          color: #333333;
+          padding: 8px 20px;
+          &:hover {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+  }
+
+  .rat-header-main-nav {
+    ul.sub-menu {
+      min-width: 220px !important;
+      .menu-item {
+        a {
+          justify-content: space-between;
+          border: none;
+        }
+      }
+
+    }
+  }
+
+}

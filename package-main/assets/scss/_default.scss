@@ -1,4 +1,6 @@
-.elementor-widget-container .elementor-text-editor > *:last-child,
-.elementor-widget-text-editor .elementor-widget-container > *:last-child {
-  margin-bottom: 0;
+.elementor-widget-text-editor {
+  .elementor-text-editor > *:last-child,
+  .elementor-widget-container > *:last-child {
+    margin-bottom: 0;
+  }
 }

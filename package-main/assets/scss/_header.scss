@@ -41,23 +41,26 @@ header {
         }
       }
     }
-    .elementor-nav-menu--dropdown {
-      .menu-item {
-        a {
-          justify-content: space-between;
-          .sub-arrow i {
-            -webkit-transition: all .3s;
-            transition: all .3s;
-          }
-          &[aria-expanded="true"] {
+    @media(max-width: $screen-tablet) {
+      .elementor-nav-menu--dropdown {
+        .menu-item {
+          a {
+            justify-content: space-between;
             .sub-arrow i {
-              -webkit-transform: rotate(180deg);
-              transform: rotate(180deg);
+              -webkit-transition: all .3s;
+              transition: all .3s;
+            }
+            &[aria-expanded="true"] {
+              .sub-arrow i {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+              }
             }
           }
         }
       }
     }
+
   }
 
 }

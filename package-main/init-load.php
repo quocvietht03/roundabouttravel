@@ -11,5 +11,6 @@ define( 'PJ_DEV_MODE', true ); // enable to compiler scssphp
  * Includes
  */
 require( PJ_DIR . 'vendor/autoload.php' );
+require( PJ_DIR . 'deals.php' );
 require( PJ_DIR . 'helper.php' );
 require( PJ_DIR . 'static.php' );

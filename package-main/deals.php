@@ -37,7 +37,7 @@ function rpjc_register_deal_post_type() {
 		'menu_icon'           => 'dashicons-tag',
 		'show_in_nav_menus'   => false,
 		'publicly_queryable'  => true,
-		'exclude_from_search' => true,
+		'exclude_from_search' => false,
 		'has_archive'         => true,
 		'query_var'           => true,
 		'can_export'          => true,

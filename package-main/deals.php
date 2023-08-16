@@ -7,44 +7,38 @@
 add_action( 'init', 'rpjc_register_deal_post_type' );
 
 function rpjc_register_deal_post_type() {
+	$labels = [
+		"name" => esc_html__( "Deals", "roundabout-travel" ),
+		"singular_name" => esc_html__( "Deal", "roundabout-travel" ),
+	];
 
-	$labels = array(
-
-		'name'               => _x( 'Deals', 'deal' ),
-		'singular_name'      => _x( 'Deal', 'deal' ),
-		'add_new'            => _x( 'Add New', 'deal' ),
-		'add_new_item'       => _x( 'Add New Deal', 'deal' ),
-		'edit_item'          => _x( 'Edit Deal', 'deal' ),
-		'new_item'           => _x( 'New Deal', 'deal' ),
-		'view_item'          => _x( 'View Deal', 'deal' ),
-		'search_items'       => _x( 'Search Deals', 'deal' ),
-		'not_found'          => _x( 'No deals found', 'deal' ),
-		'not_found_in_trash' => _x( 'No deals found in Trash', 'deal' ),
-		'parent_item_colon'  => _x( 'Parent deal:', 'deal' ),
-		'menu_name'          => _x( 'Deals', 'deal' )
-
-	);
-
-	$args = array(
-
-		'labels'              => $labels,
-		'hierarchical'        => false,
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'menu_position'       => 100,
-		'menu_icon'           => 'dashicons-tag',
-		'show_in_nav_menus'   => false,
-		'publicly_queryable'  => true,
-		'exclude_from_search' => false,
-		'has_archive'         => true,
-		'query_var'           => true,
-		'can_export'          => true,
-		'rewrite'             => array( 'slug' => 'deals' ),
-		'capability_type'     => 'post'
-
-	);
+	$args = [
+		"label" => esc_html__( "Deal", "roundabout-travel" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"rest_namespace" => "wp/v2",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"menu_position" => 100,
+		"menu_icon" => "dashicons-tag",
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"can_export" => false,
+		"rewrite" => [ "slug" => "deals", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+		"show_in_graphql" => false,
+	];
 
 	register_post_type( 'deal', $args );
 

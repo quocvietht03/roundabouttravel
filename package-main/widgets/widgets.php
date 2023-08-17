@@ -95,6 +95,25 @@ class ElementorWidgets {
 	}
 
 	/**
+	 * Register categories
+	 *
+	 * Register new Elementor category.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function register_categories( $elements_manager ) {
+
+		$elements_manager->add_category(
+			'roundabouttravel',
+			[
+				'title' => esc_html__( 'Round About Travel', 'textdomain' )
+			]
+		);
+
+	}
+
+	/**
 	 * Register Widgets
 	 *
 	 * Register new Elementor widgets.
@@ -126,6 +145,9 @@ class ElementorWidgets {
 
 		// Register widget scripts
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+
+		// Register categories
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_categories' ] );
 
 		// Register widgets
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );

@@ -20,6 +20,10 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 		return 'eicon-posts-ticker';
 	}
 
+	public function get_categories() {
+		return [ 'roundabouttravel' ];
+	}
+
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_layout',

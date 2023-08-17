@@ -38,7 +38,10 @@ body {
     }
   }
 
-  a { outline: none; }
+  a {
+    outline: none;
+    transition: all .3s;
+  }
 
   input,textarea {
     &:focus{

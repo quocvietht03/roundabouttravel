@@ -61,3 +61,204 @@ body {
     margin-bottom: 0;
   }
 }
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.post-content-format {
+  h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: $primary-color;
+    margin: 16px 0;
+  }
+  h1 {
+    font-size: 60px;
+    margin: 32px 0;
+  }
+  h2 {
+    font-size: 40px;
+    margin: 32px 0;
+  }
+  h3{
+    font-size: 24px;
+  }
+  h4, h5 {
+    font-size: 20px;
+  }
+  a {
+      line-height: 1.5;
+      text-decoration: underline;
+      color: #555555;
+  }
+  p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  img {
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      background: #fff;
+      margin: 16px 0;
+      height: auto;
+      &.aligncenter {
+          margin: 16px auto;
+      }
+  }
+  img.centered, .aligncenter, .singular-image {
+      margin: 16px auto;
+  }
+  figure {
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      background: #fff;
+      position: relative;
+      margin: 24px 0;
+      max-width: 100%;
+      text-align: center;
+      display: flex;
+      &.aligncenter {
+        margin: 16px auto;
+      }
+      img {
+        box-shadow: none;
+        margin: 0;
+      }
+      .wp-caption-text {
+        background: rgba(0, 0, 0, 0.35);
+        border-radius: 0px 0px 0px 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 6px 15px;
+        font-size: 11px;
+        line-height: 135%;
+        color: #F2F2F2;
+        font-weight: 300;
+        text-align: left;
+      }
+  }
+  blockquote {
+    position: relative;
+    border: none;
+    margin: 24px 0 40px;
+    padding: 0 24px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background: #D6E0F5;
+    }
+    p {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333333;
+      font-style: italic;
+      &:last-child {
+          margin-bottom: 0;
+      }
+    }
+  }
+  ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 24px 0;
+    li {
+      padding-left: 24px;
+      margin-bottom: 10px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        text-align: center;
+        top: 10px;
+        left: 0;
+        width: 14px;
+        height: 2px;
+        background: $primary-color;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: numberList;
+    li {
+      &:before {
+        counter-increment: numberList;
+        content: counter(numberList) ".";
+        width: auto;
+        height: auto;
+        background: none;
+        border-radius: unset;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5%;
+        color: $primary-color;
+      }
+    }
+  }
+  .dataTables_wrapper {
+    box-shadow: 0 1px 3px rgba(0, 16, 75, 0.2);
+    border-radius: 4px;
+    tbody {
+      > tr {
+        border-top: 1px solid #DFE0E7;
+        border-bottom: 1px solid #DFE0E7;
+      }
+    }
+  }
+  table {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 16, 75, 0.2);
+    border-radius: 4px;
+    margin: 32px 0;
+    overflow: inherit;
+    .column-1 {
+      padding-left: 16px;
+    }
+    a {
+      color: #333333;
+    }
+    tfoot th, thead th {
+      background: #fff;
+      padding: 20px 8px;
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 100%;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #333333;
+    }
+    tbody td, tfoot th {
+        border-top: 1px solid #DFE0E7;
+        padding: 16px 8px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333333;
+        font-weight: 400;
+    }
+    .odd td {
+      background: #FBFBFB;
+    }
+    &.two-col {
+      overflow: inherit;
+      tbody td, tfoot th {
+        width: 50% !important;
+      }
+      @media (max-width: 991px) {
+        overflow: inherit;
+        tbody td, tfoot th {
+          white-space: normal;
+          width: 50% !important;
+        }
+      }
+    }
+  }
+}

@@ -33,5 +33,104 @@
     &.has-slider {
       padding-top: 20px;
     }
+    .swiper {
+      overflow: visible;
+      padding-bottom: 45px;
+      .swiper-pagination-bullets {
+        display: flex;
+        width: auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        line-height: 0;
+        overflow: hidden;
+        border-radius: 5px;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      .swiper-pagination-bullet {
+        width: 20px;
+        height: 4px;
+        margin: 0;
+        border-radius: 0;
+        &-active {
+          width: 80px;
+          background: $primary-color;
+        }
+      }
+    }
+    .cover-image {
+      border-radius: 30px;
+    }
+  }
+  .deal-header-ss {
+    padding: 40px 0;
+    .deal-header-content {
+      display: flex;
+      gap: 80px;
+      background-image: linear-gradient(90deg, $accent-color 0%, $primary-color 100%);
+      padding: 70px 80px;
+      border-radius: 30px;
+      * {
+        font-weight: 400;
+        color: #FFFFFF;
+      }
+      .deal-col-left {
+        width: calc(65% - 40px);
+      }
+      .deal-col-right {
+        width: calc(35% - 40px);
+      }
+      .deal-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .deal-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      .deal-summary ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+          padding-left: 24px;
+          margin-bottom: 10px;
+          position: relative;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &:before {
+            content: '';
+            position: absolute;
+            text-align: center;
+            top: 10px;
+            left: 0;
+            width: 14px;
+            height: 2px;
+            background: #FFFFFF;
+          }
+        }
+      }
+      .deal-feature {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        span {
+          display: inline-block;
+          min-width: 120px;
+          font-weight: 700;
+        }
+      }
+    }
   }
 }

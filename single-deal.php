@@ -85,10 +85,7 @@
 									</div>
 								<?php endwhile; ?>
 						  </div>
-
-						  <div class="swiper-button-prev"></div>
-						  <div class="swiper-button-next"></div>
-							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
 						</div>
 					<?php elseif ( has_post_thumbnail() ) : ?>
 						<div class="cover-image">
@@ -109,7 +106,7 @@
 					<div class="deal-col-left">
 						<h3 class="deal-title"><?php the_title(); ?></h3>
 						<?php if ( get_field( 'subtitle' ) ) : ?>
-							<h4 class="deal-subtitle"><?php the_field( 'subtitle' ); ?></h4>
+							<div class="deal-subtitle"><?php the_field( 'subtitle' ); ?></div>
 						<?php endif; ?>
 						<div class="deal-summary">
 								<?php the_field( 'summary' ); ?>
@@ -117,29 +114,28 @@
 					</div>
 					<div class="deal-col-right">
 						<?php if ( !empty( $airline_titles ) ) : ?>
-							<div>
+							<div class="deal-feature deal-airl">
 								<span>Airline:</span>
 								<?php echo implode( ', ', $airline_titles ); ?>
 							</div>
 						<?php endif; ?>
 						<?php if ( !empty( $destination_titles ) ) : ?>
-							<div>
+							<div class="deal-feature  deal-dest">
 								<span>Destination:</span>
 								<?php echo implode( ', ', $destination_titles ); ?>
 							</div>
 						<?php endif; ?>
 						<?php if ( !empty( $class_titles ) ) : ?>
-							<div>
+							<div class="deal-feature deal-class">
 								<span>Class:</span>
 								<?php echo implode( ', ', $class_titles ); ?>
 							</div>
 						<?php endif; ?>
-						<div class="deal-price">
-							<span>From $<?php echo $price; ?></span>
-							<?php if ( $price_tax ) : ?>inc taxes<?php endif; ?>
+						<div class="deal-feature deal-price">
+							From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?>inc taxes<?php endif; ?></span>
 						</div>
-						<div class="btn-enquiry">
-							<a onclick="rbt_setBookingInfo();" href="<?php echo site_url( '/airfare-deals/price-my-airfare/' ); ?>">Enquire Now</a>
+						<div>
+							<a class="btn-enquiry" onclick="rbt_setBookingInfo();" href="<?php echo site_url( '/airfare-deals/price-my-airfare/' ); ?>">Enquire Now</a>
 						</div>
 					</div>
 				</div>

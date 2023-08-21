@@ -1,66 +1,16 @@
 .single-deal {
   .deal-hero-ss {
     position: relative;
-    background-color: #F7F7FB;
-    background-image: url('../images/title-bar-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 90px 0;
-    z-index: 1;
-    &:before {
-      content: '';
+    background: #F7F7FB;
+    padding-bottom: 47.5%;
+    overflow: hidden;
+    img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
-    .deal-page-title {
-      font-size: 35px;
-      font-weight: 700;
-      line-height: 1.2;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      margin: 0;
-    }
-  }
-  .deal-slider-ss {
-    position: relative;
-    overflow: hidden;
-    padding-top: 90px;
-    &.has-slider {
-      padding-top: 20px;
-    }
-    .swiper {
-      overflow: visible;
-      padding-bottom: 45px;
-      .swiper-pagination-bullets {
-        display: flex;
-        width: auto;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        line-height: 0;
-        overflow: hidden;
-        border-radius: 5px;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-      }
-      .swiper-pagination-bullet {
-        width: 20px;
-        height: 4px;
-        margin: 0;
-        border-radius: 0;
-        &-active {
-          width: 80px;
-          background: $primary-color;
-        }
-      }
-    }
-    .cover-image {
-      border-radius: 30px;
+      object-fit: cover;
     }
   }
   .deal-header-ss {
@@ -125,12 +75,227 @@
         &:last-child {
           margin-bottom: 0;
         }
+        &.deal-price {
+          span {
+            min-width: auto;
+            font-size: 24px;
+          }
+        }
         span {
           display: inline-block;
           min-width: 120px;
           font-weight: 700;
         }
       }
+      .deal-enquiry {
+        margin-top: 20px;
+        .btn-enquiry {
+          display: inline-block;
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 20px;
+          letter-spacing: 1px;
+          color: #FFFFFF;
+          background: transparent;
+          border: 1px solid #FFFFFF;
+          border-radius: 50px 50px 50px 50px;
+          padding: 14px 34px 14px 34px;
+          &:hover {
+            color: $accent-color;
+            background: #FFFFFF;
+          }
+        }
+      }
     }
+  }
+  .deal-main-ss {
+    padding: 80px 0;
+    .deal-main-wrap {
+      display: flex;
+      gap: 80px;
+      .deal-main-content {
+        width: calc(60% - 40px);
+      }
+      .deal-main-sidebar {
+        width: calc(40% - 40px);
+      }
+    }
+    .deal-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: $primary-color;
+      margin-bottom: 4px;
+    }
+    .deal-subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .deal-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 24px 0;
+      li {
+        padding-left: 24px;
+        margin-bottom: 10px;
+        position: relative;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          text-align: center;
+          top: 10px;
+          left: 0;
+          width: 14px;
+          height: 2px;
+          background: $primary-color;
+        }
+      }
+    }
+    .deal-note {
+      .deal-note-item {
+        display: flex;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .label {
+          font-weight: 700;
+          width: 140px;
+        }
+        .value {
+          width: calc(100% - 140px);
+        }
+      }
+    }
+    .deal-share {
+      margin-top: 30px;
+    }
+    .deal-sticky-sidebar {
+      position: sticky;
+      top: 30px;
+    }
+    .deal-enquiry-form {
+      background: #f1f5f9;
+      padding: 40px;
+      border-radius: 30px;
+      .deal-feature-list {
+        margin-bottom: 30px;
+        .deal-feature-item {
+          display: flex;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.5;
+          margin-bottom: 12px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &.deal-price {
+            align-items: center;
+            span {
+              font-size: 24px;
+              font-weight: 700;
+              color: $primary-color;
+              margin-left: 4px;
+            }
+          }
+          .label {
+            width: 120px;
+            font-weight: 700;
+          }
+          .value {
+            width: calc(100% - 120px);
+          }
+        }
+      }
+      .wpcf7-form {
+        .wpcf7-not-valid-tip {
+          display: none;
+        }
+        .form-field {
+          input,
+          textarea {
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #555555;
+            background: transparent;
+            border: 1px solid #bcbcbc;
+            padding: 12px;
+            border-radius: 4px;
+            &[aria-invalid="true"] {
+              border-color: #dc3232;
+            }
+          }
+          textarea {
+            height: 150px;
+          }
+        }
+        .form-submit {
+          p {
+            margin: 0;
+          }
+          input[type="submit"] {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 20px;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+            background-color: $accent-color;
+            outline: none;
+            border: none;
+            border-radius: 50px 50px 50px 50px;
+            padding: 15px 35px 15px 35px;
+            &:hover {
+              color: #FFFFFF;
+              background-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .deal-slider-ss {
+    position: relative;
+    background: #f1f5f9;
+    .swiper {
+      padding-bottom: 45px;
+      .swiper-pagination-bullets {
+        display: flex;
+        width: auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        line-height: 0;
+        overflow: hidden;
+        border-radius: 5px;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      .swiper-pagination-bullet {
+        width: 20px;
+        height: 4px;
+        margin: 0;
+        border-radius: 0;
+        &-active {
+          width: 80px;
+          background: $primary-color;
+        }
+      }
+    }
+  }
+  .deal-trustpilot-ss {
+    padding: 40px 0;
+    background: #f1f5f9;
   }
 }

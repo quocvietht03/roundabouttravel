@@ -107,6 +107,9 @@ body {
       line-height: 1.5;
       text-decoration: underline;
       color: #555555;
+      &:hover {
+        color: $accent-color;
+      }
   }
   p {
     margin-bottom: 16px;

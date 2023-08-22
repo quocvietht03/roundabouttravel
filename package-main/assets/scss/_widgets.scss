@@ -27,18 +27,15 @@
     margin-top: 40px;
     .deals-grid-items {
       display: none;
-      flex-wrap: wrap;
-      gap: 20px;
       &.active {
-        display: flex;
+        display: block;
       }
       .deals-grid-item {
-        width: calc(33.33% - 13.5px);
         position: relative;
         overflow: hidden;
         padding-bottom: 45px;
         border-radius: 5px;
-        box-shadow: rgba(10, 10, 130, 0.08) 0px 2px 16px 0px, rgba(10, 10, 130, 0.16) 0px 1px 2px 0px;
+        box-shadow: rgba(10, 10, 130, 0.12) 0px 2px 5px 0px;
         transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
         .deal-thumbnail {
           line-height: 0;
@@ -98,7 +95,7 @@
           color: $primary-color;
         }
         &:hover {
-          box-shadow: rgba(10, 10, 130, 0.08) 0px 6px 32px 0px, rgba(10, 10, 130, 0.08) 0px 4px 16px 0px, rgba(10, 10, 130, 0.24) 0px 1px 4px 0px;
+          box-shadow: rgba(10, 10, 130, 0.08) 0px 2px 5px 0px;
           transform: translateY(-0.1875rem);
           .deal-thumbnail .image-cover img {
             transform: scale(1);
@@ -107,14 +104,8 @@
       }
     }
   }
-  @media(max-width: $screen-tablet) {
-    .deals-grid-content .deals-grid-items .deals-grid-item {
-      width: calc(50% - 10px);
-    }
-  }
   @media(max-width: $screen-mb) {
     .deals-grid-content .deals-grid-items .deals-grid-item {
-      width: 100%;
       .deal-content {
         padding: 20px;
       }

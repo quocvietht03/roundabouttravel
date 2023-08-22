@@ -13,102 +13,6 @@
       object-fit: cover;
     }
   }
-  .deal-header-ss {
-    padding: 40px 0;
-    .deal-header-content {
-      display: flex;
-      gap: 80px;
-      background-image: linear-gradient(90deg, $accent-color 0%, $primary-color 100%);
-      padding: 70px 80px;
-      border-radius: 30px;
-      * {
-        font-weight: 400;
-        color: #FFFFFF;
-      }
-      .deal-col-left {
-        width: calc(65% - 40px);
-      }
-      .deal-col-right {
-        width: calc(35% - 40px);
-      }
-      .deal-title {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 1.2;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-      }
-      .deal-subtitle {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.5;
-        margin-bottom: 20px;
-      }
-      .deal-summary ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        li {
-          padding-left: 24px;
-          margin-bottom: 10px;
-          position: relative;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &:before {
-            content: '';
-            position: absolute;
-            text-align: center;
-            top: 10px;
-            left: 0;
-            width: 14px;
-            height: 2px;
-            background: #FFFFFF;
-          }
-        }
-      }
-      .deal-feature {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.5;
-        margin-bottom: 12px;
-        &:last-child {
-          margin-bottom: 0;
-        }
-        &.deal-price {
-          span {
-            min-width: auto;
-            font-size: 24px;
-          }
-        }
-        span {
-          display: inline-block;
-          min-width: 120px;
-          font-weight: 700;
-        }
-      }
-      .deal-enquiry {
-        margin-top: 20px;
-        .btn-enquiry {
-          display: inline-block;
-          font-size: 14px;
-          font-weight: 700;
-          text-transform: uppercase;
-          line-height: 20px;
-          letter-spacing: 1px;
-          color: #FFFFFF;
-          background: transparent;
-          border: 1px solid #FFFFFF;
-          border-radius: 50px 50px 50px 50px;
-          padding: 14px 34px 14px 34px;
-          &:hover {
-            color: $accent-color;
-            background: #FFFFFF;
-          }
-        }
-      }
-    }
-  }
   .deal-main-ss {
     background: #FFFFFF;
     padding: 90px 0;
@@ -187,12 +91,11 @@
       position: sticky;
       top: 30px;
     }
-    .deal-enquiry-form {
+    .deal-enquiry-form-wrap {
       background: #f1f5f9;
       padding: 40px;
       border-radius: 30px;
       .deal-feature-list {
-        margin-bottom: 30px;
         .deal-feature-item {
           display: flex;
           font-size: 18px;
@@ -220,49 +123,52 @@
           }
         }
       }
-      .wpcf7-form {
-        .wpcf7-not-valid-tip {
-          display: none;
-        }
-        .form-field {
-          input,
-          textarea {
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 400;
-            color: #555555;
-            background: transparent;
-            border: 1px solid #bcbcbc;
-            padding: 12px;
-            border-radius: 4px;
-            &[aria-invalid="true"] {
-              border-color: #dc3232;
+      .deal-enquiry-form {
+        margin-top: 30px;
+        .wpcf7-form {
+          .wpcf7-not-valid-tip {
+            display: none;
+          }
+          .form-field {
+            input,
+            textarea {
+              width: 100%;
+              font-size: 16px;
+              line-height: 24px;
+              font-weight: 400;
+              color: #555555;
+              background: transparent;
+              border: 1px solid #bcbcbc;
+              padding: 12px;
+              border-radius: 4px;
+              &[aria-invalid="true"] {
+                border-color: #dc3232;
+              }
+            }
+            textarea {
+              height: 150px;
             }
           }
-          textarea {
-            height: 150px;
-          }
-        }
-        .form-submit {
-          p {
-            margin: 0;
-          }
-          input[type="submit"] {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 20px;
-            letter-spacing: 1px;
-            color: #FFFFFF;
-            background-color: $accent-color;
-            outline: none;
-            border: none;
-            border-radius: 50px 50px 50px 50px;
-            padding: 15px 35px 15px 35px;
-            &:hover {
+          .form-submit {
+            p {
+              margin: 0;
+            }
+            input[type="submit"] {
+              font-size: 14px;
+              font-weight: 700;
+              text-transform: uppercase;
+              line-height: 20px;
+              letter-spacing: 1px;
               color: #FFFFFF;
-              background-color: $primary-color;
+              background-color: $accent-color;
+              outline: none;
+              border: none;
+              border-radius: 50px 50px 50px 50px;
+              padding: 15px 35px 15px 35px;
+              &:hover {
+                color: #FFFFFF;
+                background-color: $primary-color;
+              }
             }
           }
         }
@@ -285,7 +191,7 @@
       }
     }
     @media(max-width: $screen-mb-small) {
-      .deal-enquiry-form {
+      .deal-enquiry-form-wrap {
         padding: 30px 20px;
       }
     }

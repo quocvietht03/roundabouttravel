@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 	<?php
+	$optFields = get_fields('options');
+
 	$destinations = wp_get_post_terms( $post->ID, 'deal_destination' );
 	$page_title        = !empty( $destinations ) ? $destinations[0]->name : get_the_title();
 
@@ -60,48 +62,6 @@
 				endif;
 			?>
 		</section>
-
-		<!-- <section class="deal-header-ss">
-			<div class="container">
-				<div class="deal-header-content">
-					<div class="deal-col-left">
-						<h3 class="deal-title"><?php the_title(); ?></h3>
-						<?php if ( get_field( 'subtitle' ) ) : ?>
-							<div class="deal-subtitle"><?php the_field( 'subtitle' ); ?></div>
-						<?php endif; ?>
-						<div class="deal-summary">
-								<?php the_field( 'summary' ); ?>
-						</div>
-					</div>
-					<div class="deal-col-right">
-						<?php if ( !empty( $airline_titles ) ) : ?>
-							<div class="deal-feature deal-airl">
-								<span>Airline:</span>
-								<?php echo implode( ', ', $airline_titles ); ?>
-							</div>
-						<?php endif; ?>
-						<?php if ( !empty( $destination_titles ) ) : ?>
-							<div class="deal-feature  deal-dest">
-								<span>Destination:</span>
-								<?php echo implode( ', ', $destination_titles ); ?>
-							</div>
-						<?php endif; ?>
-						<?php if ( !empty( $class_titles ) ) : ?>
-							<div class="deal-feature deal-class">
-								<span>Class:</span>
-								<?php echo implode( ', ', $class_titles ); ?>
-							</div>
-						<?php endif; ?>
-						<div class="deal-feature deal-price">
-							From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?>inc taxes<?php endif; ?></span>
-						</div>
-						<div class="deal-enquiry">
-							<a class="btn-enquiry" onclick="rbt_setBookingInfo();" href="<?php echo site_url( '/airfare-deals/price-my-airfare/' ); ?>">Enquire Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
 
 		<section class="deal-main-ss">
 			<div class="container">
@@ -177,7 +137,7 @@
 					</div>
 					<div class="deal-main-sidebar">
 						<div class="deal-sticky-sidebar">
-							<div class="deal-enquiry-form">
+							<div class="deal-enquiry-form-wrap">
 								<div class="deal-feature-list">
 									<?php if ( !empty( $airline_titles ) ) : ?>
 										<div class="deal-feature-item deal-airl">
@@ -204,7 +164,11 @@
 									<?php endif; ?>
 								</div>
 
-								<?php echo do_shortcode('[contact-form-7 id="10603" title="Enquiry Form"]'); ?>
+								<?php if(!empty($optFields['deal_shortcode_enquiry_form'])) { ?>
+									<div class="deal-enquiry-form">
+										<?php echo do_shortcode($optFields['deal_shortcode_enquiry_form']); ?>
+									</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -216,36 +180,26 @@
 			<section class="deal-slider-ss">
 				<div class="fullwidth">
 					<div class="deal-slider-content">
-						<?php if ( have_rows( 'image_slider' ) ) : ?>
-							<div class="swiper">
-							  <div class="swiper-wrapper">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="swiper-slide">
-											<div class="cover-image">
-												<?php the_post_thumbnail( 'deal' ); ?>
-											</div>
+						<div class="swiper">
+						  <div class="swiper-wrapper">
+								<?php if ( has_post_thumbnail() ) : ?>
+									<div class="swiper-slide">
+										<div class="cover-image">
+											<?php the_post_thumbnail( 'deal' ); ?>
 										</div>
-									<?php endif; ?>
+									</div>
+								<?php endif; ?>
 
-									<?php while ( have_rows( 'image_slider' ) ) : the_row(); ?>
-										<div class="swiper-slide">
-											<div class="cover-image">
-												<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'deal' ); ?>
-											</div>
+								<?php while ( have_rows( 'image_slider' ) ) : the_row(); ?>
+									<div class="swiper-slide">
+										<div class="cover-image">
+											<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'deal' ); ?>
 										</div>
-									<?php endwhile; ?>
-							  </div>
-								<div class="swiper-pagination"></div>
-							</div>
-						<?php elseif ( has_post_thumbnail() ) : ?>
-							<div class="cover-image">
-								<?php the_post_thumbnail( 'deal' ); ?>
-							</div>
-						<?php else : ?>
-							<div class="cover-image">
-								<img src="<?php echo PJ_URI . 'assets/images/deal-placeholder.jpg'; ?>" alt="" />
-							</div>
-						<?php endif; ?>
+									</div>
+								<?php endwhile; ?>
+						  </div>
+							<div class="swiper-pagination"></div>
+						</div>
 					</div>
 				</div>
 			</section>

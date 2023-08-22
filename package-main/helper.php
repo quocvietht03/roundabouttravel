@@ -24,12 +24,3 @@ if( ! function_exists( 'package_main_scss_compiler' ) ) {
         file_put_contents( $out, $scss->compile( $scss_string ) );
     }
 }
-
-//add SVG to allowed file uploads
-function package_main_types_to_uploads($file_types){
-    $new_filetypes = array();
-    $new_filetypes['svg'] = 'image/svg+xml';
-    $file_types = array_merge($file_types, $new_filetypes );
-
-    return $file_types;
-}

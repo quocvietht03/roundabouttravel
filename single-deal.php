@@ -159,7 +159,7 @@
 									<?php endif; ?>
 									<?php if ( !empty($price) ) : ?>
 										<div class="deal-feature-item deal-price">
-											From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?>inc taxes<?php endif; ?></span>
+											From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc taxes<?php endif; ?></span>
 										</div>
 									<?php endif; ?>
 								</div>

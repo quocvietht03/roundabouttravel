@@ -14,7 +14,6 @@
     }
   }
   .deal-header-ss {
-    background: #FFFFFF;
     padding: 40px 0;
     .deal-header-content {
       display: flex;
@@ -111,7 +110,8 @@
     }
   }
   .deal-main-ss {
-    padding: 80px 0;
+    background: #FFFFFF;
+    padding: 90px 0;
     .deal-main-wrap {
       display: flex;
       gap: 80px;
@@ -179,6 +179,9 @@
     }
     .deal-share {
       margin-top: 30px;
+      .addtoany_shortcode {
+        margin: 0;
+      }
     }
     .deal-sticky-sidebar {
       position: sticky;
@@ -263,6 +266,27 @@
             }
           }
         }
+      }
+    }
+    @media(max-width: $screen-tablet) {
+      .deal-main-wrap {
+        flex-direction: column;
+        grid-gap: 40px;
+        .deal-main-content,
+        .deal-main-sidebar {
+          width: 100%;
+        }
+      }
+    }
+    @media(max-width: $screen-mb) {
+      padding: 60px 0;
+      .deal-title {
+        font-size: 32px;
+      }
+    }
+    @media(max-width: $screen-mb-small) {
+      .deal-enquiry-form {
+        padding: 30px 20px;
       }
     }
   }

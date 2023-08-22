@@ -23,7 +23,7 @@ function rpjc_register_deal_post_type() {
 		"rest_base" => "",
 		"rest_controller_class" => "WP_REST_Posts_Controller",
 		"rest_namespace" => "wp/v2",
-		"has_archive" => false,
+		"has_archive" => true,
 		"show_in_menu" => true,
 		"menu_position" => 100,
 		"menu_icon" => "dashicons-tag",

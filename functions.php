@@ -229,3 +229,23 @@ if ( ! function_exists( 'hello_elementor_body_open' ) ) {
 
 // Load Package Main.
 require_once get_stylesheet_directory() . '/package-main/init-load.php';
+
+if (function_exists("register_sidebar")) {
+  register_sidebar();
+}
+
+function be_sidebar_one_widgets_init() {
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar Blog', 'hello_elementor' ),
+			'id'            => 'sidebar-blog',
+			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'hello_elementor' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'be_sidebar_one_widgets_init' );

@@ -191,10 +191,15 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 														<?php the_title(); ?>
 													</a>
 												</h3>
-												<?php if ( !empty( get_field( 'deal_price' ) ) ) : ?>
-													<div class="deal-price"><span>From</span> $<?php echo get_field( 'deal_price' ); ?></div>
-												<?php endif; ?>
-
+												<?php
+													$price     = get_field( 'deal_price' );
+				  								$price_tax = get_field( 'deal_price_tax' );
+													if ( !empty( $price ) ) {
+														?>
+															<div class="deal-price"><span>From</span> $<?php echo $price; ?> <?php if ( $price_tax == '1' ) : ?>inc taxes<?php endif; ?></div>
+														<?php
+													}
+												?>
 												<div class="deal-desc">
 													<?php echo wp_trim_words( get_the_excerpt(), 15, '' ); ?>
 												</div>

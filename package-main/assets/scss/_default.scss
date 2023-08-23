@@ -285,3 +285,40 @@ body {
     }
   }
 }
+
+.paginate-links {
+  display: inline-flex;
+  border: 1px solid #c0cdd1;
+  border-radius: 4px;
+  .page-numbers {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    color: $primary-color;
+    padding: 0 8px;
+    min-width: 45px;
+    &:not(:last-child) {
+      border-right: 1px solid #c0cdd1;
+    }
+    &.current {
+      color: #FFFFFF;
+      background: $accent-color;
+    }
+    &.prev, &.next {
+      min-width: 70px;
+      padding: 0 30px;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    &.prev {
+      border-radius: 2px 0px 0px 2px;
+    }
+    &.next {
+      border-radius: 0px 2px 2px 0px;
+    }
+  }
+}

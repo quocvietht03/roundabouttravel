@@ -1,37 +1,5 @@
 <?php get_header(); ?>
 
-<style>
-    .dp_notice_box{
-        display: flex;
-        background: #fff;
-        width: 100%;
-        min-height: 70px;
-    }
-    .dp_notice_box .dp_icon {
-        padding: 15px 0 0 0;
-        border-radius: 3px 0px 0px 3px;
-        text-align: center;
-        font-size: 32px;
-        background-color: #00adef;
-        border-bottom: 3px solid #00418b;
-        width: 30%;
-        background-image: url(https://www.roundabouttravel.com.au/wp-content/uploads/2021/03/Deals_Intro_Icon_RAT.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 120px;
-    }
-    .dp_notice_box .dp_info {
-        -webkit-flex: 1;
-        flex: 1;
-        padding: 50px 50px 20px 50px;
-        background: #F4F4F4;
-        border-radius: 0px 3px 3px 0px;
-        border: 1px solid #ecf0f1;
-        border-bottom: 3px solid #c0cdd1;
-        width: 70%;
-    }
-</style>
-
 	<div class="deals-main">
     <section class="deals-hero-ss">
       <div class="container">
@@ -44,29 +12,14 @@
       </div>
 		</section>
 
-		<section class="deals-notice-ss">
-			<div class="container">
-				<div class="deals-notice-content">
-					<div class="dp_notice_box">
-							<div class="dp_icon">
-							</div>
-							<div class="dp_info">
-									<p>Round the world airfares are now on sale for departures until <?php echo date('F Y', mktime(0, 0, 0, date('m')+11, 1, date('Y'))); ?> with routes covering the most popular destinations in Europe and North America via major gateways in Asia.  </p>
-									<p>Book in advance to secure availability and preferred dates. View fares below and contact our airfare specialists for more information.  </p>
-							</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<section class="deals-main-ss">
 			<div class="container">
 				<div class="deals-main-content">
 					<div class="deals-filter-form-wrap">
-						<h2>- Search Deals -</h2>
+						<h2 class="deals-filter-title">Search Deals</h2>
 						<form class="deals-filter-form" action="/deals/" method="get">
 							<input type="hidden" name="deal_search_submitted" value="1" />
-							<div class="box">
+							<div class="form-field">
 								<label for="deal_search_class">Class Types</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -80,7 +33,7 @@
 									) );
 								?>
 							</div>
-							<div class="box">
+							<div class="form-field">
 								<label for="deal_search_airline">Airline</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -94,7 +47,7 @@
 									) );
 								?>
 							</div>
-							<div class="box">
+							<div class="form-field">
 								<label for="deal_search_sort">Sort by</label>
 								<select name="deal_search_sort" id="deal_search_sort">
 									<option value="price_asc" <?php selected( $_GET['deal_search_sort'], 'price_asc' ); ?>>Price Ascending</option>
@@ -102,8 +55,8 @@
 									<option value="date_added" <?php selected( $_GET['deal_search_sort'], 'date_added' ); ?>>Date Added</option>
 								</select>
 							</div>
-							<div class="box">
-								<span class="btn"><input value="SEARCH" type="submit"></span>
+							<div class="form-field">
+								<input value="SEARCH" type="submit">
 							</div>
 						</form>
 					</div>
@@ -112,21 +65,27 @@
             <?php if ( have_posts() ) : ?>
   						<div class="deal-items">
   							<?php while ( have_posts() ) : the_post(); ?>
-  								<?php
-  								$price     = get_post_meta( $post->ID, 'deal_price', true );
-  								$price_tax = get_post_meta( $post->ID, 'deal_price_tax', true );
-  								?>
   								<div class="deal-item">
   									<div class="deal-thumbnail">
   										<?php if ( has_post_thumbnail() ) : ?>
-  											<?php the_post_thumbnail( 'medium' ); ?>
+  											<?php the_post_thumbnail( 'medium_large' ); ?>
   										<?php endif; ?>
   									</div>
 
   									<div class="deal-content">
-  										<h2><?php the_title(); ?></h2>
-  										<?php the_excerpt(); ?>
-  										<div class="price"><span>From $<?php echo $price; ?></span> <?php if ( $price_tax == '1' ) : ?>inc taxes<?php endif; ?></div>
+  										<h2 class="deal-title"><?php the_title(); ?></h2>
+                      <div class="deal-desc">
+                        <?php echo wp_trim_words( get_the_excerpt(), 40, '' ); ?>
+                      </div>
+                      <?php
+                        $price     = get_field( 'deal_price' );
+                        $price_tax = get_field( 'deal_price_tax' );
+                        if ( !empty( $price ) ) {
+                          ?>
+                            <div class="deal-price"><span>From</span> $<?php echo $price; ?> <?php if ( $price_tax == '1' ) : ?>inc taxes<?php endif; ?></div>
+                          <?php
+                        }
+                      ?>
   									</div>
 
   									<div class="deal-view-more">
@@ -138,17 +97,36 @@
   						</div>
 
               <div class="pagination-nav">
-    						<?php echo paginate_links(); ?>
+                <?php
+                  $prev_text = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 443.52 443.52" style="enable-background:new 0 0 443.52 443.52;" xml:space="preserve">
+                            			<path d="M143.492,221.863L336.226,29.129c6.663-6.664,6.663-17.468,0-24.132c-6.665-6.662-17.468-6.662-24.132,0l-204.8,204.8    c-6.662,6.664-6.662,17.468,0,24.132l204.8,204.8c6.78,6.548,17.584,6.36,24.132-0.42c6.387-6.614,6.387-17.099,0-23.712    L143.492,221.863z"/>
+                            		</svg>';
+                  $next_text = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 443.52 443.52" style="enable-background:new 0 0 443.52 443.52;" xml:space="preserve">
+                            			<path d="M336.226,209.591l-204.8-204.8c-6.78-6.548-17.584-6.36-24.132,0.42c-6.388,6.614-6.388,17.099,0,23.712l192.734,192.734    L107.294,414.391c-6.663,6.664-6.663,17.468,0,24.132c6.665,6.663,17.468,6.663,24.132,0l204.8-204.8    C342.889,227.058,342.889,216.255,336.226,209.591z"/>
+                            		</svg>';
+              		$big  = 999999999;
+              		$args = array(
+              			'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+              			'total'     => $wp_query->max_num_pages,
+              			'current'   => max( 1, get_query_var( 'paged' ) ),
+              			'prev_text' => $prev_text,
+              			'next_text' => $next_text,
+              			'type'      => 'plain',
+
+              		);
+
+              		echo '<div class="paginate-links">' . paginate_links( $args ) . '</div>';
+            		?>
               </div>
   					<?php else : ?>
-  						<p>Your search returned no results.</p>
+  						<div class="no-results">Your search returned no results.</div>
   					<?php endif; ?>
           </div>
 				</div>
 			</div>
 		</section>
 
-    <section class="deals-main-ss">
+    <section class="deals-trustpilot-ss">
 			<div class="container">
         <!-- TrustBox widget - 0 -->
         <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>

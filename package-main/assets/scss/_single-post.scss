@@ -25,22 +25,24 @@
         .be-meta-post{
           span.entry-date {
             margin-right: 20px;
-            font-size: 18px;
-            font-style: italic;
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 10px;
             display: inline-block;
           }
           a.be-tag{
             text-decoration: none;
-            background: #ddd;
-            border-radius:2px;
-            color: #00448A;
-            font-size: 14px;
-            padding: 5px 10px;
-            font-weight: 600;
-            display: inline-block;
             margin-right: 10px;
             margin-bottom: 10px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #333333;
+            background: #d2e4f0;
+            padding: 4px 10px;
+            border-radius: 4px;
         
           }
         }
@@ -222,15 +224,19 @@
           }
         }
         .tnp.tnp-subscription{
+          margin-bottom: 0;
           input.tnp-submit {
             text-decoration: none;
             background: #00ADEE !important;
             border-radius: 2px;
             color: #fff;
             font-size: 16px !important;
-            padding: 5px 10px;
+            padding: 10px 15px;
             font-weight: 600;
             display: inline-block;
+          }
+          .tnp-field.tnp-field-button {
+            margin-bottom: 0 !important;
           }
         }
       }

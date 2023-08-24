@@ -9,7 +9,7 @@
 						<h2 class="deals-filter-title">Search Deals</h2>
 						<form class="deals-filter-form" action="/deals/" method="get">
 							<input type="hidden" name="deal_search_submitted" value="1" />
-							<div class="form-field form-field__class">
+							<div class="form-field form-field-class">
 								<label for="deal_search_class">Class Types</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -23,7 +23,7 @@
 									) );
 								?>
 							</div>
-							<div class="form-field form-field__airline">
+							<div class="form-field form-field-airline">
 								<label for="deal_search_airline">Airline</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -37,7 +37,7 @@
 									) );
 								?>
 							</div>
-							<div class="form-field form-field__sort">
+							<div class="form-field form-field-sort">
 								<label for="deal_search_sort">Sort by</label>
 								<select name="deal_search_sort" id="deal_search_sort">
 									<option value="price_asc" <?php selected( $_GET['deal_search_sort'], 'price_asc' ); ?>>Price Ascending</option>

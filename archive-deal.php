@@ -1,16 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="deals-main">
-    <section class="deals-hero-ss">
-      <div class="container">
-				<div class="hero-content">
-          <h1 class="page-title">
-            <?php echo 'Airfare Deals'; ?>
-          </h1>
-          <?php echo do_shortcode('[aioseo_breadcrumbs]'); ?>
-        </div>
-      </div>
-		</section>
+	<?php get_template_part( 'package-main/templates/hero', 'deal' ); ?>
 
 		<section class="deals-main-ss">
 			<div class="container">
@@ -19,7 +9,7 @@
 						<h2 class="deals-filter-title">Search Deals</h2>
 						<form class="deals-filter-form" action="/deals/" method="get">
 							<input type="hidden" name="deal_search_submitted" value="1" />
-							<div class="form-field">
+							<div class="form-field form-field__class">
 								<label for="deal_search_class">Class Types</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -33,7 +23,7 @@
 									) );
 								?>
 							</div>
-							<div class="form-field">
+							<div class="form-field form-field__airline">
 								<label for="deal_search_airline">Airline</label>
 								<?php
 									wp_dropdown_categories( array(
@@ -47,7 +37,7 @@
 									) );
 								?>
 							</div>
-							<div class="form-field">
+							<div class="form-field form-field__sort">
 								<label for="deal_search_sort">Sort by</label>
 								<select name="deal_search_sort" id="deal_search_sort">
 									<option value="price_asc" <?php selected( $_GET['deal_search_sort'], 'price_asc' ); ?>>Price Ascending</option>
@@ -55,7 +45,7 @@
 									<option value="date_added" <?php selected( $_GET['deal_search_sort'], 'date_added' ); ?>>Date Added</option>
 								</select>
 							</div>
-							<div class="form-field">
+							<div class="form-field form-field-submit">
 								<input value="SEARCH" type="submit">
 							</div>
 						</form>

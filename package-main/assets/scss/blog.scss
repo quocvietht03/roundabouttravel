@@ -2,6 +2,91 @@
 .archive {
   background: #f1f5f9;
   .posts-main-ss {
+    .posts-filter-form-wrap {
+      background: #d2e4f0;
+      padding: 40px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      .posts-filter-title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 20px;
+      }
+      .posts-filter-form {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 20px;
+        .form-field {
+          width: calc(25% - 15px);
+          &.form-field-class {
+            select {
+              background-image: url('../images/ticket.svg');
+              background-size: 28px;
+              padding-left: 48px;
+            }
+          }
+          &.form-field-airline {
+            select {
+              background-image: url('../images/plane.svg');
+              background-size: 32px;
+              padding-left: 50px;
+            }
+          }
+          &.form-field-sort {
+            select {
+              background-image: url('../images/sort.svg');
+              background-size: 24px;
+            }
+          }
+          label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 4px;
+          }
+          input,
+          select {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #333333;
+            background-color: #FFFFFF;
+            background-image: url('../images/search.svg');
+            background-repeat: no-repeat;
+            background-position: center left 12px;
+            background-size: 20px;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #c0cdd1;
+            border-radius: 50px;
+          }
+          input[type="submit"] {
+            display: block;
+            width: 100%;
+            height: 46px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            background: $accent-color;
+            padding: 12px;
+            border: 1px solid $accent-color;
+            border-radius: 50px;
+            &:hover, &:focus {
+              background: $primary-color;
+              border-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
     padding: 80px 0;
       .post-items {
         display: grid;
@@ -11,10 +96,10 @@
       .post-item {
         display: flex;
         flex-wrap: wrap;
-        min-height: 260px;
+        min-height: 360px;
         overflow: hidden;
-        border-radius: 5px;
-        box-shadow: rgba(10, 10, 130, 0.12) 0px 2px 5px 0px;
+        border-radius: 20px;
+        box-shadow: rgba(10, 10, 130, 0.12) 10px 12px 35px 0px;
         transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
         .post-thumbnail {
           width: 35%;
@@ -107,7 +192,7 @@
           }
         }
         &:hover {
-          box-shadow: rgba(10, 10, 130, 0.08) 0px 2px 5px 0px;
+          box-shadow: rgba(10, 10, 130, 0.24) 10px 12px 35px 0px;
           transform: translateY(-0.1875rem);
           .post-thumbnail img {
             transform: scale(1);
@@ -126,6 +211,9 @@
         color: $primary-color;
       }
     @media(max-width: $screen-sm-tablet) {
+      .posts-filter-form-wrap .posts-filter-form .form-field {
+        width: calc(50% - 10px);
+      }
       .post-item {
         .post-thumbnail {
           width: 100%;
@@ -137,6 +225,15 @@
       }
     }
     @media(max-width: $screen-mb) {
+      .posts-filter-form-wrap {
+        padding: 30px 20px;
+        .posts-filter-title {
+          font-size: 30px;
+        }
+        .posts-filter-form .form-field {
+          width: 100%;
+        }
+      }
       .post-item {
         .post-content {
           padding: 30px 20px;

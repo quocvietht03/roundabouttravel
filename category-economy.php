@@ -5,47 +5,35 @@
 <section class="posts-main-ss">
 	<div class="container">
 		<div class="posts-main-content">
-			<div class="deals-filter-form-wrap">
-				<h2 class="deals-filter-title">Search Deals</h2>
-				<form class="deals-filter-form" action="/deals/" method="get">
-					<input type="hidden" name="deal_search_submitted" value="1" />
-					<div class="form-field">
-						<label for="deal_search_class">Class Types</label>
-						<?php
-							wp_dropdown_categories( array(
-								'show_option_all' => '-- Any --',
-								'orderby'         => 'NAME',
-								'hide_empty'      => false,
-								'id'              => 'deal_search_class',
-								'name'            => 'deal_search_class',
-								'selected'        => $_GET['deal_search_class'],
-								'taxonomy'        => 'deal_class'
-							) );
-						?>
-					</div>
-					<div class="form-field">
-						<label for="deal_search_airline">Airline</label>
-						<?php
-							wp_dropdown_categories( array(
-								'show_option_all' => '-- Any --',
-								'orderby'         => 'NAME',
-								'hide_empty'      => false,
-								'id'              => 'deal_search_airline',
-								'name'            => 'deal_search_airline',
-								'selected'        => $_GET['deal_search_airline'],
-								'taxonomy'        => 'deal_airline'
-							) );
-						?>
-					</div>
-					<div class="form-field">
-						<label for="deal_search_sort">Sort by</label>
-						<select name="deal_search_sort" id="deal_search_sort">
-							<option value="price_asc" <?php selected( $_GET['deal_search_sort'], 'price_asc' ); ?>>Price Ascending</option>
-							<option value="price_desc" <?php selected( $_GET['deal_search_sort'], 'price_desc' ); ?>>Price Descending</option>
-							<option value="date_added" <?php selected( $_GET['deal_search_sort'], 'date_added' ); ?>>Date Added</option>
+			<div class="posts-filter-form-wrap">
+				<h2 class="posts-filter-title">Search Deals</h2>
+				<form class="posts-filter-form" action="/editorials/lounges/" method="get">
+					<input type="hidden" name="post_search_submitted" value="1" />
+					<div class="form-field form-field-class">
+						<label for="post_search_class">Class Types</label>
+						<select>
+							<option value="0" selected="selected">Economy</option>
 						</select>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-airline">
+						<label for="post_search_airline">Airline</label>
+						<?php
+							wp_dropdown_categories( array(
+								'show_option_all' => '-- Any --',
+								'orderby'         => 'NAME',
+								'hide_empty'      => false,
+								'id'              => 'post_search_airline',
+								'name'            => 'post_search_airline',
+								'selected'        => $_GET['post_search_airline'],
+								'taxonomy'        => 'post_airline'
+							) );
+						?>
+					</div>
+					<div class="form-field form-field-search">
+						<label for="post_search_keyword">Keyword</label>
+						<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+					</div>
+					<div class="form-field form-field-submit">
 						<input value="SEARCH" type="submit">
 					</div>
 				</form>

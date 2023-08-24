@@ -9,7 +9,7 @@
 				<h2 class="posts-filter-title">Search Deals</h2>
 				<form class="posts-filter-form" action="/news/" method="get">
 					<input type="hidden" name="post_search_submitted" value="1" />
-					<div class="form-field">
+					<div class="form-field form-field-class">
 						<label for="post_search_class">Class Types</label>
 						<?php
 							wp_dropdown_categories( array(
@@ -23,7 +23,7 @@
 							) );
 						?>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-airline">
 						<label for="post_search_airline">Airline</label>
 						<?php
 							wp_dropdown_categories( array(
@@ -37,11 +37,11 @@
 							) );
 						?>
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-search">
 						<label for="post_search_keyword">Keyword</label>
 						<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
 					</div>
-					<div class="form-field">
+					<div class="form-field form-field-submit">
 						<input value="SEARCH" type="submit">
 					</div>
 				</form>

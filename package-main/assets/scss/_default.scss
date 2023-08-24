@@ -310,6 +310,9 @@ body {
       min-width: 70px;
       padding: 0 30px;
       svg {
+        display: inline-block;
+        vertical-align: middle;
+        fill: currentColor;
         width: 14px;
         height: 14px;
       }
@@ -319,6 +322,54 @@ body {
     }
     &.next {
       border-radius: 0px 2px 2px 0px;
+    }
+  }
+  @media(max-width: $screen-mb) {
+    .page-numbers {
+      font-size: 14px;
+      min-width: 30px;
+      &.prev, &.next {
+        min-width: 30px;
+        padding: 0 10px;
+      }
+    }
+  }
+  @media(max-width: 375px) {
+    .page-numbers {
+      font-size: 14px;
+      min-width: 25px;
+      &.prev, &.next {
+        min-width: 25px;
+      }
+    }
+  }
+}
+
+.page-title-bar {
+  background-color: #f1f5f9;
+  background-image: linear-gradient(180deg, #0078B921 0%, #F0F5F900 76%);
+  padding: 100px 0 20px;
+  .page-title {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: transparent;
+    background: radial-gradient(ellipse, #00aeef, #007ebf);
+    background-clip: text;
+    -webkit-background-clip: text;
+    margin-bottom: 20px;
+  }
+  .aioseo-breadcrumbs {
+    font-size: 15px;
+    color: #1E5B99;
+    a {
+      color: inherit;
+    }
+  }
+  @media(max-width: $screen-mb) {
+    .page-title {
+      font-size: 30px;
     }
   }
 }

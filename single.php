@@ -58,6 +58,34 @@ while ( have_posts() ) :
           )
         );
         ?>
+        <div class="be-recent-deal">
+          <h3>Deals</h3>
+          <ul>
+          <?php 
+          $args = array(         
+            'post_status' => 'publish',
+            'posts_per_page' => 4,
+            'post_type' => 'deal'	
+            );
+          
+            $loop = new WP_Query( $args ); 
+            while ( $loop->have_posts() ) : $loop->the_post(); 
+            $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+            ?>
+            <li class="deal-item">
+              <div class="thumb">
+                <img src="<?php echo $deal_featured_img_url; ?>" />
+              </div>
+              <div class="content-d">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+              </div>
+            </li>
+            <?php
+          
+            endwhile;
+          ?>
+          </ul>
+        </div>
       </div>
       <div class="be-sidebar">
         <div class="be-sidebar-inner">

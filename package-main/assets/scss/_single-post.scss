@@ -61,6 +61,55 @@
             }
           }
         }
+        .be-recent-deal{
+          margin-top: 50px;
+          h3{
+            font-size:20px;
+          }
+          ul{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            padding: 0;
+            margin: 0;
+            li.deal-item{
+              list-style-type: none;
+              padding: 0;
+              &::before{
+                content: none;
+              }
+              .thumb{
+                position: relative;
+                overflow: hidden;
+                padding-bottom: 70%;
+                background: #e7e6e4;
+                z-index: 1;
+                margin-bottom: 15px;
+                img {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  -webkit-transition: all 1.5s cubic-bezier(0.11, 0.52, 0.53, 0.79) 0s;
+                  transition: all 1.5s cubic-bezier(0.11, 0.52, 0.53, 0.79) 0s;
+                  margin-top: 0;
+                }
+              }
+              .content-d{
+                a{
+                  font-size: 16px;
+                  font-weight: 600;
+                  text-decoration: none;
+                  padding-bottom: 10px;
+                  color: #00418b;
+                }
+              }
+            }
+          }
+        }
       }
       .be-sidebar{
         width: 30%;
@@ -76,13 +125,13 @@
       }
       .be-sidebar-inner{
         margin-left: 30px;
-        background: #fff;
-        padding: 30px;
-        border-radius: 5px;
         position: sticky;
         top: 140px;
         section.widget{
           margin-bottom: 25px;
+          background: #fff;
+          padding: 30px;
+          border-radius: 5px;
         }
         h2.widget-title {
           text-transform: uppercase;
@@ -90,6 +139,7 @@
           font-weight: 600;
           position: relative;
           padding-bottom: 10px;
+          color:#00418b;
           &::after{
             content: "";
             position: absolute;
@@ -171,6 +221,18 @@
             }
           }
         }
+        .tnp.tnp-subscription{
+          input.tnp-submit {
+            text-decoration: none;
+            background: #00ADEE !important;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 16px !important;
+            padding: 5px 10px;
+            font-weight: 600;
+            display: inline-block;
+          }
+        }
       }
     }
   }
@@ -186,7 +248,6 @@
     }
     .be-page-content .container .be-sidebar-inner {
       margin-left: 0;
-      padding: 20px;
       border-radius: 5px;
       position: relative;
       margin-top: 40px;
@@ -198,5 +259,8 @@
     .be-page-content .container h1.be-entry-title {
       font-size: 28px;
     } 
+    .be-page-content .container .be-content-inner .be-recent-deal ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

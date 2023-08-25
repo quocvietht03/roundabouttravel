@@ -1,50 +1,69 @@
-.single-post{
-  header.be-page-header {
-    position: relative;
-    background: #F7F7FB;
-    padding-bottom: 47.5%;
-    overflow: hidden;
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+.single-team{
+  .be-team-title-bar {
+    background-image: linear-gradient(180deg, #0078B921 0%, #F0F5F900 76%);
+    padding: 100px 0;
+    h1{
+      color: transparent !important;
+      background: radial-gradient(ellipse, #00aeef, #007ebf);
+      background-clip: text;
+      -webkit-background-clip: text;
+      font-size: 45px;
+      font-weight: 600;
+      text-transform: uppercase
+    }
+    .container{
+      display: block;
+    }
+    span.aioseo-breadcrumb {
+      color: #1E5B99;
+      font-size: 15px;
     }
   }
-  .be-page-content {
-    padding: 70px 0;
     .container{
       display: flex;
       .be-content-inner{
         width: 70%;
+        .be-team-info {
+          display: flex;
+          padding: 20px;
+          background: #fff;
+          margin-bottom: 30px;
+          position: relative;
+          border-radius:5px;
+        }
+        header.be-page-header {
+          position: relative;
+          background: #F7F7FB;
+          overflow: hidden;
+          width: 35%;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+          }
+        }
+        .be-page-content{
+          width: 65%;
+          margin-left: 20px;
+        }
         .be-top-heading {
           margin-bottom: 20px;
         }
         .be-meta-post{
-          span.entry-date {
-            margin-right: 20px;
+          .be_team_position {
+            color: #333;
             font-size: 16px;
             font-weight: 600;
-            margin-bottom: 10px;
-            display: inline-block;
+            margin-bottom: 5px;
           }
-          a.be-tag{
-            text-decoration: none;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 20px;
-            text-transform: uppercase;
-            color: #333333;
-            background: #d2e4f0;
-            padding: 4px 10px;
-            border-radius: 4px;
-        
-          } 
+          a.be_team_email{
+            color:#00ADEE;
+          }
         }
         nav.navigation.post-navigation{
           .nav-links {
@@ -115,6 +134,7 @@
       }
       .be-sidebar{
         width: 30%;
+        margin-bottom: 50px;
       }
       h1.be-entry-title {
         position: relative;
@@ -242,33 +262,48 @@
           }
         }
       }
-    }
   }
   @media only screen and (max-width: 991.98px) {
-    .be-page-content .container {
+    .container {
       display: block;
     }
-    .be-page-content .container .be-content-inner {
+    .container .be-content-inner {
       width: 100%;
     }
-    .be-page-content .container .be-sidebar {
+    .container .be-sidebar {
       width: 100%;
     }
-    .be-page-content .container .be-sidebar-inner {
+    .container .be-sidebar-inner {
       margin-left: 0;
       border-radius: 5px;
       position: relative;
       margin-top: 40px;
       top: 0;
     }
-    .be-page-content {
-      padding: 40px 0;
-    }
-    .be-page-content .container h1.be-entry-title {
+    .container h1.be-entry-title {
       font-size: 28px;
     } 
-    .be-page-content .container .be-content-inner .be-recent-deal ul {
+    .container .be-content-inner .be-recent-deal ul {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: 767.98px) {
+    .be-team-info {
+      display: block !important;
+      header.be-page-header {
+        width: 100% !important;
+        margin-bottom: 20px;
+        img{
+          position: relative !important;
+        }
+      }
+      .be-page-content {
+        width: 100% !important;
+        margin-left: 0px !important;
+      }
+    }
+    .be-team-title-bar h1 {
+      font-size: 35px;
     }
     .be-sidebar-inner section.widget {
       padding: 20px !important;

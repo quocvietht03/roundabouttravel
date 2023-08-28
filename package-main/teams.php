@@ -44,7 +44,41 @@ function rpjc_register_team_post_type() {
 
 }
 
+//-------------------------------------------------------------
+// Taxonomies
+//-------------------------------------------------------------
 
+add_action( 'init', 'rpjc_team_category_taxonomy' );
+
+function rpjc_team_category_taxonomy() {
+
+	$labels = array(
+
+		'name'              => _x( 'Categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Categories' ),
+		'all_items'         => __( 'All Categories' ),
+		'parent_item'       => __( 'Parent Category' ),
+		'parent_item_colon' => __( 'Parent Category:' ),
+		'edit_item'         => __( 'Edit Category' ),
+		'update_item'       => __( 'Update Category' ),
+		'add_new_item'      => __( 'Add New Category' ),
+		'new_item_name'     => __( 'New Category Name' ),
+
+	);
+
+	register_taxonomy( 'team_category', array( 'team' ), array(
+
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'team-categories' ),
+		'show_in_nav_menus' => false
+
+	) );
+
+}
 
 
 

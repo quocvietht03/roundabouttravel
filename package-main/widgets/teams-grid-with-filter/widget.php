@@ -133,12 +133,51 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 		?>
 			<div class="teams-grid-with-filter">
 				<div class="teams-grid-filter">
+        <a class="filter-item active be-show-all" href="#all">all</a>
 					<?php foreach ( $terms as $key => $term ) { ?>
-						<a class="filter-item<?php if($key == 0) echo ' active'; ?>" href="#<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+						<a class="filter-item" href="#<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
 					<?php } ?>
 				</div>
 				<div class="teams-grid-content">
 					<?php
+							$wp_query = new \WP_Query( array(
+								'post_type'      => 'team',
+								'posts_per_page' => $settings['posts_number'],
+								'order'          => 'ASC',
+							) );
+							if ( $wp_query->have_posts() ) {
+							?>
+							<div class="teams-grid-items active" data-term="all">
+								<div class="elementor-grid">
+									<?php while ( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
+										<div class="teams-grid-item">
+											<div class="team-thumbnail">
+												<a href="<?php the_permalink(); ?>">
+													<div class="image-cover">
+														<?php the_post_thumbnail( 'medium_large' ); ?>
+													</div>
+												</a>
+											</div>
+											<div class="team-content">
+												<h3 class="team-title">
+													<a href="<?php the_permalink(); ?>">
+														<?php the_title(); ?>
+													</a>
+												</h3>
+                        <div class="team-info">
+                          <div class="team-position"><?php the_field('be-team-position'); ?></div>
+                          <div class="team-email"><a href=""><?php the_field('be-team-email'); ?></a></div>
+                        </div>
+												<div class="team-desc">
+													<?php echo wp_trim_words( get_the_excerpt(), 35, '' ); ?>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+							<?php
+							}
 						foreach ( $terms as $key => $term ) {
 							$wp_query = new \WP_Query( array(
 								'post_type'      => 'team',
@@ -152,10 +191,9 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 									)
 								)
 							) );
-
 							if ( $wp_query->have_posts() ) {
 							?>
-							<div class="teams-grid-items<?php if($key == 0) echo ' active'; ?>" data-term="<?php echo $term->slug; ?>">
+							<div class="teams-grid-items" data-term="<?php echo $term->slug; ?>">
 								<div class="elementor-grid">
 									<?php while ( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
 										<div class="teams-grid-item">

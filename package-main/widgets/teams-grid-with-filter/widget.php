@@ -143,7 +143,18 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 							$wp_query = new \WP_Query( array(
 								'post_type'      => 'team',
 								'posts_per_page' => $settings['posts_number'],
-								'order'          => 'ASC',
+
+								'meta_query' => [
+									'be_team_order' => [
+										'key' => 'be-team-order',
+										'compare' => 'EXISTS',
+										'type' => 'NUMERIC', // makes orderby sort numerically instead of alphabetically
+									],
+								],
+							
+								'orderby' => [
+									'be_team_order' => 'ASC', 
+								],
 							) );
 							if ( $wp_query->have_posts() ) {
 							?>
@@ -182,14 +193,25 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 							$wp_query = new \WP_Query( array(
 								'post_type'      => 'team',
 								'posts_per_page' => $settings['posts_number'],
-								'order'          => 'ASC',
+								
 								'tax_query'      => array(
 									array(
 										'taxonomy' => 'team_category',
 										'field'    => 'slug',
 										'terms'    => $term->slug
 									)
-								)
+								),
+								'meta_query' => [
+										'be_team_order' => [
+											'key' => 'be-team-order',
+											'compare' => 'EXISTS',
+											'type' => 'NUMERIC', // makes orderby sort numerically instead of alphabetically
+										],
+									],
+								
+									'orderby' => [
+										'be_team_order' => 'ASC', 
+									],
 							) );
 							if ( $wp_query->have_posts() ) {
 							?>

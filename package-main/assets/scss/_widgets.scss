@@ -126,7 +126,7 @@
     transform: scale(1);
   }
 }
-@-webkit-keyframes fadeInUp {
+@-webkit-keyframes fadeInUp1 {
   0% {
       opacity: 0;
       -webkit-transform: translate3d(0, 50%, 0);
@@ -136,7 +136,7 @@
       -webkit-transform: none;
   }
 }
-@-moz-keyframes fadeInUp {
+@-moz-keyframes fadeInUp1 {
   0% {
       opacity: 0;
       -moz-transform: translate3d(0, 50%, 0);
@@ -146,7 +146,7 @@
       -moz-transform: none;
   }
 }
-@-o-keyframes fadeInUp {
+@-o-keyframes fadeInUp1 {
   0% {
       opacity: 0;
       -o-transform: translate3d(0, 50%, 0);
@@ -156,7 +156,7 @@
       -o-transform: none;
   }
 }
-@keyframes fadeInUp {
+@keyframes fadeInUp1 {
   0% {
       opacity: 0;
       transform: translate3d(0, 50%, 0);
@@ -164,13 +164,13 @@
   100% {
       opacity: 1;
       transform: none;
-  }
+  } 
 }
 .u--fadeInUp {
-  -webkit-animation: fadeInUp 1s ease-in;
-  -moz-animation: fadeInUp 1s ease-in;
-  -o-animation: fadeInUp 1s ease-in;
-  animation: fadeInUp 1s ease-in;
+  -webkit-animation: fadeInUp1 1s ease-in;
+  -moz-animation: fadeInUp1 1s ease-in;
+  -o-animation: fadeInUp1 1s ease-in;
+  animation: fadeInUp1 1s ease-in;
 }
 .teams-grid-with-filter {
   .teams-grid-filter {

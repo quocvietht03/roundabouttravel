@@ -17,7 +17,7 @@ function rpjc_register_team_post_type() {
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
-		"publicly_queryable" => true,
+		"publicly_queryable" => false,
 		"show_ui" => true,
 		"show_in_rest" => true,
 		"rest_base" => "",
@@ -35,7 +35,7 @@ function rpjc_register_team_post_type() {
 		"hierarchical" => false,
 		"can_export" => false,
 		"rewrite" => [ "slug" => "teams", "with_front" => true ],
-		"query_var" => true,
+		"query_var" => false,
 		"supports" => [ "title", "editor", "thumbnail" ],
 		"show_in_graphql" => false,
 	];

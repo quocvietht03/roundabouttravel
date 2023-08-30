@@ -161,7 +161,7 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 							<div class="teams-grid-items active" data-term="all">
 								<div class="elementor-grid">
 									<?php while ( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
-										<div class="teams-grid-item">
+										<div class="teams-grid-item u--fadeInUp">
 											<div class="team-thumbnail">
 												<a href="<?php the_permalink(); ?>">
 													<div class="image-cover">
@@ -218,7 +218,7 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 							<div class="teams-grid-items" data-term="<?php echo $term->slug; ?>">
 								<div class="elementor-grid">
 									<?php while ( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
-										<div class="teams-grid-item">
+										<div class="teams-grid-item u--fadeInUp">
 											<div class="team-thumbnail">
 												<a href="<?php the_permalink(); ?>">
 													<div class="image-cover">

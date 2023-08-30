@@ -77,7 +77,7 @@ while ( have_posts() ) :
             ?>
             <li class="deal-item">
               <div class="thumb">
-                <img src="<?php echo $deal_featured_img_url; ?>" />
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $deal_featured_img_url; ?>" /></a>
               </div>
               <div class="content-d">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>

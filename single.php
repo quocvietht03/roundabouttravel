@@ -62,6 +62,7 @@ while ( have_posts() ) :
           <h3>Deals</h3>
           <ul>
           <?php 
+
           $args = array(         
             'post_status' => 'publish',
             'posts_per_page' => 4,
@@ -71,6 +72,8 @@ while ( have_posts() ) :
             $loop = new WP_Query( $args ); 
             while ( $loop->have_posts() ) : $loop->the_post(); 
             $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+            $price        = get_post_meta( get_the_ID(), 'deal_price', true );
+            $price_tax    = get_field( 'deal_price_tax' );
             ?>
             <li class="deal-item">
               <div class="thumb">
@@ -78,6 +81,11 @@ while ( have_posts() ) :
               </div>
               <div class="content-d">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                <?php if ( !empty($price) ) : ?>
+										<div class="deal-feature-item deal-price">
+											From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc taxes<?php endif; ?></span>
+										</div>
+									<?php endif; ?>
               </div>
             </li>
             <?php

@@ -78,6 +78,9 @@
             li.deal-item{
               list-style-type: none;
               padding: 0;
+              background: #fff;
+              border-radius: 3px;
+              overflow: hidden;
               &::before{
                 content: none;
               }
@@ -87,7 +90,7 @@
                 padding-bottom: 70%;
                 background: #e7e6e4;
                 z-index: 1;
-                margin-bottom: 15px;
+                margin-bottom: 0px;
                 img {
                   position: absolute;
                   top: 0;
@@ -101,12 +104,18 @@
                 }
               }
               .content-d{
+                padding: 10px;
                 a{
                   font-size: 16px;
                   font-weight: 600;
                   text-decoration: none;
                   padding-bottom: 10px;
                   color: #00418b;
+                  display: inline-block;
+                }
+                .deal-feature-item.deal-price {
+                  color: #00ADEE;
+                  font-weight: 600;
                 }
               }
             }

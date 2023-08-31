@@ -52,42 +52,14 @@ class PJ_DealsItem extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'columns',
-			[
-				'label' => __( 'Columns', 'text-domain' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
-				'options' => [
-					'1' => '1',
-					'2' => '2',
-					'3' => '3',
-					'4' => '4',
-					'5' => '5',
-					'6' => '6',
-				],
-				'prefix_class' => 'elementor-grid%s-',
-			]
-		);
     $this->add_control(
 			'ids',
 			[
-				'label' => __( 'Ids', 'text-domain' ),
+				'label' => __( 'Id', 'text-domain' ),
 				'type' => Controls_Manager::SELECT2,
 				'options' => $this->get_supported_ids(),
 				'label_block' => true,
 				'multiple' => false,
-			]
-		);
-
-		$this->add_control(
-			'posts_number',
-			[
-				'label' => __( 'Posts Number', 'text-domain' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 6,
 			]
 		);
 
@@ -102,46 +74,17 @@ class PJ_DealsItem extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
-
 		$this->add_control(
-			'column_gap',
+			'bg_color',
 			[
-				'label' => __( 'Columns Gap', 'text-domain' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 30,
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
+				'label' => __( 'Background Color', 'text-domain' ),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}' => '--grid-column-gap: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .be-deal-item' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
 
-		$this->add_control(
-			'row_gap',
-			[
-				'label' => __( 'Rows Gap', 'text-domain' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 35,
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}}' => '--grid-row-gap: {{SIZE}}{{UNIT}}',
-				],
-			]
-		);
 
 		$this->end_controls_section();
 	}
@@ -153,41 +96,46 @@ class PJ_DealsItem extends Widget_Base {
 	public function query_posts() {
 		$settings = $this->get_settings_for_display();
 
-		if( is_front_page() ) {
-	    $paged = (get_query_var('page')) ? absint( get_query_var('page') ) : 1;
-		} else {
-	    $paged = (get_query_var('paged')) ? absint( get_query_var('paged') ) : 1;
-		}
-
 		$args = [
 			'post_type' => 'deal',
 			'post_status' => 'publish',
-			'posts_per_page' => $settings['posts_number'],
+			'posts_per_page' => 1,
+			'post__in'   => array( $settings['ids'] ),
 		];
 		
-		if( ! empty( $settings['ids'] ) ) {
-			$args['post__in'] = $settings['ids'];
-		}
-
-		if( ! empty( $settings['ids_exclude'] ) ) {
-			$args['post__not_in'] = $settings['ids_exclude'];
-		}
 
 		return $query = new \WP_Query( $args );
 	}
   protected function render_post() {
 		$settings = $this->get_settings_for_display();
 
-		?><div class="swiper-slide product-carousel-item">
-      <article>
+		?>
+      <article class="be-deal-item">
 
-          
-          <div class="product-content">
-            <h4 class="product-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a></h4>
-            
-          </div>
-          </article>
-			</div>
+					<div class="deal-content">
+						<h3 class="deal-title">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_title(); ?>
+							</a>
+						</h3>
+						<?php
+							$price     = get_field( 'deal_price' );
+				  		$price_tax = get_field( 'deal_price_tax' );
+							if ( !empty( $price ) ) {
+								?>
+									<div class="deal-price"><span>From</span> $<?php echo $price; ?> <?php if ( $price_tax == '1' ) : ?>inc taxes<?php endif; ?></div>
+								<?php
+							}
+						?>
+					</div>
+					<div class="deal-thumbnail">
+						<a href="<?php the_permalink(); ?>">
+							<div class="image-cover">
+								<?php the_post_thumbnail( 'medium_large' ); ?>
+							</div>
+						</a>
+					</div>
+      </article>
 		<?php
 	}
 

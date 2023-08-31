@@ -291,3 +291,69 @@
     }
   }
 }
+article.be-deal-item{
+  background: #0F3F70;
+  .deal-thumbnail {
+    line-height: 0;
+    .image-cover {
+      position: relative;
+      overflow: hidden;
+      background: #EAEAEA;
+      padding-bottom: 66%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.08);
+        transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+      }
+    }
+  }
+  .deal-content {
+    padding: 30px;
+    .deal-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 15px;
+      min-height: 58px;
+      overflow: hidden;
+      a {
+        color: inherit;
+      }
+    }
+    .deal-price {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #fff;
+      margin-bottom: 15px;
+      span {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+  @media(max-width: 991.98px) {
+    .deal-content {
+      padding: 25px;
+      .deal-title {
+        font-size: 20px;
+        min-height: 48px;
+      }
+    }
+  }
+  @media(max-width: 767.98px) {
+    .deal-content {
+      padding: 20px;
+      .deal-title {
+        font-size: 20px;
+        min-height: 48px;
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@ class PJ_DealsItem extends Widget_Base {
 		$wp_query = new \WP_Query( array(
 														'post_type' => 'deal',
 														'post_status' => 'publish',
-
+														'posts_per_page' => -1,
 													) );
 
 		if ( $wp_query->have_posts() ) {

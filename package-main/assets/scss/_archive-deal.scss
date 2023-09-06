@@ -98,7 +98,7 @@
         overflow: hidden;
         border-radius: 5px;
         border-radius: 20px;
-        box-shadow: rgba(10, 10, 130, 0.12) 10px 12px 35px 0px;
+        box-shadow: rgba(10, 10, 130, 0.12) 0px 2px 5px 0px;
         transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
         .deal-thumbnail {
           width: 30%;
@@ -171,7 +171,7 @@
           }
         }
         &:hover {
-          box-shadow: rgba(10, 10, 130, 0.24) 10px 12px 35px 0px;
+          box-shadow: rgba(10, 10, 130, 0.12) 0px 2px 5px 0px;
           transform: translateY(-0.1875rem);
           .deal-thumbnail img {
             transform: scale(1);

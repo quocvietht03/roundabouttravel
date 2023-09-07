@@ -5,12 +5,7 @@
 	<div class="container">
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
-				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
-			</div>
-		</section>
-		<section class="posts-main-ss">
-		<div class="posts-main-content">
-					<div class="posts-filter-form-wrap">
+			<div class="posts-filter-form-wrap">
 						<h2 class="posts-filter-title">Search Deals</h2>
 						<form class="posts-filter-form" action="/news/" method="get">
 							<input type="hidden" name="post_search_submitted" value="1" />
@@ -51,6 +46,11 @@
 							</div>
 						</form>
 					</div>
+				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
+			</div>
+		</section>
+		<section class="posts-main-ss">
+		<div class="posts-main-content">
 
 					<div class="deals-results">
 						<?php if ( have_posts() ) : ?>

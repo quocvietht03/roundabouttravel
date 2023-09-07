@@ -169,7 +169,7 @@
         margin-right: 30px;
         .posts-filter-form-wrap {
           background: #d2e4f0;
-          padding: 40px;
+          padding: 30px;
           margin-bottom: 40px;
           border-radius: 20px;
           .posts-filter-title {
@@ -185,6 +185,7 @@
             display: block;
             .form-field {
               width: 100%;
+              margin-bottom: 20px;
               &.form-field-class {
                 select {
                   background-image: url('../images/ticket.svg');
@@ -246,14 +247,17 @@
                   border-color: $primary-color;
                 }
               }
+              &.form-field-submit{
+                margin-bottom:0;
+              }
             }
           }
         }
         section.widget{
-          margin-bottom: 25px;
-          background: #fff;
+          margin-bottom: 40px;
+          background: #d2e4f0;
           padding: 30px;
-          border-radius: 5px;
+          border-radius: 20px;
         }
         h2.widget-title {
           text-transform: uppercase;

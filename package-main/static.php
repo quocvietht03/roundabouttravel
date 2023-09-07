@@ -12,6 +12,7 @@
 
         wp_enqueue_style( 'main-css', PJ_URI . 'assets/css/main.css', false, PJ_VERSION );
         wp_enqueue_script( 'main-js', PJ_URI . 'assets/js/main.js', ['jquery'], PJ_VERSION, true );
+        wp_enqueue_script( 'gravityform-js', PJ_URI . 'assets/js/gravityform.js', ['jquery'], PJ_VERSION, true );
 
         // wp_localize_script( 'main-js', 'PJ_Global', apply_filters( 'pj/wp_localize_script/PJ_Global', [
         //    'ajax_url' => admin_url( 'admin-ajax.php' ),

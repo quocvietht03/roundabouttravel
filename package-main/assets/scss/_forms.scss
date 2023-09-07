@@ -1,0 +1,103 @@
+.gform_confirmation_wrapper{
+    .gform_confirmation_message{
+        text-align: center;
+        color: #000;
+        font-size: 18px;
+    }
+}
+
+.gform_wrapper{
+
+    .gform_validation_errors{
+        display: none;
+    }
+
+    form{
+
+        .gform_body {
+            .gform_fields{
+                .gfield {
+                    position: relative;
+    
+                    &.__is_focus, &.__has_value{
+                        .gfield_label{
+                            top: -6.5px;
+                            left: 9px;
+                            font-size: 13px;
+                            background: #fff;
+                            padding: 0 4px;
+                        }
+                    }
+    
+                    &.__invalid{
+                        .gfield_label{
+                            color: #FF0000;
+                        }
+                        .ginput_container input{
+                            border-color: #FF0000;
+                        }
+                    }
+    
+                    .gfield_label {
+                        color: #00448A;
+                        position: absolute;
+                        top: 16px;
+                        left: 12px;
+                        margin: 0;
+                        transition: .3s ease all;
+                        .gfield_required{display: none;}
+                    }
+                    .ginput_container {
+                        input, textarea{
+                            font-weight: 500;
+                            font-size: 16px;
+                            line-height: 100%;
+                            letter-spacing: -0.02em;
+                            border: 1px solid #222222;
+                            border-radius: 4px;
+                            background: #FFFFFF;
+                            outline: none;
+                            padding: 13px 16px 14px 12px;
+                            color: #222222;
+                            font-family: "Outfit", Sans-serif;
+                            line-height: 1 !important;
+                        }
+                        textarea{
+                            height: 200px;
+                        }
+                    }
+                    .gfield_description{
+                        padding: 0;
+                        border: none;
+                        background: transparent;
+                        color: #FF0000;
+                        font-size: 14px;
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+
+        .gform_footer{
+            justify-content: center;
+            input[type="submit"]{
+                margin-bottom: 0;
+                border-radius: 30px;
+                padding: 15px 35px;
+                font-family: "Outfit", Sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                text-transform: uppercase;
+                background-color: #00ADEE;
+                color: #ffffff;
+                border: none;
+                &:hover{
+                    background-color: #00448A;
+                }
+            }
+            img{display: none;}
+        }
+
+    }
+
+}

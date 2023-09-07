@@ -8,7 +8,7 @@
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap">
 					<h2 class="posts-filter-title">Search Deals</h2>
-					<form class="posts-filter-form" action="/reviews/" method="get">
+					<form class="posts-filter-form" action="/editorials/reviews/" method="get">
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-class">
 							<label for="post_search_class">Class Types</label>

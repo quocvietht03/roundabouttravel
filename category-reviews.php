@@ -2,51 +2,56 @@
 
 <?php get_template_part( 'package-main/templates/hero', 'blog' ); ?>
 
-<section class="posts-main-ss">
+<div class="be-blog-main-ss">
 	<div class="container">
-		<div class="posts-main-content">
-			<div class="posts-filter-form-wrap">
-				<h2 class="posts-filter-title">Search Deals</h2>
-				<form class="posts-filter-form" action="/reviews/" method="get">
-					<input type="hidden" name="post_search_submitted" value="1" />
-					<div class="form-field form-field-class">
-						<label for="post_search_class">Class Types</label>
-						<?php
-							wp_dropdown_categories( array(
-								'show_option_all' => '-- Any --',
-								'orderby'         => 'NAME',
-								'hide_empty'      => false,
-								'id'              => 'post_search_class',
-								'name'            => 'post_search_class',
-								'selected'        => $_GET['post_search_class'],
-								'taxonomy'        => 'post_class'
-							) );
-						?>
-					</div>
-					<div class="form-field form-field-airline">
-						<label for="post_search_airline">Airline</label>
-						<?php
-							wp_dropdown_categories( array(
-								'show_option_all' => '-- Any --',
-								'orderby'         => 'NAME',
-								'hide_empty'      => false,
-								'id'              => 'post_search_airline',
-								'name'            => 'post_search_airline',
-								'selected'        => $_GET['post_search_airline'],
-								'taxonomy'        => 'post_airline'
-							) );
-						?>
-					</div>
-					<div class="form-field form-field-search">
-						<label for="post_search_keyword">Keyword</label>
-						<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
-					</div>
-					<div class="form-field form-field-submit">
-						<input value="SEARCH" type="submit">
-					</div>
-				</form>
+		<section class="sidebar-blog-ss">
+			<div class="be-sidebar-inner">
+				<div class="posts-filter-form-wrap">
+					<h2 class="posts-filter-title">Search Deals</h2>
+					<form class="posts-filter-form" action="/editorials/reviews/" method="get">
+						<input type="hidden" name="post_search_submitted" value="1" />
+						<div class="form-field form-field-class">
+							<label for="post_search_class">Class Types</label>
+							<?php
+								wp_dropdown_categories( array(
+									'show_option_all' => '-- Any --',
+									'orderby'         => 'NAME',
+									'hide_empty'      => false,
+									'id'              => 'post_search_class',
+									'name'            => 'post_search_class',
+									'selected'        => $_GET['post_search_class'],
+									'taxonomy'        => 'post_class'
+								) );
+							?>
+						</div>
+						<div class="form-field form-field-airline">
+							<label for="post_search_airline">Airline</label>
+							<?php
+								wp_dropdown_categories( array(
+									'show_option_all' => '-- Any --',
+									'orderby'         => 'NAME',
+									'hide_empty'      => false,
+									'id'              => 'post_search_airline',
+									'name'            => 'post_search_airline',
+									'selected'        => $_GET['post_search_airline'],
+									'taxonomy'        => 'post_airline'
+								) );
+							?>
+						</div>
+						<div class="form-field form-field-search">
+							<label for="post_search_keyword">Keyword</label>
+							<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+						</div>
+						<div class="form-field form-field-submit">
+							<input value="SEARCH" type="submit">
+						</div>
+					</form>
+				</div>
+				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
 			</div>
-
+		</section>
+		<section class="posts-main-ss">
+		<div class="posts-main-content">
 			<div class="deals-results">
 				<?php if ( have_posts() ) : ?>
 					<div class="post-items">
@@ -102,8 +107,8 @@
 					<div class="not-found">Post not found!.</div>
 				<?php endif; ?>
 			</div>
-		</div>
+			</div>		
+		</section>
 	</div>
-</section>
-
+</div>
 <?php get_footer(); ?>

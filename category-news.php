@@ -1,16 +1,20 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'package-main/templates/hero', 'blog' ); ?>
+<section class="posts-hero-ss page-title-bar">
+	<div class="container">
+		<div class="hero-content">
+			<h1 class="page-title">News</h1>
+			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
+				<a href="http://roundabouttravel.local" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator">»</span><span class="aioseo-breadcrumb">News</span>
+			</div>		
+		</div>
+	</div>
+</section>
 <div class="be-blog-main-ss">
 	<div class="container">
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
-				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
-			</div>
-		</section>
-		<section class="posts-main-ss">
-		<div class="posts-main-content">
-					<div class="posts-filter-form-wrap">
+			<div class="posts-filter-form-wrap">
 						<h2 class="posts-filter-title">Search Deals</h2>
 						<form class="posts-filter-form" action="/news/" method="get">
 							<input type="hidden" name="post_search_submitted" value="1" />
@@ -51,6 +55,11 @@
 							</div>
 						</form>
 					</div>
+				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
+			</div>
+		</section>
+		<section class="posts-main-ss">
+		<div class="posts-main-content">
 
 					<div class="deals-results">
 						<?php if ( have_posts() ) : ?>

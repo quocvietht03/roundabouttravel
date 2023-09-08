@@ -7,18 +7,16 @@
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap">
-					<h2 class="posts-filter-title">Search Deals</h2>
+					<h2 class="posts-filter-title-cc">Artical Filters</h2>
 					<form class="posts-filter-form" action="/editorials/reviews/" method="get">
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
-							<label for="post_search_keyword">Keyword</label>
-							<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
 						</div>
 						<div class="form-field form-field-class">
-							<label for="post_search_class">Class Types</label>
 							<?php
 								wp_dropdown_categories( array(
-									'show_option_all' => '-- Any --',
+									'show_option_all' => 'Class Types',
 									'orderby'         => 'NAME',
 									'hide_empty'      => false,
 									'id'              => 'post_search_class',
@@ -29,10 +27,9 @@
 							?>
 						</div>
 						<div class="form-field form-field-airline">
-							<label for="post_search_airline">Airline</label>
 							<?php
 								wp_dropdown_categories( array(
-									'show_option_all' => '-- Any --',
+									'show_option_all' => 'Airline',
 									'orderby'         => 'NAME',
 									'hide_empty'      => false,
 									'id'              => 'post_search_airline',

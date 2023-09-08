@@ -15,8 +15,8 @@
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
 			<div class="posts-filter-form-wrap">
-						<h2 class="posts-filter-title-cc">Artical Filters</h2>
 						<form class="posts-filter-form" action="/news/" method="get">
+							<h2 class="posts-filter-title-cc">Artical Filters</h2>
 							<input type="hidden" name="post_search_submitted" value="1" />
 							<div class="form-field form-field-search">
 								<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />

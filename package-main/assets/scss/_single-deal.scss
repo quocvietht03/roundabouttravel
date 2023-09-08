@@ -2,7 +2,8 @@
   .deal-hero-ss {
     position: relative;
     background: #F7F7FB;
-    padding-bottom: 47.5%;
+    height: 400px;
+    padding-bottom: unset;
     overflow: hidden;
     img {
       position: absolute;
@@ -78,7 +79,13 @@
         }
         .value {
           width: calc(100% - 140px);
+          margin-left: 30px;
         }
+      }
+      .deal-note-list{
+        background: #f4f9fd;
+        padding: 40px 50px;
+        border-bottom: 3px solid #00ADEE;
       }
     }
     .deal-share {

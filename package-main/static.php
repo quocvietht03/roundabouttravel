@@ -17,6 +17,8 @@
         // wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
 
         if ( is_page_template( 'page-template/template-plan-trip.php' ) ) {
+          wp_enqueue_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', false );
+          
           wp_deregister_script( 'jquery' );
           wp_register_script( 'jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js', false, '2.2.4' );
           wp_enqueue_script( 'jquery' );

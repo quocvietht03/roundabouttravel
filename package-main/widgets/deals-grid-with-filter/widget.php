@@ -195,7 +195,7 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 														}
 														if ( empty( $icon_box_item ) ) {
 															?>
-																<div class="deal-icon-box-item"><span><?php echo $text_box_item; ?></span></div>
+																<div class="deal-icon-box-item"><span>&nbsp;<?php echo $text_box_item; ?>&nbsp;</span></div>
 															<?php
 														}
 													?>

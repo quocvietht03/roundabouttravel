@@ -64,14 +64,15 @@
 													<?php 
 														$icon_box_item     = get_field( 'icon_box_item_i' );
 														$text_box_item = get_field( 'text_box_item_i' );
+														$icon_background_color = get_field( 'icon_background_color' );
 														if ( !empty( $icon_box_item ) ) {
 															?>
-																<div class="deal-icon-box-item"><img src="<?php echo $icon_box_item; ?>" /></div>
+																<div class="deal-icon-box-item"><img style="background: <?php echo $icon_background_color; ?>" src="<?php echo $icon_box_item; ?>" /></div>
 															<?php
 														}
 														if ( empty( $icon_box_item ) ) {
 															?>
-																<div class="deal-icon-box-item"><?php if ( !empty( $text_box_item ) ) { ?><div class="text-item"><?php echo $text_box_item; ?></div><?php } ?></div>
+																<div class="deal-icon-box-item"><?php if ( !empty( $text_box_item ) ) { ?><div style="background: <?php echo $icon_background_color; ?>" class="text-item"><?php echo $text_box_item; ?></div><?php } ?></div>
 															<?php
 														}
 													?>

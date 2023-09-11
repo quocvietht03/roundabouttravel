@@ -60,6 +60,35 @@
   										<?php if ( has_post_thumbnail() ) : ?>
   											<?php the_post_thumbnail( 'medium_large' ); ?>
   										<?php endif; ?>
+											<div class="deal-icon-box">
+													<?php 
+														$icon_box_item     = get_field( 'icon_box_item_i' );
+														$text_box_item = get_field( 'text_box_item_i' );
+														if ( !empty( $icon_box_item ) ) {
+															?>
+																<div class="deal-icon-box-item"><img src="<?php echo $icon_box_item; ?>" /></div>
+															<?php
+														}
+														if ( empty( $icon_box_item ) ) {
+															?>
+																<div class="deal-icon-box-item"><span><?php echo $text_box_item; ?></span></div>
+															<?php
+														}
+													?>
+											</div>
+											<div class="deal-tags">
+												<?php 
+													$terms = wp_get_object_terms($post->ID, 'deal_tag', array('orderby' => 'term_id', 'order' => 'ASC') );
+														if ( !empty( $terms ) ) :
+															$be_tag = array();
+															foreach ( $terms as $term ) {
+																	$be_tag = $term->name;
+																	$be_tag_slug = $term->slug;
+																	echo '<a class="'. $be_tag_slug .'">'. $be_tag .'</a>';
+															}
+														endif;
+    										?>
+											</div>
   									</div>
 
   									<div class="deal-content">

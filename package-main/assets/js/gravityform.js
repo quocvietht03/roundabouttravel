@@ -4,6 +4,12 @@
 
   function addServiceListeners(){
 
+    if( $(window).outerWidth() > 767 ) {
+      $('.gform_wrapper .gfield_select').select2({
+        minimumResultsForSearch: Infinity
+      });
+    }
+
     applyLoadLabelDisplay();
 
     $('.gform_wrapper').on('focus', 'input[type="text"], input[type="tel"], input[type="email"], select, textarea', function () {
@@ -15,9 +21,7 @@
   addServiceListeners();
 
   jQuery(document).on('gform_post_render', function(event, form_id, current_page){
-    // if (form_id == 3) {
       addServiceListeners();
-    // }
   });
 
   // Contact us form field effect

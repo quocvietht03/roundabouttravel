@@ -60,39 +60,35 @@ while ( have_posts() ) :
         ?>
         <div class="be-recent-deal">
           <h3>Deals</h3>
-          <ul>
-          <?php 
-
-          $args = array(         
-            'post_status' => 'publish',
-            'posts_per_page' => 4,
-            'post_type' => 'deal'	
-            );
-          
-            $loop = new WP_Query( $args ); 
-            while ( $loop->have_posts() ) : $loop->the_post(); 
-            $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-            $price        = get_post_meta( get_the_ID(), 'deal_price', true );
-            $price_tax    = get_field( 'deal_price_tax' );
-            ?>
-            <li class="deal-item">
-              <div class="thumb">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $deal_featured_img_url; ?>" /></a>
-              </div>
-              <div class="content-d">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                <?php if ( !empty($price) ) : ?>
-										<div class="deal-feature-item deal-price">
-											From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc taxes<?php endif; ?></span>
-										</div>
-									<?php endif; ?>
-              </div>
-            </li>
-            <?php
-          
-            endwhile;
-          ?>
-          </ul>
+          <?php
+            $featured_posts = get_field('select_specific_deal');
+            if( $featured_posts ): ?>
+                <ul>
+                <?php foreach( $featured_posts as $post ): 
+                    $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+                    $price        = get_post_meta( get_the_ID(), 'deal_price', true );
+                    $price_tax    = get_field( 'deal_price_tax' );
+                    // Setup this post for WP functions (variable must be named $post).
+                    setup_postdata($post); ?>
+                    <li class="deal-item">
+                      <div class="thumb">
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $deal_featured_img_url; ?>" /></a>
+                      </div>
+                      <div class="content-d">
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                        <?php if ( !empty($price) ) : ?>
+                            <div class="deal-feature-item deal-price">
+                              From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc taxes<?php endif; ?></span>
+                            </div>
+                          <?php endif; ?>
+                      </div>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
+                <?php 
+                // Reset the global post object so that the rest of the page works correctly.
+                wp_reset_postdata(); ?>
+            <?php endif; ?>
         </div>
       </div>
       <div class="be-sidebar">

@@ -59,8 +59,8 @@
           }
           .deal-tags {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             a{
               display: inline-block;
               padding:5px 10px;
@@ -81,12 +81,12 @@
             }
           }
           .deal-icon-box-item {
-            top: 10px;
+            bottom: 0px;
             position: absolute;
-            left: 10px;
+            left: 0px;
             text-align: center;
             background: #9064bf;
-            border-radius: 20px;
+            border-radius: 0 20px 0 20px;
             display: flex;
             align-items: center;
             padding: 5px 10px;

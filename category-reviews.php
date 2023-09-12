@@ -44,7 +44,7 @@
 						</div>
 					</form>
 				</div>
-				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
+				<?php dynamic_sidebar( 'sidebar-reviews' ); ?>
 			</div>
 		</section>
 		<section class="posts-main-ss">

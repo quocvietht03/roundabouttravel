@@ -27,9 +27,14 @@
                             background: #fff;
                             padding: 0 4px;
                         }
+                        .ginput_container input.datepicker{
+                            &::placeholder{
+                                color: initial;
+                            }
+                        }
                     }
     
-                    &.__invalid{
+                    &.__invalid, &.gfield_error{
                         .gfield_label{
                             color: #FF0000;
                         }
@@ -62,8 +67,38 @@
                             font-family: "Outfit", Sans-serif;
                             line-height: 1 !important;
                         }
+                        input.datepicker{
+                            &::placeholder{
+                                color: transparent;
+                            }
+                        }
                         textarea{
                             height: 200px;
+                        }
+                        select{
+                            font-weight: 500;
+                            font-size: 16px;
+                            line-height: 110%;
+                            letter-spacing: -0.02em;
+                            border: 1px solid #222222;
+                            border-radius: 4px;
+                            background: #FFFFFF;
+                            font-family: "Outfit", Sans-serif;
+                            color: #222222;
+                            height: 49px;
+                            background-image: url(../images/down-arrow.svg);
+                            background-repeat: no-repeat;
+                            background-position: right 12px top 13px;
+                            appearance: none;
+                        }
+                        &.ginput_container_date{
+                            img{
+                                min-width: 32px;
+                            }
+                            input{
+                                max-width: 400px;
+                                width: 100%;
+                            }
                         }
                     }
                     .gfield_description{
@@ -76,6 +111,35 @@
                     }
                 }
             }
+
+            .gform_page_footer{
+                text-align: right;
+                input{
+                    &.gform_next_button, &[type="submit"]{
+                        margin-bottom: 0;
+                        border-radius: 30px;
+                        padding: 15px 35px;
+                        font-family: "Outfit", Sans-serif;
+                        font-size: 14px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        background-color: #00ADEE;
+                        color: #ffffff;
+                        border: none;
+                        outline: none;
+                        line-height: 1 !important;
+                        &:hover{
+                            background-color: #00448A;
+                        }
+                    }
+                    &.gform_previous_button{
+                        margin-bottom: 0;
+                        border: none;
+                    }
+                }
+                img{display: none;}
+            }
+
         }
 
         .gform_footer{
@@ -100,4 +164,280 @@
 
     }
 
+    @media (max-width: 599.98px){
+        form .gform_body .gform_page_footer{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-end;
+            input{
+                &.gform_previous_button{
+                    padding: 8px 0;
+                }
+            }
+        }
+    }
+
 }
+
+#gform_wrapper_3{
+    background: #fff;
+    padding: 64px 64px 64px 314px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    form{
+        .gf_page_steps{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-bottom: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 250px;
+            height: 100%;
+            background: #d2e4f0;
+            .gf_step{
+                margin: 0;
+                text-align: center;
+                &:last-child:after{display: none;}
+                &.gf_step_active .gf_step_label{
+                    color: #00448A;
+                }
+                &:after{
+                    content: "";
+                    width: 20px;
+                    height: 70px;
+                    background: url(../images/bg-steps.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .gf_step_number{display: none;}
+                .gf_step_label{
+                    padding-left: 0;
+                    display: block;
+                    font-size: 18px;
+                }
+            }
+        }
+        .gform_body{
+            .gform_page{
+                .gfield {
+                    &.content-detail{
+                        &.__is_focus, &.__has_value{
+                            .gfield_label{
+                                position: inherit;
+                                top: inherit;
+                                left: inherit;
+                                margin-bottom: 12px;
+                                font-size: inherit;
+                                padding: 0;
+                            }
+                        }
+                        .gfield_label{
+                            position: inherit;
+                            top: inherit;
+                            left: inherit;
+                            margin-bottom: 12px;
+                        }
+                    }
+                    &.field-full-name{
+                        .gfield_label{display: none;}
+                        .ginput_container{
+                            span{
+                                position: relative;
+                                &.name_last{
+                                    label{
+                                        left: 22px;
+                                    }
+                                }
+                                &.__is_focus, &.__has_value{
+                                    &.name_last label{
+                                        left: 19px;
+                                    }
+                                    label{
+                                        top: -6.5px;
+                                        left: 9px;
+                                        background-color: #fff;
+                                        padding: 0 4px;
+                                        font-size: 13px;
+                                    }
+                                }
+                                &.__invalid{
+                                    label{
+                                        color: #FF0000;
+                                    }
+                                }
+                                label{
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    color: #00448A;
+                                    position: absolute;
+                                    top: 16px;
+                                    left: 12px;
+                                    margin: 0;
+                                    transition: 0.3s ease all;
+                                    padding-top: 0;
+                                }
+                            }
+                        }
+                    }
+                    &.__wrapper-details{
+                        .row-cm{
+                            &:not(:last-child){
+                                margin-bottom: 24px;
+                                border-bottom: 1px solid #EEE;
+                                padding-bottom: 12px;
+                            }
+                            .step-sub-title{
+                                color: #555555;
+                            }
+                            .row{
+                                display: flex;
+                                &:not(:last-child){
+                                    margin-bottom: 4px;
+                                }
+                                .confirm-label{
+                                    width: 165px;
+                                }
+                                .confirm-text{
+                                    width: calc(100% - 165px);
+                                    padding-left: 24px;
+                                }
+                            }
+                        }
+                    }
+                    .ginput_container{
+                        textarea{
+                            height: 140px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1100.98px){
+        padding: 64px 48px 64px 198px;
+        form{
+            .gf_page_steps{
+                width: 150px;
+            }
+        }
+
+    }
+
+    @media (max-width: 880.98px){
+        padding: 64px 48px 64px 48px;
+        form{
+            .gf_page_steps{
+                background: transparent;
+                height: auto;
+                width: auto;
+                left: inherit;
+                right: 32px;
+                top: 18px;
+                .gf_step {
+                    display: none;
+                    &:after{display: none;}
+                    &.gf_step_active {
+                        display: block;
+                    }
+                    .gf_step_label{display: none;}
+                    .gf_step_number{
+                        display: block;
+                        width: auto;
+                        height: auto;
+                        background: transparent;
+                        border: none;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #00448A;
+                        &:before{
+                            content: 'Step ';
+                        }
+                        &:after{
+                            content: "/4"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767.98px){
+        padding: 64px 32px;
+    }
+
+    @media (max-width: 670.98px){
+        form .gform_body .gform_fields .gfield{
+            &#field_3_4{
+                &.__has_value{
+                    .gfield_label{
+                        top: -12px;
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 640.98px){
+        form{
+            .gform_body .gform_fields .gfield {
+                &.field-full-name .ginput_container span{
+                    margin-bottom: 16px;
+                    &.__has_value.name_last label{
+                        left: 9px;
+                    }
+                    &.name_last{
+                        margin-bottom: 0;
+                        label{
+                            left: 12px;
+                        }
+                    }
+                }
+                .ginput_container.ginput_container_date input{
+                    max-width: calc(100% - 32px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 599.98px){
+        padding: 64px 16px 24px;
+        form {
+            .gf_page_steps{
+                right: 16px;
+                top: 16px;
+            }
+            .gform_body .gform_page .gfield.__wrapper-details .row-cm .row {
+                .confirm-label{
+                    width: 110px;
+                    font-size: 14px;
+                }
+                .confirm-text{
+                    width: calc(100% - 110px);
+                    padding-left: 18px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 374.98px){
+        form {
+            .gform_body .gform_page .gfield.__wrapper-details .row-cm .row {
+                .confirm-label{
+                    width: 100px;
+                }
+                .confirm-text{
+                    width: calc(100% - 100px);
+                }
+            }
+        }
+    }
+
+}
+

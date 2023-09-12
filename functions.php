@@ -324,7 +324,7 @@ function create_shortcode_featured_news() {
 
 	return $list_post;
 }
-add_shortcode('featured_news', 'create_shortcode_featured_reviews');
+add_shortcode('featured_news', 'create_shortcode_featured_news');
 
 function create_shortcode_featured_reviews() {
 

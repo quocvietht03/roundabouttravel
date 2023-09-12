@@ -1,3 +1,17 @@
+body .select2-results__option{
+    padding: 8px 12px !important;
+    color: #00448A !important;
+    font-weight: 500;
+    &--selected{
+        background-color: #00448A !important;
+        color: #ffffff !important;
+    }
+    &--highlighted.select2-results__option--selectable{
+        background-color: #00448A !important;
+        color: #ffffff !important;
+    }
+}
+
 .gform_confirmation_wrapper{
     .gform_confirmation_message{
         text-align: center;
@@ -7,6 +21,42 @@
 }
 
 .gform_wrapper{
+
+    .select2-container{
+        display: block!important;
+        width: 100%!important;
+        margin: 0!important;
+        &.select2-container--open{
+            .select2-selection .select2-selection__arrow{
+                transform: rotate(180deg);
+            }
+        }
+        .select2-selection{
+            height: 49px;
+            padding: 16px 12px;
+            border: 1px solid #b7c8d9;
+            border-radius: 10px;
+            background-color: #ffffff;
+            .select2{
+                &-selection__rendered{
+                    padding: 0;
+                    color: #222222;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 110%;
+                }
+                &-selection__arrow {
+                    background-image: url(../images/down-arrow-v2.svg);
+                    top: 14px;
+                    right: 16px;
+                    width: 18px;
+                    height: 18px;
+                    transition: .3s ease all;
+                    b{display: none;}
+                }
+            }
+        }
+    }
 
     .gform_validation_errors{
         display: none;
@@ -18,7 +68,12 @@
             .gform_fields{
                 .gfield {
                     position: relative;
-    
+                    
+                    &.__is_focus{
+                        .ginput_container_select:after{
+                            transform: rotate(180deg);
+                        }
+                    }
                     &.__is_focus, &.__has_value{
                         .gfield_label{
                             top: -6.5px;
@@ -42,9 +97,16 @@
                             border-color: #FF0000;
                         }
                     }
+
+                    &.gfield_visibility_hidden{position: absolute;}
+
+                    h3{
+                        font-family: "Outfit", sans-serif;
+                    }
     
                     .gfield_label {
-                        color: #00448A;
+                        color: #00448a;
+                        z-index: 2;
                         position: absolute;
                         top: 16px;
                         left: 12px;
@@ -53,13 +115,37 @@
                         .gfield_required{display: none;}
                     }
                     .ginput_container {
+                        &.ginput_container_select{
+                            &:after{
+                                content: "";
+                                width: 16px;
+                                height: 16px;
+                                background-image: url(../images/down-arrow-v2.svg);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                position: absolute;
+                                right: 12px;
+                                top: 15px;
+                                transition: .3s ease all;
+                                display: none;
+                            }
+                        }
+                        &.ginput_container_date{
+                            img{
+                                min-width: 32px;
+                            }
+                            input{
+                                max-width: 400px;
+                                width: 100%;
+                            }
+                        }
                         input, textarea{
                             font-weight: 500;
                             font-size: 16px;
                             line-height: 100%;
                             letter-spacing: -0.02em;
-                            border: 1px solid #222222;
-                            border-radius: 4px;
+                            border: 1px solid #b7c8d9;
+                            border-radius: 10px;
                             background: #FFFFFF;
                             outline: none;
                             padding: 13px 16px 14px 12px;
@@ -76,29 +162,18 @@
                             height: 200px;
                         }
                         select{
-                            font-weight: 500;
+                            font-weight: 600;
                             font-size: 16px;
                             line-height: 110%;
                             letter-spacing: -0.02em;
-                            border: 1px solid #222222;
-                            border-radius: 4px;
+                            border: 1px solid #b7c8d9;
+                            border-radius: 10px;
                             background: #FFFFFF;
                             font-family: "Outfit", Sans-serif;
                             color: #222222;
                             height: 49px;
-                            background-image: url(../images/down-arrow.svg);
-                            background-repeat: no-repeat;
-                            background-position: right 12px top 13px;
+                            
                             appearance: none;
-                        }
-                        &.ginput_container_date{
-                            img{
-                                min-width: 32px;
-                            }
-                            input{
-                                max-width: 400px;
-                                width: 100%;
-                            }
                         }
                     }
                     .gfield_description{
@@ -164,6 +239,11 @@
 
     }
 
+    @media (max-width: 767.98px){
+        form .gform_body .gform_fields .gfield .ginput_container.ginput_container_select:after{
+            display: block;
+        }
+    }
     @media (max-width: 599.98px){
         form .gform_body .gform_page_footer{
             display: flex;

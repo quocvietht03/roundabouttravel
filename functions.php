@@ -287,7 +287,7 @@ function create_shortcode_featured_news() {
 	
 	$resource_args = array(
 			'post_type' => 'post',
-			'posts_per_page' => -1,
+			'posts_per_page' => 3,
 			'category_name' => 'news',
 			'meta_query' => $meta_query,
 	);
@@ -341,7 +341,7 @@ function create_shortcode_featured_reviews() {
 	
 	$resource_args = array(
 			'post_type' => 'post',
-			'posts_per_page' => -1,
+			'posts_per_page' => 3,
 			'category_name' => 'reviews',
 			'meta_query' => $meta_query,
 	);

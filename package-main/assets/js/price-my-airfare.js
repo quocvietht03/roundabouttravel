@@ -7,6 +7,9 @@
         }
 
         if ( current_page == 4 ) {
+
+            let deal_name = getUrlParameter('deal_name') ? getUrlParameter('deal_name') : 'No';
+            $('#gform_wrapper_3 .gfield.deal-name').find('input').val(deal_name);
             
             let first_name   = $('#gform_wrapper_3 .field-full-name .name_first').find('input').val();
             let last_name    = $('#gform_wrapper_3 .field-full-name .name_last').find('input').val();
@@ -21,9 +24,6 @@
 
             let trip_preference= $('#gform_wrapper_3 .trip-preference').find('textarea').text();
             let comment        = $('#gform_wrapper_3 .comments').find('textarea').text();
-
-            console.log(trip_preference);
-            console.log(comment);
             
             $('#gform_wrapper_3 .__wrapper-details').find('.confirm-text.name').html(first_name);
             $('#gform_wrapper_3 .__wrapper-details').find('.confirm-text.lastname').html(last_name);
@@ -43,5 +43,21 @@
 
 
     });
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+        return false;
+    };
 
 })( jQuery );

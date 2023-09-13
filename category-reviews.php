@@ -1,6 +1,15 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'package-main/templates/hero', 'blog' ); ?>
+<section class="posts-hero-ss page-title-bar">
+	<div class="container">
+		<div class="hero-content">
+			<h1 class="page-title">Reviews</h1>
+			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
+				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">Reviews</span>
+			</div>		
+		</div>
+	</div>
+</section>
 
 <div class="be-blog-main-ss">
 	<div class="container">

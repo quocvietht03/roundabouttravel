@@ -12,8 +12,6 @@ Header included these JS to make form works
 
 <?php get_header(); the_post(); ?>
 
-<?php get_template_part( 'templates/hero', 'page' ); ?>
-
 <div class="main">
 
     <div class="container">

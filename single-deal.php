@@ -168,7 +168,7 @@ function rbt_setBookingInfo() {
                             </div>
 
                             <div class="deal-cta">
-                                <a href="/price-my-airfare/?deal_name=<?php the_title();?>">Price my airfare</a>
+                                <a href="/price-my-airfare/?deal_id=<?php echo $post->ID;?>">Price my airfare</a>
                             </div>
 
                             <!-- <?php //if(!empty($optFields['deal_shortcode_enquiry_form'])) { ?>

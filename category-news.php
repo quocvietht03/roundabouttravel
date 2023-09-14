@@ -5,7 +5,7 @@
 		<div class="hero-content">
 			<h1 class="page-title">News</h1>
 			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
-				<a href="http://roundabouttravel.local" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator">»</span><span class="aioseo-breadcrumb">News</span>
+				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">News</span>
 			</div>		
 		</div>
 	</div>
@@ -52,7 +52,8 @@
 							</div>
 						</form>
 					</div>
-				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
+				<?php dynamic_sidebar( 'sidebar-news' ); ?>
+				
 			</div>
 		</section>
 		<section class="posts-main-ss">

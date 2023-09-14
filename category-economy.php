@@ -1,45 +1,56 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'package-main/templates/hero', 'blog' ); ?>
-
-<section class="posts-main-ss">
+<section class="posts-hero-ss page-title-bar">
 	<div class="container">
-		<div class="posts-main-content">
-			<div class="posts-filter-form-wrap">
-				<h2 class="posts-filter-title">Search Deals</h2>
-				<form class="posts-filter-form" action="/editorials/lounges/" method="get">
-					<input type="hidden" name="post_search_submitted" value="1" />
-					<div class="form-field form-field-class">
-						<label for="post_search_class">Class Types</label>
-						<select>
-							<option value="0" selected="selected">Economy</option>
-						</select>
-					</div>
-					<div class="form-field form-field-airline">
-						<label for="post_search_airline">Airline</label>
-						<?php
-							wp_dropdown_categories( array(
-								'show_option_all' => '-- Any --',
-								'orderby'         => 'NAME',
-								'hide_empty'      => false,
-								'id'              => 'post_search_airline',
-								'name'            => 'post_search_airline',
-								'selected'        => $_GET['post_search_airline'],
-								'taxonomy'        => 'post_airline'
-							) );
-						?>
-					</div>
-					<div class="form-field form-field-search">
-						<label for="post_search_keyword">Keyword</label>
-						<input name="post_search_keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
-					</div>
-					<div class="form-field form-field-submit">
-						<input value="SEARCH" type="submit">
-					</div>
-				</form>
-			</div>
+		<div class="hero-content">
+			<h1 class="page-title">Economy</h1>
+			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
+				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">Economy</span>
+			</div>		
+		</div>
+	</div>
+</section>
 
-			<div class="deals-results">
+<div class="be-blog-main-ss">
+	<div class="container">
+		<section class="sidebar-blog-ss">
+			<div class="be-sidebar-inner">
+				<div class="posts-filter-form-wrap">
+					<form class="posts-filter-form" action="/reviews/lounges/" method="get">
+						<h2 class="posts-filter-title-cc">Artical Filters</h2>
+						<input type="hidden" name="post_search_submitted" value="1" />
+						<div class="form-field form-field-search">
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+						</div>
+						<div class="form-field form-field-class">
+							<select>
+								<option value="0" selected="selected">Premium Economy</option>
+							</select>
+						</div>
+						<div class="form-field form-field-airline">
+							<?php
+								wp_dropdown_categories( array(
+									'show_option_all' => 'Airline',
+									'orderby'         => 'NAME',
+									'hide_empty'      => false,
+									'id'              => 'post_search_airline',
+									'name'            => 'post_search_airline',
+									'selected'        => $_GET['post_search_airline'],
+									'taxonomy'        => 'post_airline'
+								) );
+							?>
+						</div>
+						<div class="form-field form-field-submit">
+							<input value="SEARCH" type="submit">
+						</div>
+					</form>
+				</div>
+				<?php dynamic_sidebar( 'sidebar-reviews' ); ?>
+			</div>
+		</section>
+		<section class="posts-main-ss">
+		<div class="posts-main-content">
+		<div class="deals-results">
 				<?php if ( have_posts() ) : ?>
 					<div class="post-items">
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -94,8 +105,10 @@
 					<div class="not-found">Post not found!.</div>
 				<?php endif; ?>
 			</div>
-		</div>
+			</div>		
+		</section>
 	</div>
-</section>
+</div>
+
 
 <?php get_footer(); ?>

@@ -1,13 +1,22 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'package-main/templates/hero', 'blog' ); ?>
+<section class="posts-hero-ss page-title-bar">
+	<div class="container">
+		<div class="hero-content">
+			<h1 class="page-title">Reviews</h1>
+			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
+				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">Reviews</span>
+			</div>		
+		</div>
+	</div>
+</section>
 
 <div class="be-blog-main-ss">
 	<div class="container">
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap">
-					<form class="posts-filter-form" action="/editorials/reviews/" method="get">
+					<form class="posts-filter-form" action="/reviews/" method="get">
 						<h2 class="posts-filter-title-cc">Artical Filters</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
@@ -44,7 +53,7 @@
 						</div>
 					</form>
 				</div>
-				<?php dynamic_sidebar( 'sidebar-archive' ); ?>
+				<?php dynamic_sidebar( 'sidebar-reviews' ); ?>
 			</div>
 		</section>
 		<section class="posts-main-ss">

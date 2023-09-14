@@ -2,7 +2,8 @@
   header.be-page-header {
     position: relative;
     background: #F7F7FB;
-    padding-bottom: 47.5%;
+    height: 400px;
+    padding-bottom: unset;
     overflow: hidden;
     img {
       position: absolute;
@@ -136,13 +137,12 @@
       }
       .be-sidebar-inner{
         margin-left: 30px;
-        position: sticky;
-        top: 140px;
+        position: relative;
         section.widget{
           margin-bottom: 25px;
           background: #fff;
           padding: 30px;
-          border-radius: 5px;
+          border-radius: 20px;
         }
         h2.widget-title {
           text-transform: uppercase;

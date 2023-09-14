@@ -92,7 +92,17 @@ while ( have_posts() ) :
         </div>
       </div>
       <div class="be-sidebar">
-        <div class="be-sidebar-inner">
+        <?php 
+        $categories = get_the_category();
+        $separator = ' ';
+        $output = '';
+        if ( ! empty( $categories ) ) {
+          foreach( $categories as $category ) {
+            $output .= esc_html( $category->slug ).''.$separator;
+          }
+        }
+        ?>
+        <div class="be-sidebar-inner <?php echo $output; ?>">
           <?php dynamic_sidebar( 'sidebar-blog' ); ?>
         </div>
       </div>

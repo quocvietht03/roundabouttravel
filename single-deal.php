@@ -63,13 +63,36 @@ function rbt_setBookingInfo() {
 					the_post_thumbnail( 'full' );
 				endif;
 			?>
+        <div class="container be-hot-tag">
+            <div class="deal-icon-box">
+                <?php 
+                    $icon_box_item     = get_field( 'icon_box_item_i' );
+                    $text_box_item = get_field( 'text_box_item_i' );
+                    $icon_background_color = get_field( 'icon_background_color' );
+                ?>
+                <div class="deal-icon-box-item" style="background: <?php echo $icon_background_color; ?>"><?php if ( !empty( $icon_box_item ) ) { ?><img src="<?php echo $icon_box_item; ?>" /><?php } ?><?php if ( !empty( $text_box_item ) ) { ?><span><?php echo $text_box_item; ?></span><?php } ?></div>
+            </div>
+            <div class="deal-tags">
+                <?php 
+                    $terms = wp_get_object_terms($post->ID, 'deal_tag', array('orderby' => 'term_id', 'order' => 'ASC') );
+                    if ( !empty( $terms ) ) :
+                        $be_tag = array();
+                        foreach ( $terms as $term ) {
+                            $be_tag = $term->name;
+                            $be_tag_slug = $term->slug;
+                            echo '<a class="'. $be_tag_slug .'">'. $be_tag .'</a>';
+                    }
+                    endif;
+                ?>
+            </div>
+            <h3 class="deal-title"><?php the_title(); ?></h3>
+        </div>
     </section>
 
     <section class="deal-main-ss">
         <div class="container">
             <div class="deal-main-wrap">
                 <div class="deal-main-content">
-                    <h3 class="deal-title"><?php the_title(); ?></h3>
                     <?php if ( get_field( 'subtitle' ) ) : ?>
                     <div class="deal-subtitle"><?php the_field( 'subtitle' ); ?></div>
                     <?php endif; ?>
@@ -133,12 +156,37 @@ function rbt_setBookingInfo() {
                         </div>
                     </div>
 
-                    <div class="deal-share">
-                        <?php echo do_shortcode( '[addtoany]' ); ?>
-                    </div>
                 </div>
                 <div class="deal-main-sidebar">
                     <div class="deal-sticky-sidebar">
+                        <?php if ( have_rows( 'image_slider' ) ) : ?>
+                        <section class="deal-slider-ss">
+                            <div class="fullwidth">
+                                <div class="deal-slider-content">
+                                    <div class="swiper_deal">
+                                        <div class="swiper-wrapper">
+                                            <?php if ( has_post_thumbnail() ) : ?>
+                                            <div class="swiper-slide">
+                                                <div class="cover-image">
+                                                    <?php the_post_thumbnail( 'deal' ); ?>
+                                                </div>
+                                            </div>
+                                            <?php endif; ?>
+
+                                            <?php while ( have_rows( 'image_slider' ) ) : the_row(); ?>
+                                            <div class="swiper-slide">
+                                                <div class="cover-image">
+                                                    <?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'deal' ); ?>
+                                                </div>
+                                            </div>
+                                            <?php endwhile; ?>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <?php endif; ?>
                         <div class="deal-enquiry-form-wrap">
                             <div class="deal-feature-list">
                                 <?php if ( !empty( $airline_titles ) ) : ?>
@@ -182,35 +230,6 @@ function rbt_setBookingInfo() {
             </div>
         </div>
     </section>
-
-    <?php if ( have_rows( 'image_slider' ) ) : ?>
-    <section class="deal-slider-ss">
-        <div class="fullwidth">
-            <div class="deal-slider-content">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                        <div class="swiper-slide">
-                            <div class="cover-image">
-                                <?php the_post_thumbnail( 'deal' ); ?>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php while ( have_rows( 'image_slider' ) ) : the_row(); ?>
-                        <div class="swiper-slide">
-                            <div class="cover-image">
-                                <?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'deal' ); ?>
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
 
     <section class="deal-trustpilot-ss">
         <div class="container">

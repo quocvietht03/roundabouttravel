@@ -2,7 +2,7 @@
   .deal-hero-ss {
     position: relative;
     background: #F7F7FB;
-    height: 400px;
+    height: 500px;
     padding-bottom: unset;
     overflow: hidden;
     img {
@@ -13,18 +13,95 @@
       height: 100%;
       object-fit: cover;
     }
+    .container.be-hot-tag{
+      position: relative;
+      height: 100%;
+
+      h3.deal-title {
+        width: calc(60% - 40px);
+        position: absolute;
+        bottom: 50px;
+        color: #fff;
+        z-index: 2;
+        font-size: 35px;
+        text-transform: uppercase;
+    }
+    }
+    .deal-tags {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 2;
+      a{
+        display: inline-block;
+        padding:5px 10px;
+        border-radius: 3px;
+        margin-right: 10px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        &.featured{
+          background-color: #516095;
+        }
+        &.hot-item{
+          background-color: #fd8787;
+        }
+        &.ending-soon{
+          background-color: #78c1b9;
+        }
+      }
+    }
+    .deal-icon-box-item {
+      top: 15px;
+      position: absolute;
+      right: 15px;
+      text-align: center;
+      background: #9064bf;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      z-index: 2;
+      img{
+        fill: #fff;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+        position: relative;
+        margin-right: 5px;
+      }
+      span{
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+    &::before{
+      content:'';
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top:0;
+      z-index: 1;
+    }
   }
   .deal-main-ss {
     background: #FFFFFF;
-    padding: 90px 0;
+    padding-bottom: 90px;
     .deal-main-wrap {
       display: flex;
       gap: 80px;
       .deal-main-content {
         width: calc(60% - 40px);
+        padding-top: 80px;
       }
       .deal-main-sidebar {
         width: calc(40% - 40px);
+        margin-top: -170px;
+        z-index: 2;
       }
     }
     .deal-title {

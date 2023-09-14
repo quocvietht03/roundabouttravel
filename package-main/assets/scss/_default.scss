@@ -22,7 +22,7 @@ body {
   h4{ font-size: 18px; }
   h5, h6{ font-weight: 600; }
 
-  @media( max-width: $screen-mb - 0.02 ) {
+  @media( max-width: 767.98px ) {
     h1 { font-size: 28px; }
     h2{ font-size: 22px; }
     h3{ font-size: 18px; }
@@ -123,6 +123,7 @@ body {
       background: #fff;
       margin: 16px 0;
       height: auto;
+      width: 100%;
       &.aligncenter {
           margin: 16px auto;
       }
@@ -131,9 +132,7 @@ body {
       margin: 16px auto;
   }
   figure {
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-      background: #fff;
+      border-radius: 20px;
       position: relative;
       margin: 24px 0;
       max-width: 100%;
@@ -141,6 +140,9 @@ body {
       display: flex;
       &.aligncenter {
         margin: 16px auto;
+      }
+      a{
+        margin:0 auto;
       }
       img {
         box-shadow: none;

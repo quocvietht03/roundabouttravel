@@ -16,7 +16,7 @@
 		<section class="sidebar-blog-ss">
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap">
-					<form class="posts-filter-form" action="/editorials/lounges/" method="get">
+					<form class="posts-filter-form" action="/reviews/lounges/" method="get">
 						<h2 class="posts-filter-title-cc">Artical Filters</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">

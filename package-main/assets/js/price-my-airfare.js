@@ -8,8 +8,10 @@
 
         if ( current_page == 4 ) {
 
-            let deal_name = getUrlParameter('deal_name') ? getUrlParameter('deal_name') : 'No';
-            $('#gform_wrapper_3 .gfield.deal-name').find('input').val(deal_name);
+            let deal_name    = $('.detail-wrapper-shortcode #deal-name').val();
+            let deal_url     = $('.detail-wrapper-shortcode #deal-url').val();
+            let deal_airline = $('.detail-wrapper-shortcode #deal-airline').val();
+            let deal_class   = $('.detail-wrapper-shortcode #deal-class').val();
             
             let first_name   = $('#gform_wrapper_3 .field-full-name .name_first').find('input').val();
             let last_name    = $('#gform_wrapper_3 .field-full-name .name_last').find('input').val();
@@ -24,6 +26,11 @@
 
             let trip_preference= $('#gform_wrapper_3 .trip-preference').find('textarea').text();
             let comment        = $('#gform_wrapper_3 .comments').find('textarea').text();
+
+            $('#gform_wrapper_3').find('.deal-name input').val(deal_name ? deal_name : 'No');
+            $('#gform_wrapper_3').find('.deal-url input').val(deal_url ? deal_url : 'No');
+            $('#gform_wrapper_3').find('.deal-airline input').val(deal_airline ? deal_airline : 'No');
+            $('#gform_wrapper_3').find('.deal-class input').val(deal_class ? deal_class : 'No');
             
             $('#gform_wrapper_3 .__wrapper-details').find('.confirm-text.name').html(first_name);
             $('#gform_wrapper_3 .__wrapper-details').find('.confirm-text.lastname').html(last_name);

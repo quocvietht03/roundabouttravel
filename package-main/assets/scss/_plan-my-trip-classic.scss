@@ -19,6 +19,7 @@
             border-radius: 20px;
             position: relative;
             min-height: 438px;
+            overflow: hidden;
             #buildtripheading{
                 text-align: center;
                 font-size: 32px;
@@ -466,9 +467,9 @@
                 top: 0;
                 left: 0;
                 width: 150px;
-                height: 456px;
+                height: 488px;
                 background: #d2e4f0;
-                border-radius: 20px 0 0 20px;
+                border-radius: 20px 0 0 0;
                 padding: 24px;
                 display: flex;
                 flex-direction: column;

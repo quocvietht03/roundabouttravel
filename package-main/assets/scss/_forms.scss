@@ -13,6 +13,15 @@ body .select2-results__option{
 }
 
 .gform_confirmation_wrapper{
+    &#gform_confirmation_wrapper_3{
+        padding: 32px;
+        background: #fff;
+        border-radius: 16px;
+        .gform_confirmation_message{
+            font-weight: 600;
+            font-size: 22px;
+        }
+    }
     .gform_confirmation_message{
         text-align: center;
         color: #000;
@@ -66,6 +75,7 @@ body .select2-results__option{
 
         .gform_body {
             .gform_fields{
+                grid-row-gap: 24px;
                 .gfield {
                     position: relative;
                     
@@ -206,10 +216,17 @@ body .select2-results__option{
                         &:hover{
                             background-color: #00448A;
                         }
+                        &:focus{
+                            font-size: 14px;
+                        }
                     }
                     &.gform_previous_button{
                         margin-bottom: 0;
                         border: none;
+                        outline: none;
+                        &:focus{
+                            font-size: 16px;
+                        }
                     }
                 }
                 img{display: none;}
@@ -521,3 +538,119 @@ body .select2-results__option{
 
 }
 
+.elementor-shortcode .detail-wrapper-shortcode{
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    .detail-wrap{
+        display: flex;
+    
+        .featured-image{
+            width: 50%;
+            img{
+                max-height: inherit !important;
+                display: block;
+                height: 100% !important;
+                object-fit: cover;
+            }
+        }
+        .info{
+            width: 50%;
+            padding: 24px;
+            display: flex;
+            .left, .right{
+                width: 50%;
+            }
+            .right{
+                padding-left: 18px;
+            }
+            .box{
+                &:not(:last-child){
+                    margin-bottom: 12px;
+                }
+                h4{
+                    margin-bottom: 4px;
+                    font-family: "Outfit", sans-serif;
+                    font-size: 18px;
+                    line-height: 110%;
+                    color: #00448A;
+                    font-weight: 700;
+                }
+                span{
+                    color: #222222;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+            .deal-price{
+                margin-bottom: 0;
+                font-family: "Outfit", sans-serif;
+                font-size: 18px;
+                line-height: 110%;
+                color: #00448A;
+                font-weight: 700;
+                span{
+                    display: block;
+                    font-size: 36px;
+                    line-height: 120%;
+                }
+                .tax{
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991.98px){
+        .detail-wrap{
+            .featured-image{
+                width: 40%;
+            }
+            .info{
+                width: 60%;
+            }
+        }
+    }
+
+    @media (max-width: 767.98px){
+        .detail-wrap{
+            flex-direction: column;
+            .featured-image{
+                width: 100%;
+            }
+            .info{
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 599.98px){
+        .detail-wrap .info{
+            flex-direction: column;
+            padding: 16px;
+            .left, .right{
+                width: 100%;
+            }
+            .right{
+                padding-left: 0;
+                margin-top: 12px;
+            }
+            .deal-price span{
+                display: inline-block;
+                font-size: 28px;
+            }
+            .box {
+                display: flex;
+                h4{
+                    width: 125px;
+                    font-size: 16px;
+                }
+                span{
+                    width: calc(100% - 125px);
+                }
+            }
+        }
+    }
+
+}

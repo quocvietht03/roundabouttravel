@@ -107,12 +107,14 @@
       }
     }
     .be-airline-logo {
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      border: 1px solid #ddd;
-      display: inline-block;
-      max-width: 250px;
-      border-radius: 3px;
+      img{
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        display: inline-block;
+        max-width: 250px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+      }
     }
     .deal-title { 
       font-size: 36px;

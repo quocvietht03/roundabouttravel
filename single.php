@@ -109,7 +109,6 @@ while ( have_posts() ) :
     </div>
 	</div>
 
-	<?php comments_template(); ?>
 
 </main>
 

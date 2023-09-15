@@ -21,6 +21,9 @@
   var swiper_deal = new Swiper('.deal-slider-ss .swiper_deal', {
     slidesPerView: 1,
     spaceBetween: 0,
+    autoplay: {
+      delay: 3000,
+    },
     loop: true,
     breakpoints: {
       768: {

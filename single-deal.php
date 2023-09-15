@@ -85,7 +85,9 @@ function rbt_setBookingInfo() {
                     endif;
                 ?>
             </div>
-            <h3 class="deal-title"><?php the_title(); ?></h3>
+            <?php if ( get_field( 'be_promotion' ) ) : ?>
+                <div class="be_promotion"><?php the_field( 'be_promotion' ); ?></div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -93,6 +95,13 @@ function rbt_setBookingInfo() {
         <div class="container">
             <div class="deal-main-wrap">
                 <div class="deal-main-content">
+                    <div class="be-airline-logo">
+                        <?php 
+                            $be_airline_logo     = get_field( 'be_airline_logo' );
+                        ?>
+                        <?php if ( !empty( $be_airline_logo ) ) { ?><img src="<?php echo $be_airline_logo; ?>" /><?php } ?>
+                    </div>
+                    <h3 class="deal-title"><?php the_title(); ?></h3>
                     <?php if ( get_field( 'subtitle' ) ) : ?>
                     <div class="deal-subtitle"><?php the_field( 'subtitle' ); ?></div>
                     <?php endif; ?>
@@ -107,49 +116,49 @@ function rbt_setBookingInfo() {
                         <div class="deal-note-list">
                             <?php if ( !empty( $seasons ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Seasons:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/season.svg' />Seasons:</span>
                                 <span class="value"><?php echo $seasons; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $departure ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Departure ports:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/departure-port.svg' />Departure ports:</span>
                                 <span class="value"><?php echo $departure; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $book_by ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Book by:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/book-by.svg' />Book by:</span>
                                 <span class="value"><?php echo $book_by; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $deposit ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Deposit to book:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/deposit.svg' />Deposit to book:</span>
                                 <span class="value"><?php echo $deposit; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $pay_by ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Full payment by:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/full-payment.svg' />Full payment by:</span>
                                 <span class="value"><?php echo $pay_by; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $change_fee ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Change fee:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/Change-fee.svg' />Change fee:</span>
                                 <span class="value"><?php echo $change_fee; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $lead_in_price ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Lead in price:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/lead-in.svg' />Lead in price:</span>
                                 <span class="value"><?php echo $lead_in_price; ?></span>
                             </div>
                             <?php endif; ?>
                             <?php if ( !empty( $baggage ) ) : ?>
                             <div class="deal-note-item">
-                                <span class="label">Baggage:</span>
+                                <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/baggage.svg' />Baggage:</span>
                                 <span class="value"><?php echo $baggage; ?></span>
                             </div>
                             <?php endif; ?>
@@ -191,19 +200,19 @@ function rbt_setBookingInfo() {
                             <div class="deal-feature-list">
                                 <?php if ( !empty( $airline_titles ) ) : ?>
                                 <div class="deal-feature-item deal-airl">
-                                    <span class="label">Airline:</span>
+                                    <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/airline.svg' />Airline:</span>
                                     <span class="value"><?php echo implode( ', ', $airline_titles ); ?></span>
                                 </div>
                                 <?php endif; ?>
                                 <?php if ( !empty( $destination_titles ) ) : ?>
                                 <div class="deal-feature-item  deal-dest">
-                                    <span class="label">Destination:</span>
+                                    <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/destination.svg' />Destination:</span>
                                     <span class="value"><?php echo implode( ', ', $destination_titles ); ?></span>
                                 </div>
                                 <?php endif; ?>
                                 <?php if ( !empty( $class_titles ) ) : ?>
                                 <div class="deal-feature-item deal-class">
-                                    <span class="label">Class:</span>
+                                    <span class="label"><img src='<?php echo get_template_directory_uri(); ?>/package-main/assets/images/class.svg' />Class:</span>
                                     <span class="value"><?php echo implode( ', ', $class_titles ); ?></span>
                                 </div>
                                 <?php endif; ?>

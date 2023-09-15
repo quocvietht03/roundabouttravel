@@ -17,7 +17,7 @@
       position: relative;
       height: 100%;
 
-      h3.deal-title {
+      .be_promotion {
         width: calc(60% - 40px);
         position: absolute;
         bottom: 50px;
@@ -25,7 +25,8 @@
         z-index: 2;
         font-size: 35px;
         text-transform: uppercase;
-    }
+        font-weight: 600;
+      }
     }
     .deal-tags {
       position: absolute;
@@ -33,13 +34,14 @@
       left: 15px;
       z-index: 2;
       a{
-        display: inline-block;
+        display: block;
         padding:5px 10px;
         border-radius: 3px;
-        margin-right: 10px;
+        margin-bottom: 10px;
         color: #fff;
         font-size: 14px;
         font-weight: 600;
+        text-align: center;
         &.featured{
           background-color: #516095;
         }
@@ -52,12 +54,12 @@
       }
     }
     .deal-icon-box-item {
-      top: 15px;
+      top: 0px;
       position: absolute;
       right: 15px;
       text-align: center;
       background: #9064bf;
-      border-radius: 3px;
+      border-radius: 20px 0 20px 0;;
       display: flex;
       align-items: center;
       padding: 5px 10px;
@@ -65,16 +67,16 @@
       img{
         fill: #fff;
         display: inline-block;
-        width: 38px;
-        height: 38px;
+        width: 45px;
+        height: 45px;
         position: relative;
         margin-right: 5px;
       }
       span{
         color: #fff;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
-        line-height: 16px;
+        line-height: 18px;
       }
     }
     &::before{
@@ -89,7 +91,7 @@
     }
   }
   .deal-main-ss {
-    background: #FFFFFF;
+    background: #F0F5F9;
     padding-bottom: 90px;
     .deal-main-wrap {
       display: flex;
@@ -103,6 +105,14 @@
         margin-top: -170px;
         z-index: 2;
       }
+    }
+    .be-airline-logo {
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      display: inline-block;
+      max-width: 250px;
+      border-radius: 3px;
     }
     .deal-title { 
       font-size: 36px;
@@ -152,7 +162,14 @@
         }
         .label {
           font-weight: 700;
-          width: 140px;
+          width: 180px;
+          display: flex;
+          align-items: center;
+          img{
+            width: 18px;
+            margin-right:8px;
+            margin-bottom: 4px;
+          }
         }
         .value {
           width: calc(100% - 140px);
@@ -160,7 +177,7 @@
         }
       }
       .deal-note-list{
-        background: #f4f9fd;
+        background: #fff;
         padding: 40px 50px;
         border-bottom: 3px solid #00ADEE;
       }
@@ -176,7 +193,7 @@
       top: 140px;
     }
     .deal-enquiry-form-wrap {
-      background: #f1f5f9;
+      background: #fff;
       padding: 40px;
       border-radius: 5px;
       .deal-feature-list {
@@ -199,8 +216,14 @@
             }
           }
           .label {
-            width: 120px;
+            width: 150px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            img{
+              width: 18px;
+              margin-right:8px;
+            }
           }
           .value {
             width: calc(100% - 120px);
@@ -286,6 +309,12 @@
         .deal-main-sidebar {
           width: 100%;
         }
+        .deal-main-sidebar {
+          margin-top: 40px;
+        }
+        .deal-main-content {
+          padding-top:0;
+        }
       }
     }
     @media(max-width: $screen-mb) {
@@ -297,6 +326,17 @@
     @media(max-width: $screen-mb-small) {
       .deal-enquiry-form-wrap {
         padding: 30px 20px;
+      }
+      .deal-note .deal-note-list {
+        padding: 20px 20px;
+        .deal-note-item{
+          display: block;
+          margin-bottom: 20px;
+          .value{
+            width: 100%;
+            margin-left: 0;
+          }
+        }
       }
     }
   }

@@ -59,10 +59,10 @@ while ( have_posts() ) :
         );
         ?>
         <div class="be-recent-deal">
-          <h3>Deals</h3>
-          <?php
+            <?php
             $featured_posts = get_field('select_specific_deal');
             if( $featured_posts ): ?>
+                <h3>Deals</h3>
                 <ul>
                 <?php foreach( $featured_posts as $post ): 
                     $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
@@ -91,7 +91,6 @@ while ( have_posts() ) :
             <?php endif; ?>
         </div>
       </div>
-      <div class="be-sidebar">
         <?php 
         $categories = get_the_category();
         $separator = ' ';
@@ -105,7 +104,6 @@ while ( have_posts() ) :
         <div class="be-sidebar-inner <?php echo $output; ?>">
           <?php dynamic_sidebar( 'sidebar-blog' ); ?>
         </div>
-      </div>
     </div>
 	</div>
 

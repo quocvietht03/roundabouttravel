@@ -124,7 +124,7 @@
         }
       }
       .be-sidebar{
-        width: 30%;
+        
       }
       h1.be-entry-title {
         position: relative;
@@ -138,6 +138,7 @@
       .be-sidebar-inner{
         margin-left: 30px;
         position: relative;
+        width: 30%;
         section.widget{
           margin-bottom: 25px;
           background: #fff;
@@ -232,6 +233,10 @@
             }
           }
         }
+        .widget_newsletterwidget{
+          position: sticky;
+          top:160px;
+        }
         .tnp.tnp-subscription{
           margin-bottom: 0;
           margin-left: 0;
@@ -269,6 +274,7 @@
       position: relative;
       margin-top: 40px;
       top: 0;
+      width:100%;
     }
     .be-page-content {
       padding: 40px 0;

@@ -59,9 +59,58 @@ while ( have_posts() ) :
         );
         ?>
         <div class="be-recent-deal">
-            <?php
-            $featured_posts = get_field('select_specific_deal');
-            if( $featured_posts ): ?>
+        <?php
+        $featured_posts = get_field('select_specific_deal');
+        $kategorie = get_field('be_specific_airline_category');
+        if($kategorie){
+        $the_query = new WP_Query( array(
+          'post_type'			=> 'deal',
+          'posts_per_page'	=> -1,
+          'post_status' 		=> 'publish',
+          'orderby' 			=> 'date',
+          'order'				=> 'ASC',
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'deal_airline',
+              'field' => 'slug',
+              'terms' => $kategorie
+            )
+          )
+        ));
+        // The Loop.
+          if ( $the_query->have_posts() ) {
+            echo '<h3>Deals</h3>';
+            echo '<ul>';
+            while ( $the_query->have_posts() ) {
+              $the_query->the_post(); 
+              $deal_featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+              $price        = get_post_meta( get_the_ID(), 'deal_price', true );
+              $price_tax    = get_field( 'deal_price_tax' );
+              ?>
+                    <li class="deal-item">
+                      <div class="thumb">
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $deal_featured_img_url; ?>" /></a>
+                      </div>
+                      <div class="content-d">
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                        <?php if ( !empty($price) ) : ?>
+                            <div class="deal-feature-item deal-price">
+                              From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc taxes<?php endif; ?></span>
+                            </div>
+                          <?php endif; ?>
+                      </div>
+                    </li>
+              <?php
+            }
+            echo '</ul>';
+          } else {
+            esc_html_e( 'Sorry, no posts matched your criteria.' );
+          }
+          // Restore original Post Data.
+          wp_reset_postdata();
+        }else if($featured_posts){ 
+        ?>
+            
                 <h3>Deals</h3>
                 <ul>
                 <?php foreach( $featured_posts as $post ): 
@@ -88,7 +137,7 @@ while ( have_posts() ) :
                 <?php 
                 // Reset the global post object so that the rest of the page works correctly.
                 wp_reset_postdata(); ?>
-            <?php endif; ?>
+          <?php } ?>
         </div>
       </div>
         <?php 

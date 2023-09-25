@@ -16,11 +16,18 @@
     .container.be-hot-tag{
       position: relative;
       height: 100%;
-
-      .be_promotion {
+      display: flex;
+      align-items: flex-end;
+      .flex-box{
         width: calc(60% - 40px);
-        position: absolute;
-        bottom: 50px;
+        position: relative;
+        z-index: 2;
+        padding: 50px 0;
+      }
+      .be_promotion {
+        // width: calc(60% - 40px);
+        // position: absolute;
+        // bottom: 50px;
         color: #fff;
         z-index: 2;
         font-size: 35px;
@@ -29,15 +36,17 @@
       }
     }
     .deal-tags {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      z-index: 2;
+      // position: absolute;
+      // top: 15px;
+      // left: 15px;
+      // z-index: 2;
+      margin-bottom: 16px;
       a{
-        display: block;
+        display: inline-block;
         padding:5px 10px;
         border-radius: 3px;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
+        margin-right: 10px;
         color: #fff;
         font-size: 14px;
         font-weight: 600;
@@ -51,19 +60,21 @@
         &.ending-soon{
           background-color: #78c1b9;
         }
+        &:last-child{margin-right: 0;}
       }
     }
     .deal-icon-box-item {
-      top: 0px;
-      position: absolute;
-      right: 15px;
+      // top: 0px;
+      // position: absolute;
+      // right: 15px;
       text-align: center;
       background: #9064bf;
-      border-radius: 20px 0 20px 0;;
-      display: flex;
+      // border-radius: 20px 0 20px 0;
+      display: inline-flex;
       align-items: center;
       padding: 5px 10px;
       z-index: 2;
+      margin-bottom: 16px;
       img{
         fill: #fff;
         display: inline-block;
@@ -88,6 +99,16 @@
       left: 0;
       top:0;
       z-index: 1;
+    }
+    @media (max-width: $screen-sm-tablet){
+      .container.be-hot-tag {
+        .flex-box{
+          width: 100%;
+        }
+        .be_promotion{
+          font-size: 24px;
+        }
+      }
     }
   }
   .deal-main-ss {

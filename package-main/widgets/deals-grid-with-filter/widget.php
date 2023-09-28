@@ -191,7 +191,7 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 														$icon_background_color = get_field( 'icon_background_color' );
 														?>
 														<?php if ( !empty( $icon_box_item ) or !empty( $text_box_item )) { ?>
-														<div class="deal-icon-box-item" style="background: <?php echo $icon_background_color; ?>"><img src="<?php echo $icon_box_item; ?>" /><span><?php echo $text_box_item; ?></span></div>
+														<div class="deal-icon-box-item" style="background: <?php echo $icon_background_color; ?>"><?php if ( !empty( $icon_box_item )) { ?><img src="<?php echo $icon_box_item; ?>" /><?php } ?><span><?php echo $text_box_item; ?></span></div>
 														<?php } ?>
 												</div>
 												<div class="deal-tags">

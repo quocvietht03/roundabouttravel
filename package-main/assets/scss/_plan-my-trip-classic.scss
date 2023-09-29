@@ -520,6 +520,45 @@
                         }
                     }
                 }
+                .previewform{
+                    .question-box{
+                        .clm2{
+                            input{
+                                color: #00448A;
+                                padding: 10px 25px 10px;
+                                font-weight: 600;
+                                font-size: 18px;
+                                line-height: 30px;
+                                border-radius: 25px;
+                                border: 2px solid #333;
+                                margin-bottom: 20px;
+                                &::-ms-input-placeholder { /* Edge 12-18 */
+                                    color: #00448A;
+                                  }
+                                  
+                                &::placeholder {
+                                    color: #00448A;
+                                }
+                            }
+                        }
+                        textarea#comments{
+                            color: #00448A;
+                            padding: 10px 25px 10px;
+                            font-weight: 600;
+                            font-size: 18px;
+                            border-radius: 25px;
+                            border: 2px solid #333;
+                            margin-bottom: 20px;
+                            &::-ms-input-placeholder { /* Edge 12-18 */
+                                color: #00448A;
+                              }
+                              
+                            &::placeholder {
+                                color: #00448A;
+                            }
+                        }
+                    }
+                }
             }
             .steps{
                 padding: 0;

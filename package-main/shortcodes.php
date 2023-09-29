@@ -26,7 +26,7 @@ function sc_plan_trip_classic()
             <!-- Below are the hidden pre-rendered tabs for the trip builder, which we use to copy markup for the tabs -->
             <div class="directionform" style="display:none;">
                 <p class="question">Which direction do you wish to leave Australia?</p>
-                <p class="globe"><img src="/wp-content/themes/rat/img/globe.png" alt=""></p>
+                <p class="globe"><img src="/wp-content/themes/roundabouttravel/assets/images/globe.png" alt=""></p>
                 <div class="direction">
                     <button><a id="west" href="#"><i class="fa fa-long-arrow-left"></i>West</a></button>
                     <button><a id="east" href="#">East<i class="fa fa-long-arrow-right"></i></a></button>

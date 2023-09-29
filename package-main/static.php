@@ -18,7 +18,7 @@
         wp_enqueue_script( 'gravityform-js', PJ_URI . 'assets/js/gravityform.js', ['jquery'], PJ_VERSION, true );
 
         wp_enqueue_script( 'price-my-airfare-js', PJ_URI . 'assets/js/price-my-airfare.js', ['jquery'], PJ_VERSION, true );
-        // wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
+        wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
 
         // jQuery Form - Plan My Trip Classic
         wp_enqueue_script( 'vaccrue-jquery-form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js', array( 'jquery' ), '3.50' );
@@ -33,7 +33,7 @@
         wp_enqueue_style( 'jquery-ui-smoothness', '//www.roundabouttravel.com.au/wp-content/themes/rat/modules/plan-my-trip/css/smoothness/jquery-ui-1.10.4.custom.min.css' );
         wp_enqueue_script( 'jquery-ui-custom', '//www.roundabouttravel.com.au/wp-content/themes/rat/modules/plan-my-trip/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ) );
         wp_enqueue_script( 'jquery-form-rat', '//www.roundabouttravel.com.au/wp-content/themes/rat/modules/plan-my-trip/js/jquery.form.js', array( 'jquery' ) );
-        wp_enqueue_script( 'bookmytrip', '//www.roundabouttravel.com.au/wp-content/themes/rat/modules/plan-my-trip/js/bookmytrip.js', array( 'jquery' ) );
+        // wp_enqueue_script( 'bookmytrip', '//www.roundabouttravel.com.au/wp-content/themes/rat/modules/plan-my-trip/js/bookmytrip.js', array( 'jquery' ) );
         // jQuery Form - Plan My Trip Classic
         
         // wp_localize_script( 'main-js', 'PJ_Global', apply_filters( 'pj/wp_localize_script/PJ_Global', [

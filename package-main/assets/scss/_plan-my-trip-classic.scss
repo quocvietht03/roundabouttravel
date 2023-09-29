@@ -34,6 +34,12 @@
                     color: #555555;
                     margin-bottom: 32px;
                 }
+                .continentNumberform{
+                    select.continentNumber {
+                        max-width: 300px;
+                        margin: 0 auto;
+                    }
+                }
                 .narrow, .clm2, .number{
                     select{
                         color: #00448A;
@@ -522,9 +528,21 @@
                 }
                 .previewform{
                     .question-box{
+                        dl.result{
+                            dd {
+                                background: #ddd;
+                                padding: 5px 10px;
+                                margin: 0;
+                                border-radius: 3px;
+                                margin-bottom: 10px;
+                            }
+                            dt {
+                                margin-bottom: 5px;
+                            }
+                        }
                         .clm2{
                             input{
-                                color: #00448A;
+                                color: #00448A !important;
                                 padding: 10px 25px 10px;
                                 font-weight: 600;
                                 font-size: 18px;
@@ -538,6 +556,26 @@
                                   
                                 &::placeholder {
                                     color: #00448A;
+                                }
+                            }
+                            .box{
+                                display: flex;
+                                input#firstname,input#phone {
+                                    margin-right: 10px;
+                                }
+                                input#lastname,input#accountemail{
+                                    margin-left: 10px;
+                                }
+                            }
+                            @media(max-width: $screen-tablet) {
+                                .box{
+                                    display: block;
+                                    input#firstname,input#phone {
+                                        margin-right: 0px;
+                                    }
+                                    input#lastname,input#accountemail{
+                                        margin-left: 0px;
+                                    }
                                 }
                             }
                         }

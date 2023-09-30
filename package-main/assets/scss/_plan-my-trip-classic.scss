@@ -446,8 +446,7 @@
                             margin-bottom: 16px;
                         }
                         .date{
-                            display: flex;
-                            align-items: center;
+                            position: relative;
                             input{
                                 margin-right: 8px;
                                 line-height: 30px;
@@ -458,6 +457,9 @@
                                 content:url(../images/icon-calendar.png);
                                 width: 24px;
                                 height: 24px;
+                                position: absolute;
+                                right: 15px;
+                                top:13px;
                             }
                         }
                         .asiatransit{
@@ -523,6 +525,9 @@
                                     }
                                 }
                             }
+                        }
+                        .be-col{
+                            display: flex;
                         }
                     }
                 }

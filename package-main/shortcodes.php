@@ -214,7 +214,7 @@ function sc_plan_trip_classic()
                     </dl>
                 </div>
                 <div class="question-box">
-                    <div class="clm2">
+                    <div class="clm2 be-col">
                         <div class="box">
                             <section class="number">
                                 How many adults?

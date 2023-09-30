@@ -482,11 +482,11 @@
                                         content: '';
                                         position: absolute;
                                         left: 0;
-                                        top: -1px;
+                                        top: 0px;
                                         width: 18px;
                                         height: 18px;
-                                        border: 1px solid #d2e4f0;
-                                        background: #d2e4f0;
+                                        border: 1px solid #ddd;
+                                        background: #00448A;
                                     }
                                     &:after{
                                         content: "";
@@ -495,7 +495,7 @@
                                         top: 5px;
                                         width: 5px;
                                         height: 10px;
-                                        border: solid #333;
+                                        border: solid #00448A;
                                         border-width: 0 2px 2px 0;
                                         transform: rotate(45deg);
                                         opacity: 0;
@@ -506,20 +506,20 @@
                                         content: '';
                                         position: absolute;
                                         left: 0;
-                                        top: 2px;
+                                        top: 6px;
                                         width: 18px;
                                         height: 18px;
-                                        border: 1px solid #d2e4f0;
-                                        background: #d2e4f0;
+                                        border: 1px solid #ddd;
+                                        background: #00448A;
                                     }
                                     &:after{
                                         content: "";
                                         position: absolute;
                                         left: 7px;
-                                        top: 5px;
+                                        top: 9px;
                                         width: 5px;
                                         height: 10px;
-                                        border: solid #333;
+                                        border: solid #00448A;
                                         border-width: 0 2px 2px 0;
                                         transform: rotate(45deg);
                                         opacity: 1;
@@ -556,10 +556,12 @@
                                 margin-bottom: 20px;
                                 &::-ms-input-placeholder { /* Edge 12-18 */
                                     color: #00448A;
+                                    font-weight: 400;
                                   }
                                   
                                 &::placeholder {
                                     color: #00448A;
+                                    font-weight: 400;
                                 }
                             }
                             .box{
@@ -593,10 +595,12 @@
                             margin-bottom: 20px;
                             &::-ms-input-placeholder { /* Edge 12-18 */
                                 color: #00448A;
+                                font-weight: 400;
                               }
                               
                             &::placeholder {
                                 color: #00448A;
+                                font-weight: 400;
                             }
                         }
                         .be-col{

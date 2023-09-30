@@ -599,6 +599,25 @@
                         }
                         .be-col{
                             display: flex;
+                            .box{
+                                width: 50%;
+                                &:first-child{
+                                    margin-right:10px;
+                                }
+                                &:last-child{
+                                    margin-left: 10px;
+                                }
+                            }
+                            @media(max-width: $screen-tablet) {
+                                .box{
+                                    &:first-child{
+                                        margin-right:0px;
+                                    }
+                                    &:last-child{
+                                        margin-left: 0px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

@@ -247,7 +247,7 @@ function sc_plan_trip_classic()
                     </div>
                 </div>
                 <div class="question-box">
-                    <p>Your details:</p>
+                    <p class="be-b">Your details:</p>
                     <div class="clm2 be-f">
                         <div class="box">
                             <input type="text" id="firstname" placeholder="First Name">

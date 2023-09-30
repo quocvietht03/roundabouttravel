@@ -47,12 +47,12 @@
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 30px;
-                        background-image: url(../images/down-arrow.svg);
+                        background-image: url(../images/arrow-down-sign-to-navigate.png);
                         background-repeat: no-repeat;
                         background-position: right 15px top 17px;
                         appearance: none;
                         border-radius: 25px;
-                        border: 2px solid #333;
+                        border: 2px solid #00448A;
                     }
                 }
                 .globe{
@@ -284,11 +284,11 @@
                                                 content: '';
                                                 position: absolute;
                                                 left: 0;
-                                                top: -1px;
+                                                top: 0px;
                                                 width: 18px;
                                                 height: 18px;
-                                                border: 1px solid #d2e4f0;
-                                                background: #d2e4f0;
+                                                border: 1px solid #ddd;
+                                                background: #fff;
                                             }
                                             &:after{
                                                 content: "";
@@ -297,7 +297,7 @@
                                                 top: 5px;
                                                 width: 5px;
                                                 height: 10px;
-                                                border: solid #333;
+                                                border: solid #00448A;
                                                 border-width: 0 2px 2px 0;
                                                 transform: rotate(45deg);
                                                 opacity: 0;
@@ -308,11 +308,11 @@
                                                 content: '';
                                                 position: absolute;
                                                 left: 0;
-                                                top: 2px;
+                                                top: 0px;
                                                 width: 18px;
                                                 height: 18px;
-                                                border: 1px solid #d2e4f0;
-                                                background: #d2e4f0;
+                                                border: 1px solid #ddd;
+                                                background: #fff;
                                             }
                                             &:after{
                                                 content: "";
@@ -321,7 +321,7 @@
                                                 top: 5px;
                                                 width: 5px;
                                                 height: 10px;
-                                                border: solid #333;
+                                                border: solid #00448A;
                                                 border-width: 0 2px 2px 0;
                                                 transform: rotate(45deg);
                                                 opacity: 1;
@@ -367,11 +367,11 @@
                                                     content: '';
                                                     position: absolute;
                                                     left: 0;
-                                                    top: -1px;
+                                                    top: 0px;
                                                     width: 18px;
                                                     height: 18px;
-                                                    border: 1px solid #d2e4f0;
-                                                    background: #d2e4f0;
+                                                    border: 1px solid #ddd;
+                                                    background: #fff;
                                                 }
                                                 &:after{
                                                     content: "";
@@ -391,11 +391,11 @@
                                                     content: '';
                                                     position: absolute;
                                                     left: 0;
-                                                    top: 2px;
+                                                    top: 0px;
                                                     width: 18px;
                                                     height: 18px;
-                                                    border: 1px solid #d2e4f0;
-                                                    background: #d2e4f0;
+                                                    border: 1px solid #ddd;
+                                                    background: #fff;
                                                 }
                                                 &:after{
                                                     content: "";
@@ -450,7 +450,7 @@
                             input{
                                 margin-right: 8px;
                                 line-height: 30px;
-                                border: 2px solid #333;
+                                border: 2px solid #00448A;
                                 border-radius: 25px;
                             }
                             .ui-datepicker-trigger{
@@ -540,6 +540,7 @@
                             }
                             dt {
                                 margin-bottom: 5px;
+                                color: #00448A;
                             }
                         }
                         .clm2.be-f{
@@ -599,8 +600,10 @@
                         }
                         .be-col{
                             display: flex;
+                            margin-bottom: 20px;
                             .box{
                                 width: 50%;
+                                color: #00448A;
                                 &:first-child{
                                     margin-right:10px;
                                 }
@@ -608,6 +611,9 @@
                                     margin-left: 10px;
                                 }
                             }
+                        }
+                        p.be-b{
+                            color: #00448A;
                         }
                         @media(max-width: $screen-tablet) {
                             .be-col{

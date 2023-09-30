@@ -608,8 +608,12 @@
                                     margin-left: 10px;
                                 }
                             }
-                            @media(max-width: $screen-tablet) {
+                        }
+                        @media(max-width: $screen-tablet) {
+                            .be-col{
+                                display: block;
                                 .box{
+                                    width: 100%;
                                     &:first-child{
                                         margin-right:0px;
                                     }

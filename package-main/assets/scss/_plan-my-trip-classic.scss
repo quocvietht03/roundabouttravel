@@ -526,9 +526,6 @@
                                 }
                             }
                         }
-                        .be-col{
-                            display: flex;
-                        }
                     }
                 }
                 .previewform{
@@ -545,7 +542,7 @@
                                 margin-bottom: 5px;
                             }
                         }
-                        .clm2{
+                        .clm2.be-f{
                             input{
                                 color: #00448A !important;
                                 padding: 10px 25px 10px;
@@ -599,6 +596,9 @@
                             &::placeholder {
                                 color: #00448A;
                             }
+                        }
+                        .be-col{
+                            display: flex;
                         }
                     }
                 }

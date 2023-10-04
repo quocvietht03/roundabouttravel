@@ -116,6 +116,8 @@
                         transition: 0.5s ease-in-out;
                         padding: 0 30px;
                         max-width: 200px;
+                        margin-top:0;
+                        text-align: center;
                         span{
                             font-size: 18px;
                             font-weight: 600;
@@ -125,13 +127,13 @@
                             transform: translateY(-50%);
                             z-index: 1;
                             transition: .3s ease all;
+                            width: 100%;
+                            left: 0;
                         }
                         input{
                             -webkit-appearance: none;
                             width: 100%;
                             height: 100%;
-                            border-radius: 30px;
-                            border: solid 2px #00448A;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -158,7 +160,7 @@
                                     opacity: 1;
                                 }
                                 & ~ span {
-                                    transform: translateY(-50%) translateX(24px);
+                                    transform: translateY(-50%) translateX(10px);
                                 }
                             }
                         }
@@ -722,6 +724,63 @@
                 margin: 0 10px;
                 width: 200px;
                 text-align:initial;
+                border: solid 2px #00448A;
+                border-radius: 5px;
+                padding-top: 20px;
+                &.north_america::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/north-america.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
+                &.south_america::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/south-america.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
+                &.europe::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/euro.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
+                &.africa::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/africa.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
+                &.asia::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/asia.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
+                &.south_pacific::before{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    background: url(../images/south-pacific.png) center center no-repeat;
+                    display: block;
+                    margin: 0 auto;
+                    background-size: cover;
+                }
             }
             .prev-next{
                 margin-top: 16px;

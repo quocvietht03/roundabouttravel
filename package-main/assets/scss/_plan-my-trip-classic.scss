@@ -14,12 +14,15 @@
         #main{
             background-color: #fff;
             padding: 48px 168px 80px 168px;
-            max-width: 1100px;
+            max-width: 100%;
             margin: 0 auto;
             border-radius: 20px;
             position: relative;
-            min-height: 438px;
+            min-height: calc(100vh - 200px);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             #buildtripheading{
                 text-align: center;
                 font-size: 32px;
@@ -54,6 +57,8 @@
                         appearance: none;
                         border-radius: 25px;
                         border: 2px solid #00448A;
+                        max-width: 200px;
+                        margin: 0 auto;
                     }
                 }
                 .globe{
@@ -101,6 +106,7 @@
                     }
                 }
                 .continentSelectform{
+                    text-align: center;
                     section{
                         margin: 12px auto;
                         position: relative;
@@ -445,22 +451,29 @@
                             font-size: 17px;
                             color: #00448A;
                             margin-bottom: 16px;
+                            h4{
+                                display: inline-block;
+                                margin-bottom:0;
+                                font-size: 17px;
+                            }
                         }
                         .date{
                             position: relative;
+                            max-width: 200px;
+                            margin: 0 auto;
                             input{
                                 margin-right: 8px;
                                 line-height: 30px;
                                 border: 2px solid #00448A;
                                 border-radius: 25px;
                             }
-                            .ui-datepicker-trigger{
+                            &::after{
                                 content:url(../images/icon-calendar.png);
                                 width: 24px;
                                 height: 24px;
                                 position: absolute;
                                 right: 15px;
-                                top:13px;
+                                top:15px;
                             }
                         }
                         .asiatransit{
@@ -644,7 +657,7 @@
                 top: 0;
                 left: 0;
                 width: 150px;
-                height: 488px;
+                height: 100%;
                 background: #d2e4f0;
                 border-radius: 20px 0 0 0;
                 padding: 24px;
@@ -679,15 +692,19 @@
                 width: 155px !important;
                 background: #d2e4f0;
                 padding: 16px 12px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 h3{
-                    font-size: 16px;
+                    font-size: 18px;
                 }
                 ul{
                     padding: 0;
                     list-style-position: inside;
                     list-style: none;
                     li{
-                        font-size: 14px;
+                        font-size: 16px;
                         position: relative;
                         padding-left: 8px;
                         &:before{
@@ -700,9 +717,15 @@
                     }
                 }
             }
-
+            .be-continent{
+                display: inline-block;
+                margin: 0 10px;
+                width: 200px;
+                text-align:initial;
+            }
             .prev-next{
                 margin-top: 16px;
+                justify-content: space-between;
                 .btn {
                     margin-bottom: 0;
                     &.prev{
@@ -825,4 +848,13 @@
             }
         }
     }
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #00ADEE !important;
+}
+.ui-widget-header {
+    border: 1px solid #d2e4f0 !important;
+    background: #d2e4f0 !important;
+    color: #00448A !important;
+    font-weight: bold;
 }

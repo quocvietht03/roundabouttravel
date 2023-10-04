@@ -142,7 +142,7 @@ function sc_plan_trip_classic()
                         <select name="stayAmount">
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option selected="selected" value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
@@ -172,7 +172,7 @@ function sc_plan_trip_classic()
                             <option value="30">30</option>
                         </select>
                     </div>
-                    <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="days">
+                    <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="days" checked>
                         <label for="days">Days</label></span>
                     <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="weeks">
                         <label for="weeks">Weeks</label></span>

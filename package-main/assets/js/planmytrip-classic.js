@@ -792,7 +792,7 @@ function loadStepScreen(stepScreenToLoad){
                 dir = continentDecisions[i][0];
                 no = continentDecisions[i][1];
                 if(dir == state.direction.direction && no == state.continentNumber.continentNumber){
-                    html_to_append[continentDecisions[i][2]] = '<section><input type="radio" name="continentChoice" value="'+continentDecisions[i][2]+'" /><span>'+getContinentText(continentDecisions[i][2])+'</span></section>';
+                    html_to_append[continentDecisions[i][2]] = '<div class="be-continent"><section><input type="radio" name="continentChoice" value="'+continentDecisions[i][2]+'" /><span>'+getContinentText(continentDecisions[i][2])+'</span></section></div>';
                 }
             }
         } else if(stepScreenToLoad == 'continentDetailsSecond'){
@@ -800,7 +800,7 @@ function loadStepScreen(stepScreenToLoad){
                 dir = continentDecisions[i][0];
                 no = continentDecisions[i][1];
                 if(dir == state.direction.direction && no == state.continentNumber.continentNumber && state.continentFirst.continentFirst == continentDecisions[i][2]){
-                    html_to_append[continentDecisions[i][3]] = '<section><input type="radio" name="continentChoice" value="'+continentDecisions[i][3]+'" /><span>'+getContinentText(continentDecisions[i][3])+'</span></section>';
+                    html_to_append[continentDecisions[i][3]] = '<div class="be-continent"><section><input type="radio" name="continentChoice" value="'+continentDecisions[i][3]+'" /><span>'+getContinentText(continentDecisions[i][3])+'</span></section></div>';
                 }
             }
         } else if(stepScreenToLoad == 'continentDetailsThird'){
@@ -808,7 +808,7 @@ function loadStepScreen(stepScreenToLoad){
                 dir = continentDecisions[i][0];
                 no = continentDecisions[i][1];
                 if(dir == state.direction.direction && no == state.continentNumber.continentNumber && state.continentFirst.continentFirst == continentDecisions[i][2] && state.continentSecond.continentSecond == continentDecisions[i][3]){
-                    html_to_append[continentDecisions[i][4]] = '<section><input type="radio" name="continentChoice" value="'+continentDecisions[i][4]+'" /><span>'+getContinentText(continentDecisions[i][4])+'</span></section>';
+                    html_to_append[continentDecisions[i][4]] = '<div class="be-continent"><section><input type="radio" name="continentChoice" value="'+continentDecisions[i][4]+'" /><span>'+getContinentText(continentDecisions[i][4])+'</span></section></div>';
                 }
             }
         } else if(stepScreenToLoad == 'continentDetailsFourth'){
@@ -816,7 +816,7 @@ function loadStepScreen(stepScreenToLoad){
                 dir = continentDecisions[i][0];
                 no = continentDecisions[i][1];
                 if(dir == state.direction.direction && no == state.continentNumber.continentNumber && state.continentFirst.continentFirst == continentDecisions[i][2] && state.continentSecond.continentSecond == continentDecisions[i][3] && state.continentThird.continentThird == continentDecisions[i][4]){
-                    html_to_append[continentDecisions[i][5]] = '<section><input type="radio" name="continentChoice" value="'+continentDecisions[i][5]+'" /><span>'+getContinentText(continentDecisions[i][5])+'</span></section>';
+                    html_to_append[continentDecisions[i][5]] = '<div class="be-continent"><section><input type="radio" name="continentChoice" value="'+continentDecisions[i][5]+'" /><span>'+getContinentText(continentDecisions[i][5])+'</span></section></div>';
                 }
             }
         } else if(stepScreenToLoad == 'continentDetailsFifth'){
@@ -855,7 +855,7 @@ function loadStepScreen(stepScreenToLoad){
                 continentName = 'continentFourth';
             if(i == 4)
                 continentName = 'continentFifth';
-            $('#buildtripform').find('div.continent'+(i+1)+' > p.question').html('Where would you like to go in '+getContinentText(state[continentName][continentName])+', and how long would you like to stay?');
+            $('#buildtripform').find('div.continent'+(i+1)+' > p.question').html('Where would you like to go in <h4>'+getContinentText(state[continentName][continentName])+' Cities</h4>, and how long would you like to stay?');
             if(state[continentName][continentName] == 'asia'){
                 $('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > input[type="checkbox"]').prop('id',$('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > input[type="checkbox"]').prop('id')+(i+1)+'-1');
                 $('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > label').prop('for',$('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > label').prop('for')+(i+1)+'-1');
@@ -962,9 +962,6 @@ function loadStepScreen(stepScreenToLoad){
     updateState(stepScreenToLoad);
 
     $('#buildtripform').find('#datepicker').datepicker({
-        showOn: "button",
-        buttonImage: "/wp-content/themes/rat/img/calendar.png",
-        buttonImageOnly: true,
         dateFormat: 'dd/mm/yy'
     });
 

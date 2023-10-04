@@ -724,6 +724,7 @@
                 border: solid 2px #00448A;
                 border-radius: 5px;
                 padding-top: 20px;
+                position: relative;
                 &.north_america::before{
                     content: "";
                     width: 75px;

@@ -13,7 +13,7 @@
 
         #main{
             background-color: #fff;
-            padding: 160px 168px 80px 168px;
+            padding: 180px 40px 80px 40px;
             max-width: 100%;
             margin: 0 auto;
             border-radius: 20px;
@@ -46,7 +46,7 @@
                 .narrow, .clm2, .number{
                     select{
                         color: #00448A;
-                        padding: 10px 25px 10px;
+                        padding: 10px 40px 10px 25px;
                         font-weight: 600;
                         font-size: 18px;
                         line-height: 30px;
@@ -58,7 +58,6 @@
                         border-radius: 25px;
                         border: 2px solid #00448A;
                         max-width: 200px;
-                        margin: 0 auto;
                     }
                 }
                 .globe{
@@ -68,7 +67,6 @@
                 }
                 .direction{
                     position: relative;
-                    max-width: 550px;
                     width: 100%;
                     margin: 0 auto;
                     button{
@@ -172,13 +170,13 @@
                         display: inline-block;
                         margin-bottom: 32px;
                         &:nth-child(1){
-                            width: 48%;
+                            width: 100%;
                             .question{
-                                min-height: 36px;
+                                //min-height: 36px;
                             }
                         }
                         &:nth-child(2){
-                            width: 48%;
+                            width: 100%;
                             float: right;
                         }
                         &:nth-child(3){
@@ -190,8 +188,26 @@
                             .clm2{
                                 display: flex;
                                 gap: 30px;
+                                // .box{
+                                //     width: 48%;
+                                // }
                                 .box{
-                                    width: 48%;
+                                    .styled-select{
+                                        position: relative;
+                                        label{
+                                            top: -6.5px;
+                                            left: 25px;
+                                            font-size: 14px;
+                                            background: #fff;
+                                            font-weight: 600;
+                                            padding: 0 4px;
+                                            color: #00448a;
+                                            z-index: 2;
+                                            position: absolute;
+                                            margin: 0;
+                                            transition: 0.3s ease all;
+                                        }
+                                    }
                                 }
                             }
                             .number{
@@ -204,8 +220,12 @@
                                 margin-bottom: 16px;
                                 margin-top: 16px;
                                 .styled-select{
-                                    width: 120px;
+                                    width: 80px;
                                     margin-left: 16px;
+                                    select{
+                                        padding: 5px 30px 5px 15px;
+                                        background-position: right 15px top 14px;
+                                    }
                                 }
                                 .radio-button{
                                     margin-left: 20px;
@@ -275,6 +295,8 @@
                                 .checkbox{
                                     position: relative;
                                     top: 16px !important;
+                                    display: block;
+                                    width: 100%;
                                     label{
                                         padding-left: 24px;
                                     }
@@ -283,10 +305,34 @@
                                         position: absolute;
                                         width: 18px;
                                         height: 18px;
-                                        top: 4px;
+                                        top: 0px;
                                         &:not(:checked) + label{
                                             position: relative;
                                             cursor: pointer;
+                                            &:before{
+                                                content: '';
+                                                position: absolute;
+                                                left: 0;
+                                                top: -2px;
+                                                width: 18px;
+                                                height: 18px;
+                                                border: 1px solid #ddd;
+                                                background: #fff;
+                                            }
+                                            &:after{
+                                                content: "";
+                                                position: absolute;
+                                                left: 7px;
+                                                top: 3px;
+                                                width: 5px;
+                                                height: 10px;
+                                                border: solid #00448A;
+                                                border-width: 0 2px 2px 0;
+                                                transform: rotate(45deg);
+                                                opacity: 0;
+                                            }
+                                        }
+                                        &:checked + label{
                                             &:before{
                                                 content: '';
                                                 position: absolute;
@@ -301,31 +347,7 @@
                                                 content: "";
                                                 position: absolute;
                                                 left: 7px;
-                                                top: 5px;
-                                                width: 5px;
-                                                height: 10px;
-                                                border: solid #00448A;
-                                                border-width: 0 2px 2px 0;
-                                                transform: rotate(45deg);
-                                                opacity: 0;
-                                            }
-                                        }
-                                        &:checked + label{
-                                            &:before{
-                                                content: '';
-                                                position: absolute;
-                                                left: 0;
-                                                top: 6px;
-                                                width: 18px;
-                                                height: 18px;
-                                                border: 1px solid #ddd;
-                                                background: #fff;
-                                            }
-                                            &:after{
-                                                content: "";
-                                                position: absolute;
-                                                left: 7px;
-                                                top: 9px;
+                                                top: 3px;
                                                 width: 5px;
                                                 height: 10px;
                                                 border: solid #00448A;
@@ -451,6 +473,7 @@
                             font-size: 17px;
                             color: #00448A;
                             margin-bottom: 16px;
+                            text-align: left;
                             h3{
                                 display: inline-block;
                                 margin-bottom:0;
@@ -459,7 +482,6 @@
                         .date{
                             position: relative;
                             max-width: 200px;
-                            margin: 0 auto;
                             input{
                                 margin-right: 8px;
                                 line-height: 30px;
@@ -657,35 +679,39 @@
                 left: 0;
                 width: 100%;
                 height: 65px;
-                background: #d2e4f0;
+                background: #00ADEE;
                 border-radius: 20px 0 0 0;
-                padding: 24px;
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 li{
                     text-align: center;
-                    margin: 0 40px;
                     position: relative;
-                    &:after{
-                        content: "";
-                        width: 70px;
-                        height: 20px;
-                        background: url(../images/bg-steps-h.png) center center no-repeat;
-                        position: absolute;
-                        right: -75px;
-                        top: 0;
-                    }
+                    width: calc(100%/3);
+                    border-right: 1px solid #fff;
+                    // &:after{
+                    //     content: "";
+                    //     width: 70px;
+                    //     height: 20px;
+                    //     background: url(../images/bg-steps-h.png) center center no-repeat;
+                    //     position: absolute;
+                    //     right: -75px;
+                    //     top: 0;
+                    // }
                     span{
                         font-weight: 600;
                         font-size: 16px;
-                        line-height: 16px;
-                        color: #55555594;
+                        line-height: 15px;
+                        color: #fff;
+                        display: inline-block;
+                        width: 100%;
+                        padding: 25px;
                         &.on{
-                            color: #00448A;
+                            background-color: #00448A;
+                            color: #fff;
                         }
                     }
-                    &:last-child::after{
-                        content: none;
+                    &:last-child{
+                        border-right: none;
                     }
                 }
             }
@@ -694,7 +720,7 @@
                 top: 65px;
                 width: 100% !important;
                 background: #d2e4f0;
-                height: 85px;
+                height: 90px;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
@@ -702,6 +728,7 @@
                 h3{
                     font-size: 18px;
                     margin-bottom: 10px;
+                    padding-top: 10px;
                 }
                 ul{
                     padding: 0;

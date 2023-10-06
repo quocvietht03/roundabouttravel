@@ -119,6 +119,7 @@ function sc_plan_trip_classic()
                 <div class="clm2">
                     <div class="box">
                         <div class="styled-select">
+                        <label class="be_country_label">Country</label>
                             <select name="country">
                                 <option>A</option>
                                 <option>B</option>
@@ -128,6 +129,7 @@ function sc_plan_trip_classic()
                     </div>
                     <div class="box">
                         <div class="styled-select">
+                        <label class="be_city_label">City</label>
                             <select name="city">
                                 <option>A</option>
                                 <option>B</option>

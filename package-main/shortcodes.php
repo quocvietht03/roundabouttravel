@@ -194,11 +194,7 @@ function sc_plan_trip_classic()
                 </section>
             </div>
             <div class="previewform" style="display:none;">
-                <div class="question-box">
-                    <p>Fill in your passenger details as well as your personal details, and then preview your trip
-                        to confirm your details are correct before submitting your trip to RoundAbout Travel.
-                    </p>
-                </div>
+
                 <div class="question-box">
                     <dl class="result">
                         <dt>Depart from Adelaide, Australia</dt>
@@ -216,6 +212,10 @@ function sc_plan_trip_classic()
                     </dl>
                 </div>
                 <div class="question-box">
+                    <h3>Your Details</h3>
+                    <p>Fill in your passenger details as well as your personal details, and then preview your trip
+                        to confirm your details are correct before submitting your trip to RoundAbout Travel.
+                    </p>
                     <div class="clm2 be-col">
                         <div class="box">
                             <section class="number">

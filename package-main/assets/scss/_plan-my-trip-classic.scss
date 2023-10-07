@@ -182,6 +182,10 @@
                         &:nth-child(3){
                             width: 100%;
                         }
+                        &.continent1 {
+                            padding-top: 24px;
+                            border-top: 1px solid #555555;
+                        }
                         &.continent1, &.continent2, &.continent3, &.continent4, &.continent5{
                             padding-bottom: 24px;
                             border-bottom: 1px solid #555555;
@@ -202,7 +206,7 @@
                                             font-weight: 600;
                                             padding: 0 4px;
                                             color: #00448a;
-                                            z-index: 2;
+                                            z-index: 1;
                                             position: absolute;
                                             margin: 0;
                                             transition: 0.3s ease all;
@@ -490,6 +494,7 @@
                             h3{
                                 display: inline-block;
                                 margin-bottom:0;
+                                font-size: 17px;
                             }
                         }
                         .date{
@@ -573,6 +578,9 @@
                                     }
                                 }
                             }
+                        }
+                        .be-your-detail{
+                            margin-top:25px;
                         }
                     }
                 }

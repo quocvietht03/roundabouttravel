@@ -110,6 +110,7 @@ function sc_plan_trip_classic()
                 </div>
             </div>
             <div class="question-box itineraryContinentDetailform" style="display:none;">
+                <h3>First Continent - South America</h3>
                 <p class="question">Where would you like to go in CONTINENTNAME, and how long would you like to
                     stay?
                 </p>
@@ -212,7 +213,7 @@ function sc_plan_trip_classic()
                     </dl>
                 </div>
                 <div class="question-box">
-                    <h3>Your Details</h3>
+                    <h3 class="be-your-detail">Your Details</h3>
                     <p>Fill in your passenger details as well as your personal details, and then preview your trip
                         to confirm your details are correct before submitting your trip to RoundAbout Travel.
                     </p>

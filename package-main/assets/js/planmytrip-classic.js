@@ -1182,7 +1182,7 @@ function process(event){
         $('div.prev-next > p.next > a').html('SUBMITTING...');
         $.ajax({
             method: "POST",
-            url: "/"+bookingDirectory+"/processmytrip.php",
+            //url: "/"+bookingDirectory+"/processmytrip.php",
             data: { state: state }
         })
         .done(function( msg ) {
@@ -1257,10 +1257,3 @@ function alertUser(alertMsg){
     //return 'You have unsaved changes.';
 //}
 
-jQuery( document ).ready(function($) {
-    if(($('input[class^="extraCitiesNo"]').val()) == 1){
-        $( ".btn.be-minus" ).addClass( "myClass" );
-    }else{
-        $( ".btn.be-minus" ).removeClass( "myClass" );
-    }
-});

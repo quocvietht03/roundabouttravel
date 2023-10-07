@@ -187,9 +187,9 @@ function sc_plan_trip_classic()
                 <div class="extraCities">
                 </div>
                 <section class="plus-minus">
-                    <p class="btn"><a href="#" name="addDestination"><i class="fa fa-plus"></i> Add destination</a>
+                    <p class="btn be-plus"><a href="#" name="addDestination"><i class="fa fa-plus"></i> Add destination</a>
                     </p>
-                    <p class="btn"><a href="#" name="removeDestination"><i class="fa fa-minus"></i> Delete</a></p>
+                    <p class="btn be-minus"><a href="#" name="removeDestination"><i class="fa fa-minus"></i> Delete</a></p>
                     </span>
                 </section>
             </div>

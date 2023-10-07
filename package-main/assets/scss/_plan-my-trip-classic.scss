@@ -467,6 +467,19 @@
                                         }
                                     }
                                 }
+                                .btn.be-minus{
+                                    display: none;
+                                }
+                                &.be-show{
+                                    .btn.be-minus{
+                                        display: block;
+                                    }
+                                }
+                                &.be-hide{
+                                    .btn.be-minus{
+                                        display: none;
+                                    }
+                                }
                             }
                         }
                         .question{

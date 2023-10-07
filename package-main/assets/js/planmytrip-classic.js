@@ -689,6 +689,8 @@ function countryOnChange(continent, selectClass){
 }
 
 function addDestination(aElement){
+    $(aElement).parent().parent().parent().children( ".plus-minus" ).addClass( "be-show" );
+    $(aElement).parent().parent().parent().children( ".plus-minus" ).removeClass( "be-hide" );
     $(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val(Number($(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val())+1);
     $(aElement).parent().parent().parent().children('div.extraCities').append('<div class="clm2 group'+$(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val()+'" style="padding-bottom:40px;"></div>');
     asiaTransitHTML = '';
@@ -763,7 +765,11 @@ function addDestination(aElement){
 
 function removeDestination(aElement){
     if(Number($(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val()) == 0){
-        return false;
+        return false;  
+    }
+    if(Number($(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val()) == 1){
+        $(aElement).parent().parent().parent().children( ".plus-minus" ).addClass( "be-hide" );
+        $(aElement).parent().parent().parent().children( ".plus-minus" ).removeClass( "be-show" );
     }
     $(aElement).parent().parent().parent().children('div.extraCities').children('div.group'+$(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val()).remove();
     $(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val(Number($(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val()) - 1);
@@ -1251,3 +1257,10 @@ function alertUser(alertMsg){
     //return 'You have unsaved changes.';
 //}
 
+jQuery( document ).ready(function($) {
+    if(($('input[class^="extraCitiesNo"]').val()) == 1){
+        $( ".btn.be-minus" ).addClass( "myClass" );
+    }else{
+        $( ".btn.be-minus" ).removeClass( "myClass" );
+    }
+});

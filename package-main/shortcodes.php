@@ -110,7 +110,7 @@ function sc_plan_trip_classic()
                 </div>
             </div>
             <div class="question-box itineraryContinentDetailform" style="display:none;">
-                <h3>First Continent - South America</h3>
+                <h3 class="be-first">First Continent - South America</h3>
                 <p class="question">Where would you like to go in CONTINENTNAME, and how long would you like to
                     stay?
                 </p>

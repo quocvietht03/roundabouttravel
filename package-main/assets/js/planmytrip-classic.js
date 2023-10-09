@@ -1182,7 +1182,7 @@ function process(event){
         $('div.prev-next > p.next > a').html('SUBMITTING...');
         $.ajax({
             method: "POST",
-            url: "/"+bookingDirectory+"/processmytrip.php",
+            url: "https://roundabouttravel.com.au/booking/processmytrip.php",
             data: { state: state }
         })
         .done(function( msg ) {

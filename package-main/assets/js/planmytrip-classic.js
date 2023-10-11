@@ -861,7 +861,20 @@ function loadStepScreen(stepScreenToLoad){
                 continentName = 'continentFourth';
             if(i == 4)
                 continentName = 'continentFifth';
+
+            if((i+1) == 1)
+                continentSTT = 'First';
+            if((i+1) == 2)
+                continentSTT = 'Second';
+            if((i+1) == 3)
+                continentSTT = 'Third';
+            if((i+1) == 4)
+                continentSTT = 'Fourth';
+            if((i+1) == 5)
+                continentSTT = 'Fifth';
+
             $('#buildtripform').find('div.continent'+(i+1)+' > p.question').html('Where would you like to go in <h3>'+getContinentText(state[continentName][continentName])+' Cities</h3>, and how long would you like to stay?');
+            $('#buildtripform').find('div.continent'+(i+1)+' > h3.be-first').html(''+([continentSTT])+' Continent - '+getContinentText(state[continentName][continentName])+'');
             if(state[continentName][continentName] == 'asia'){
                 $('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > input[type="checkbox"]').prop('id',$('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > input[type="checkbox"]').prop('id')+(i+1)+'-1');
                 $('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > label').prop('for',$('#buildtripform').find('div.continent'+(i+1)+' > section.asiatransit > label').prop('for')+(i+1)+'-1');

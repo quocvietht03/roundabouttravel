@@ -877,15 +877,42 @@
             #buildtripheading {
                 font-size: 25px;
             }
-            .steps{
-                width: 100%;
-                padding: 20px;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: initial;
-                height: auto;
-                li:after {
-                    content: none;
+            // .steps{
+            //     width: 100%;
+            //     justify-content: space-between;
+            //     align-items: center;
+            //     flex-direction: initial;
+            //     height: auto;
+            //     li:after {
+            //         content: none;
+            //     }
+            // }
+            .be-continent {
+                width: 130px;
+                margin: 2px 5px;
+                &.north_america::before{
+                    width: 45px;
+                    height: 45px;
+                }
+                &.south_america::before{
+                    width: 45px;
+                    height: 45px;
+                }
+                &.europe::before{
+                    width: 45px;
+                    height: 45px;
+                }
+                &.africa::before{
+                    width: 45px;
+                    height: 45px;
+                }
+                &.asia::before{
+                    width: 45px;
+                    height: 45px;
+                }
+                &.south_pacific::before{
+                    width: 45px;
+                    height: 45px;
                 }
             }
             #buildtripform{
@@ -894,6 +921,12 @@
                         top: 0;
                         padding: 10px 20px;
                     }
+                }
+                .continentSelectform section span {
+                    font-size: 14px;
+                }
+                .continentSelectform section input:checked:before {
+                    left: 15px;
                 }
             }
             .answers {
@@ -951,10 +984,11 @@
                 }
                 .narrow, .clm2, .number{
                     select{
-                        padding: 10px 20px 10px 10px;
+                        padding: 10px 20px 10px 10px !important;
                         font-size: 15px;
                         line-height: 20px;
-                        background-position: right 6px top 12px;
+                        background-position: right 6px top 14px !important;
+                        background-size: 12px;
                     }
                 }
                 .continentSelectform section {

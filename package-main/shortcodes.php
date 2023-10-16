@@ -28,8 +28,8 @@ function sc_plan_trip_classic()
                 <p class="question">Which direction do you wish to leave Australia?</p>
                 <p class="globe"><img src="/wp-content/themes/roundabouttravel/assets/images/globe.png" alt=""></p>
                 <div class="direction">
-                    <button><a id="west" href="#"><i class="fa fa-long-arrow-left"></i>West</a></button>
-                    <button><a id="east" href="#">East<i class="fa fa-long-arrow-right"></i></a></button>
+                    <button class="be-left"><a id="west" href="#"><i class="fa fa-long-arrow-left"></i>West</a></button>
+                    <button class="be-right"><a id="east" href="#">East<i class="fa fa-long-arrow-right"></i></a></button>
                 </div>
             </div>
             <div class="continentNumberform" style="display:none;">

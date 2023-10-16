@@ -73,7 +73,6 @@
                         position: absolute;
                         top: -148px;
                         left: 0;
-                        display: inline-block;
                         font-size: 14px;
                         font-weight: 700;
                         line-height: 20px;
@@ -82,10 +81,51 @@
                         border:2px solid #00ADEE;
                         padding: 20px 30px;
                         border-radius: 30px;
+                        display: flex;
+                        align-items: center;
+                        height: 60px;
+                        &.be-left{
+                            padding-left: 52px;
+                            &:hover{
+                                .fa-long-arrow-left::before{
+                                    background:url('../images/left-hover.png');
+                                } 
+                            }
+                        }
+                        &.be-right{
+                            padding-right: 52px;
+                            &:hover{
+                                .fa-long-arrow-right::before{
+                                     background:url('../images/right-hover.png');
+                                } 
+                            }
+                        }
                         a{
                             color: #00ADEE;
                             i{
                                 margin-right: 8px;
+                            }
+                            .fa-long-arrow-right::before{
+                                content: '';
+                                background:url('../images/right.png');
+                                width: 22px;
+                                height: 22px;
+                                display: block;
+                                background-size: cover !important;
+                                top: 16px;
+                                position: absolute;
+                                right: 25px;
+                            }
+                            .fa-long-arrow-left::before{
+                                content: '';
+                                background:url('../images/left.png');
+                                width: 22px;
+                                height: 22px;
+                                display: block;
+                                background-size: cover !important;
+                                top: 16px;
+                                position: absolute;
+                                left: 25px;
                             }
                         }
                         &:last-child{
@@ -871,12 +911,30 @@
                     margin-bottom: 0;
                     &.prev{
                         float: left;
+                        a{
+                            padding-left: 52px;
+                            &:hover{
+                                .fa-long-arrow-left::before{
+                                    background:url('../images/left-hover.png');
+                                } 
+                            }
+                        }
                     }
                     &.next{
                         float: right;
+                        a{
+                            padding-right: 52px;
+                            &:hover{
+                                .fa-long-arrow-right::before{
+                                    background:url('../images/right-hover.png');
+                                } 
+                            }
+                        }
                     }
                     a{
-                        display: inline-block;
+                        display: flex;
+                        align-items: center;
+                        height:60px;
                         font-size: 14px;
                         font-weight: 700;
                         line-height: 20px;
@@ -886,9 +944,32 @@
                         padding: 20px 30px;
                         border-radius: 30px;
                         border: 2px solid #00ADEE;
+                        position: relative;
                         &:hover{
                             background: #00ADEE;
                             color: #fff;
+                        }
+                        .fa-long-arrow-right::before{
+                            content: '';
+                            background:url('../images/right.png');
+                            width: 22px;
+                            height: 22px;
+                            display: block;
+                            background-size: cover !important;
+                            top: 16px;
+                            position: absolute;
+                            right: 25px;
+                        }
+                        .fa-long-arrow-left::before{
+                            content: '';
+                            background:url('../images/left.png');
+                            width: 22px;
+                            height: 22px;
+                            display: block;
+                            background-size: cover !important;
+                            top: 16px;
+                            position: absolute;
+                            left: 25px;
                         }
                     }
                 }

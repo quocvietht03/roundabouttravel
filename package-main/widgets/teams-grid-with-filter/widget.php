@@ -163,11 +163,9 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 									<?php while ( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
 										<div class="teams-grid-item u--fadeInUp">
 											<div class="team-thumbnail">
-												<a href="<?php the_permalink(); ?>">
-													<div class="image-cover">
-														<?php the_post_thumbnail( 'medium_large' ); ?>
-													</div>
-												</a>
+												<div class="image-cover">
+													<?php the_post_thumbnail( 'medium_large' ); ?>
+												</div>
 											</div>
 											<div class="team-content">
 												<h3 class="team-title">
@@ -177,7 +175,7 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 												</h3>
                         <div class="team-info">
                           <div class="team-position"><?php the_field('be-team-position'); ?></div>
-                          <div class="team-email"><a href=""><?php the_field('be-team-email'); ?></a></div>
+                          <!--<div class="team-email"><a href=""><?php// the_field('be-team-email'); ?></a></div>-->
                         </div>
 												<div class="team-desc">
 													<?php echo wp_trim_words( get_the_excerpt(), 35, '' ); ?>

@@ -85,7 +85,6 @@
                         align-items: center;
                         height: 60px;
                         &.be-left{
-                            padding-left: 52px;
                             &:hover{
                                 .fa-long-arrow-left::before{
                                     background:url('../images/left-hover.png');
@@ -93,7 +92,6 @@
                             }
                         }
                         &.be-right{
-                            padding-right: 52px;
                             &:hover{
                                 .fa-long-arrow-right::before{
                                      background:url('../images/right-hover.png');
@@ -104,6 +102,7 @@
                             color: #00ADEE;
                             i{
                                 margin-right: 8px;
+                                display: none;
                             }
                             .fa-long-arrow-right::before{
                                 content: '';
@@ -912,10 +911,9 @@
                     &.prev{
                         float: left;
                         a{
-                            padding-left: 52px;
                             &:hover{
                                 .fa-long-arrow-left::before{
-                                    background:url('../images/left-hover.png');
+                                    background:url('../images/back-hover.png');
                                 } 
                             }
                         }
@@ -923,10 +921,9 @@
                     &.next{
                         float: right;
                         a{
-                            padding-right: 52px;
                             &:hover{
                                 .fa-long-arrow-right::before{
-                                    background:url('../images/right-hover.png');
+                                    background:url('../images/next-hover.png');
                                 } 
                             }
                         }
@@ -934,15 +931,14 @@
                     a{
                         display: flex;
                         align-items: center;
-                        height:60px;
                         font-size: 14px;
                         font-weight: 700;
                         line-height: 20px;
                         text-align: center;
                         text-transform: uppercase;
                         color: #00ADEE;
-                        padding: 20px 30px;
-                        border-radius: 30px;
+                        padding: 10px;
+                        border-radius: 50%;
                         border: 2px solid #00ADEE;
                         position: relative;
                         &:hover{
@@ -951,24 +947,22 @@
                         }
                         .fa-long-arrow-right::before{
                             content: '';
-                            background:url('../images/right.png');
-                            width: 22px;
-                            height: 22px;
+                            background:url('../images/next.png');
+                            width: 30px;
+                            height: 30px;
                             display: block;
                             background-size: cover !important;
                             top: 16px;
-                            position: absolute;
                             right: 25px;
                         }
                         .fa-long-arrow-left::before{
                             content: '';
-                            background:url('../images/left.png');
-                            width: 22px;
-                            height: 22px;
+                            background:url('../images/back.png');
+                            width: 30px;
+                            height: 30px;
                             display: block;
                             background-size: cover !important;
                             top: 16px;
-                            position: absolute;
                             left: 25px;
                         }
                     }

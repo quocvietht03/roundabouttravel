@@ -656,3 +656,19 @@ body .select2-results__option{
     }
 
 }
+@media (max-width: 599.98px){
+    table.ui-datepicker-calendar{
+        th span {
+            height: 20px;
+            width: 20px;
+        }
+        .ui-state-disabled .ui-state-default {
+            height: 20px;
+            width: 20px;
+        }
+        td {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}

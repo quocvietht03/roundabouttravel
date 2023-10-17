@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="deal-view-more">
-                            <a class="btn-view-more">View more</a>
+                            <p class="btn-view-more">View more</p>
                         </div>
                     
                     </div>

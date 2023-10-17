@@ -58,9 +58,9 @@
                 <?php if ( have_posts() ) : ?>
                 <div class="deal-items">
                     <?php while ( have_posts() ) : the_post(); ?>
+                    <a class="btn-more" href="<?php the_permalink(); ?>">
                     <div class="deal-item">
                         <div class="deal-thumbnail">
-                            <a class="btn-more" href="<?php the_permalink(); ?>">
                             <?php if ( has_post_thumbnail() ) : ?>
                             <?php the_post_thumbnail( 'medium_large' ); ?>
                             <?php endif; ?>
@@ -93,11 +93,9 @@
 								echo "</div>";
 							endif;
 							?>
-                            </a>
                         </div>
 
                         <div class="deal-content">
-                            <a class="btn-more" href="<?php the_permalink(); ?>">
                             <h2 class="deal-title"><?php the_title(); ?></h2>
                             <div class="deal-desc">
                                 <?php echo wp_trim_words( get_the_excerpt(), 40, '' ); ?>
@@ -112,14 +110,14 @@
                             <?php
                         }
                       ?>
-                        </a>
                         </div>
 
                         <div class="deal-view-more">
-                            <a class="btn-view-more" href="<?php the_permalink(); ?>">View more</a>
+                            <a class="btn-view-more">View more</a>
                         </div>
                     
                     </div>
+                    </a>
                     <?php endwhile; ?>
                 </div>
 

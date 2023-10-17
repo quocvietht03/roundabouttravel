@@ -196,6 +196,11 @@
               font-weight: 400;
             }
           }
+          a.btn-more{
+            &:hover {
+              color: inherit;
+            }
+          }
         }
         .deal-view-more {
           width: 160px;
@@ -215,9 +220,6 @@
             background: $accent-color;
             padding: 12px;
             border-radius: 50px;
-            &:hover, &:focus {
-              background: $primary-color;
-            }
           }
         }
         &:hover {
@@ -225,6 +227,13 @@
           transform: translateY(-0.1875rem);
           .deal-thumbnail img {
             transform: scale(1);
+          }
+          .deal-view-more {
+            .btn-view-more {
+              &:hover, &:focus {
+                background: $primary-color;
+              }
+            }
           }
         }
       }

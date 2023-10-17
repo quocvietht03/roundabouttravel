@@ -95,8 +95,9 @@
 							?>
                             </a>
                         </div>
-                        <a class="btn-more" href="<?php the_permalink(); ?>">
+                        
                         <div class="deal-content">
+                            <a class="btn-more" href="<?php the_permalink(); ?>">
                             <h2 class="deal-title"><?php the_title(); ?></h2>
                             <div class="deal-desc">
                                 <?php echo wp_trim_words( get_the_excerpt(), 40, '' ); ?>
@@ -111,8 +112,9 @@
                             <?php
                         }
                       ?>
-                        </div>
                         </a>
+                        </div>
+                        
                         <div class="deal-view-more">
                             <a class="btn-view-more" href="<?php the_permalink(); ?>">View more</a>
                         </div>

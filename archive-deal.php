@@ -58,8 +58,8 @@
                 <?php if ( have_posts() ) : ?>
                 <div class="deal-items">
                     <?php while ( have_posts() ) : the_post(); ?>
-                    <div class="deal-item">
                     <a class="btn-more" href="<?php the_permalink(); ?>">
+                    <div class="deal-item">
                         <div class="deal-thumbnail">
                             <?php if ( has_post_thumbnail() ) : ?>
                             <?php the_post_thumbnail( 'medium_large' ); ?>
@@ -115,8 +115,9 @@
                         <div class="deal-view-more">
                             <a class="btn-view-more" href="<?php the_permalink(); ?>">View more</a>
                         </div>
-                    </a>
+                    
                     </div>
+                    </a>
                     <?php endwhile; ?>
                 </div>
 

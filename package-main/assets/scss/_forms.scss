@@ -120,6 +120,7 @@ body .select2-results__option{
                         position: absolute;
                         top: 16px;
                         left: 12px;
+                        font-size: 15px;
                         margin: 0;
                         transition: .3s ease all;
                         .gfield_required{display: none;}
@@ -145,7 +146,7 @@ body .select2-results__option{
                                 min-width: 32px;
                             }
                             input{
-                                max-width: 400px;
+                                max-width: 100%;
                                 width: 100%;
                             }
                         }
@@ -257,9 +258,9 @@ body .select2-results__option{
     }
 
     @media (max-width: 767.98px){
-        form .gform_body .gform_fields .gfield .ginput_container.ginput_container_select:after{
-            display: block;
-        }
+        // form .gform_body .gform_fields .gfield .ginput_container.ginput_container_select:after{
+        //     display: block;
+        // }
     }
     @media (max-width: 599.98px){
         form .gform_body .gform_page_footer{
@@ -495,9 +496,9 @@ body .select2-results__option{
                         }
                     }
                 }
-                .ginput_container.ginput_container_date input{
-                    max-width: calc(100% - 32px);
-                }
+                // .ginput_container.ginput_container_date input{
+                //     max-width: calc(100% - 32px);
+                // }
             }
         }
     }

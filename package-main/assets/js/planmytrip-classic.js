@@ -971,11 +971,11 @@ function loadStepScreen(stepScreenToLoad){
     $('div.prev-next').css('display','none');
     if(stepScreens[stepScreenToLoad].navButtonPrev != ''){
         $('div.prev-next').css('display','inherit');
-        $('div.prev-next > p.prev > a').html('<i class="fa fa-long-arrow-left"></i>');
+        $('div.prev-next > p.prev > a').html('');
     }
     if(stepScreens[stepScreenToLoad].navButtonNext != ''){
         $('div.prev-next').css('display','inherit');
-        $('div.prev-next > p.next > a').html('<i class="fa fa-long-arrow-right"></i>');
+        $('div.prev-next > p.next > a').html('');
     }
 
     updateState(stepScreenToLoad);

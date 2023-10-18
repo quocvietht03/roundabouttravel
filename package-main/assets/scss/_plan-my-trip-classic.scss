@@ -911,20 +911,36 @@
                     &.prev{
                         float: left;
                         a{
-                            &:hover{
-                                .fa-long-arrow-left::before{
-                                    background:url('../images/back-hover.png');
-                                } 
+                            &::before{
+                                content: '';
+                                background:url('../images/back.png');
+                                width: 30px;
+                                height: 30px;
+                                display: block;
+                                background-size: cover !important;
+                                top: 16px;
+                                left: 25px;
+                            }
+                            &:hover::before{
+                                background:url('../images/back-hover.png');
                             }
                         }
                     }
                     &.next{
                         float: right;
                         a{
-                            &:hover{
-                                .fa-long-arrow-right::before{
-                                    background:url('../images/next-hover.png');
-                                } 
+                            &::before{
+                                content: '';
+                                background:url('../images/next.png');
+                                width: 30px;
+                                height: 30px;
+                                display: block;
+                                background-size: cover !important;
+                                top: 16px;
+                                right: 25px;
+                            }
+                            &:hover::before{
+                                background:url('../images/next-hover.png');
                             }
                         }
                     }
@@ -944,26 +960,6 @@
                         &:hover{
                             background: #00ADEE;
                             color: #fff;
-                        }
-                        .fa-long-arrow-right::before{
-                            content: '';
-                            background:url('../images/next.png');
-                            width: 30px;
-                            height: 30px;
-                            display: block;
-                            background-size: cover !important;
-                            top: 16px;
-                            right: 25px;
-                        }
-                        .fa-long-arrow-left::before{
-                            content: '';
-                            background:url('../images/back.png');
-                            width: 30px;
-                            height: 30px;
-                            display: block;
-                            background-size: cover !important;
-                            top: 16px;
-                            left: 25px;
                         }
                     }
                 }

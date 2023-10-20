@@ -17,7 +17,7 @@
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap">
 					<form class="posts-filter-form" action="/reviews/business-class/" method="get">
-						<h2 class="posts-filter-title-cc">Artical Filters</h2>
+						<h2 class="posts-filter-title-cc">ARTICLE FILTERS</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
 							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
@@ -56,12 +56,14 @@
 						<?php while ( have_posts() ) : the_post(); ?>
 							<div class="post-item">
 								<div class="post-thumbnail">
+									<a href="<?php the_permalink(); ?>">
 									<?php if ( has_post_thumbnail() ) : ?>
 										<?php the_post_thumbnail( 'medium_large' ); ?>
 									<?php endif; ?>
+									</a>
 								</div>
 								<div class="post-content">
-									<h2 class="post-title"><?php echo get_the_title(); ?></h2>
+									<a href="<?php the_permalink(); ?>"><h2 class="post-title"><?php echo get_the_title(); ?></h2></a>
 									<div class="post-meta">
 										<div class="post-date">
 											<?php echo get_the_date("j M Y");?>
@@ -69,7 +71,7 @@
 										<?php the_tags('<ul class="post-tags"><li class="tag">','</li><li>','</li></ul>'); ?>
 									</div>
 									<div class="post-desc">
-										<?php echo wp_trim_words( get_the_excerpt(), 40, '' ); ?>
+										<?php echo wp_trim_words( get_the_excerpt(), 40, ' ...' ); ?>
 									</div>
 									<div class="post-view-more">
 										<a class="btn-view-more" href="<?php the_permalink(); ?>">View more</a>

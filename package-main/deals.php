@@ -36,7 +36,7 @@ function rpjc_register_deal_post_type() {
 		"can_export" => false,
 		"rewrite" => [ "slug" => "deals", "with_front" => true ],
 		"query_var" => true,
-		"supports" => [ "title", "editor", "thumbnail" ],
+		"supports" => [ "title", "editor", "thumbnail", "excerpt" ],
 		"show_in_graphql" => false,
 	];
 

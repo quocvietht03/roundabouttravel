@@ -30,6 +30,7 @@
 										'show_option_all' => '-- Any --',
 										'orderby'         => 'NAME',
 										'hide_empty'      => false,
+                                        'order'           => 'ASC',
 										'id'              => 'deal_search_airline',
 										'name'            => 'deal_search_airline',
 										'selected'        => $_GET['deal_search_airline'],
@@ -100,7 +101,7 @@
                             <a class="btn-more" href="<?php the_permalink(); ?>">
                             <h2 class="deal-title"><?php the_title(); ?></h2>
                             <div class="deal-desc">
-                                <?php echo wp_trim_words( get_the_excerpt(), 40, '' ); ?>
+                                <?php echo wp_trim_words( get_the_excerpt(), 40, ' ...' ); ?>
                             </div>
                             <?php
                         $price     = get_field( 'deal_price' );

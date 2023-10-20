@@ -27,8 +27,8 @@
                         <label for="deal_search_airline">Airline</label>
                         <?php
 									wp_dropdown_categories( array(
-										'show_option_all' => '-- Any1 --',
-										'orderby'         => 'NAME',
+										'show_option_all' => '-- Any --',
+										//'orderby'         => 'NAME',
 										'hide_empty'      => false,
                                         'order'           => 'ASC',
 										'id'              => 'deal_search_airline',

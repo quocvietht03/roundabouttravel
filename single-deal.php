@@ -10,7 +10,10 @@
 	$price_tax    = get_field( 'deal_price_tax' );
 	$seasons      = get_post_meta( $post->ID, 'deal_seasons', true );
 	$departure    = get_post_meta( $post->ID, 'deal_departure_ports', true );
-	$book_by      = get_post_meta( $post->ID, 'deal_book_by', true );
+	$book_by1     = get_post_meta( $post->ID, 'deal_book_by', true );  
+    $book_by      = get_field( 'deal_book_by' );
+    //var_dump( $book_by);
+    //$book_by      = date('Y-m-d',$book_by1);
 	$deposit      = get_post_meta( $post->ID, 'deal_deposit', true );
 	$pay_by       = get_post_meta( $post->ID, 'deal_payment_by', true );
 	$change_fee   = get_post_meta( $post->ID, 'deal_change_fee', true );

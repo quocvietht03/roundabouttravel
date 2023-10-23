@@ -18,7 +18,7 @@
 				</h1>
 				<div class="aioseo-breadcrumbs">
 					<span class="aioseo-breadcrumb"><a href="/" title="Home">Home</a></span>
-					<span class="aioseo-breadcrumb-separator">»</span><span class="aioseo-breadcrumb">Airfare Deals</span>
+					<span class="aioseo-breadcrumb-separator">»</span><span class="aioseo-breadcrumb"> Airfare Deals</span>
 				</div>
 			</div>
 		</div>

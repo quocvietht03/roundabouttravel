@@ -350,6 +350,41 @@ body {
     }
   }
 }
+.paginate-links .page-numbers:not(:last-child){
+  border: none;
+}
+
+.paginate-links .page-numbers{
+  border-radius: 30px !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 45px;
+}
+
+.paginate-links .page-numbers.next, .paginate-links .page-numbers.prev{
+  border-radius: 30px !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding:0;
+  min-width:45px;
+  line-height:40px;
+}
+
+
+.paginate-links .page-numbers:hover:not(.current){
+  background: #E2ECF5;
+  color:#00448A;
+}
+
+.paginate-links {
+  border: none;
+
+}
+
+.paginate-links .page-numbers.current {
+  border: none;
+}
+
 
 .page-title-bar {
   background-color: #f1f5f9;

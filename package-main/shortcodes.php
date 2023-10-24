@@ -175,7 +175,7 @@ function sc_plan_trip_classic()
                             <option value="30">30</option>
                         </select>
                     </div>
-                    <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="days" checked>
+                    <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="days" checked="checked" checked>
                         <label for="days">Days</label></span>
                     <span class="styled-form-elements radio-button"><input type="radio" name="stayUnit" id="weeks">
                         <label for="weeks">Weeks</label></span>

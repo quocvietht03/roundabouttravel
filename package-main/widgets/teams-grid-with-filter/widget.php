@@ -169,16 +169,14 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
 											</div>
 											<div class="team-content">
 												<h3 class="team-title">
-													<a href="<?php the_permalink(); ?>">
 														<?php the_title(); ?>
-													</a>
 												</h3>
                         <div class="team-info">
                           <div class="team-position"><?php the_field('be-team-position'); ?></div>
                           
                         </div>
 												<div class="team-desc">
-													<?php echo wp_trim_words( get_the_excerpt(), 35, '' ); ?>
+													<?php echo get_the_content(); ?>
 												</div>
 											</div>
 										</div>

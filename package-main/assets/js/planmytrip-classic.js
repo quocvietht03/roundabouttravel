@@ -759,6 +759,8 @@ function addDestination(aElement){
         newAsiaTransitInput.prop('id',newAsiaTransitID);
         addedGroupDiv.find('label[for^="asiatransit"]').prop('for',newAsiaTransitID);
     }
+
+    jQuery('input[checked="checked"]').prop("checked", true);
     
     return false;
 }

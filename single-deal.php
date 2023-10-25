@@ -252,7 +252,7 @@ function rbt_setBookingInfo() {
                             </div>
 
                             <div class="deal-cta">
-                                <a href="/price-my-airfare/?deal_id=<?php echo $post->ID;?>/&airline=<?php echo implode( ', ', $airline_titles ); ?>/&class=<?php echo implode( ', ', $class_titles ); ?>">Price my airfare</a>
+                                <a href="/price-my-airfare/?deal_id=<?php echo $post->ID;?>&airline=<?php echo implode( ', ', $airline_titles ); ?>&class=<?php echo implode( ', ', $class_titles ); ?>">Price my airfare</a>
                             </div>
 
                             <!-- <?php //if(!empty($optFields['deal_shortcode_enquiry_form'])) { ?>

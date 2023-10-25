@@ -385,7 +385,7 @@ function rpjc_deal_search( $query ) {
 					case 'price_asc' :
 
 						$query->set( 'meta_key', 'deal_price' );
-						$query->set( 'orderby', 'meta_value_num' );
+						$query->set( 'orderby', 'meta_value' );
 						$query->set( 'order', 'ASC' );
 
 						break;
@@ -393,7 +393,7 @@ function rpjc_deal_search( $query ) {
 					case 'price_desc' :
 
 						$query->set( 'meta_key', 'deal_price' );
-						$query->set( 'orderby', 'meta_value_num' );
+						$query->set( 'orderby', 'meta_value' );
 						$query->set( 'order', 'DESC' );
 
 						break;

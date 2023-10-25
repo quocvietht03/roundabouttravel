@@ -25,7 +25,7 @@ function rpjc_register_deal_post_type() {
 		"rest_namespace" => "wp/v2",
 		"has_archive" => true,
 		"show_in_menu" => true,
-		"menu_position" => 100,
+		"menu_position" => 5,
 		"menu_icon" => "dashicons-tag",
 		"show_in_nav_menus" => true,
 		"delete_with_user" => false,

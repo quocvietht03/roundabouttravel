@@ -188,7 +188,6 @@ function custom_post_search( $query ) {
 
 			}
 
-
 			if ( !empty( $_GET['post_search_airline'] ) ) {
 
 				array_push( $tax_query, array(

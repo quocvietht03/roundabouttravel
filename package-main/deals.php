@@ -36,7 +36,7 @@ function rpjc_register_deal_post_type() {
 		"can_export" => false,
 		"rewrite" => [ "slug" => "deals", "with_front" => true ],
 		"query_var" => true,
-		"supports" => [ "title", "editor", "thumbnail" ],
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "revisions" ],
 		"show_in_graphql" => false,
 	];
 
@@ -138,6 +138,38 @@ function rpjc_deal_airline_taxonomy() {
 		'show_ui'           => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'deal-airlines' ),
+		'show_in_nav_menus' => false
+
+	) );
+
+}
+
+add_action( 'init', 'rpjc_deal_tag_taxonomy' );
+
+function rpjc_deal_tag_taxonomy() {
+
+	$labels = array(
+
+		'name'              => _x( 'Tags', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Tag', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Tags' ),
+		'all_items'         => __( 'All Tags' ),
+		'parent_item'       => __( 'Parent Tag' ),
+		'parent_item_colon' => __( 'Parent Tag:' ),
+		'edit_item'         => __( 'Edit Tag' ),
+		'update_item'       => __( 'Update Tag' ),
+		'add_new_item'      => __( 'Add New Tag' ),
+		'new_item_name'     => __( 'New Tag Name' ),
+
+	);
+
+	register_taxonomy( 'deal_tag', array( 'deal' ), array(
+
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'deal-tags' ),
 		'show_in_nav_menus' => false
 
 	) );

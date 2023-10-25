@@ -2,7 +2,8 @@
   header.be-page-header {
     position: relative;
     background: #F7F7FB;
-    padding-bottom: 47.5%;
+    height: 400px;
+    padding-bottom: unset;
     overflow: hidden;
     img {
       position: absolute;
@@ -25,24 +26,26 @@
         .be-meta-post{
           span.entry-date {
             margin-right: 20px;
-            font-size: 18px;
-            font-style: italic;
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 10px;
             display: inline-block;
           }
           a.be-tag{
             text-decoration: none;
-            background: #ddd;
-            border-radius:2px;
-            color: #00448A;
-            font-size: 14px;
-            padding: 5px 10px;
-            font-weight: 600;
-            display: inline-block;
             margin-right: 10px;
             margin-bottom: 10px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #333333;
+            background: #d2e4f0;
+            padding: 4px 10px;
+            border-radius: 4px;
         
-          }
+          } 
         }
         nav.navigation.post-navigation{
           .nav-links {
@@ -76,6 +79,9 @@
             li.deal-item{
               list-style-type: none;
               padding: 0;
+              background: #fff;
+              border-radius: 3px;
+              overflow: hidden;
               &::before{
                 content: none;
               }
@@ -85,7 +91,7 @@
                 padding-bottom: 70%;
                 background: #e7e6e4;
                 z-index: 1;
-                margin-bottom: 15px;
+                margin-bottom: 0px;
                 img {
                   position: absolute;
                   top: 0;
@@ -99,12 +105,18 @@
                 }
               }
               .content-d{
+                padding: 10px;
                 a{
                   font-size: 16px;
                   font-weight: 600;
                   text-decoration: none;
                   padding-bottom: 10px;
                   color: #00418b;
+                  display: inline-block;
+                }
+                .deal-feature-item.deal-price {
+                  color: #00ADEE;
+                  font-weight: 600;
                 }
               }
             }
@@ -112,7 +124,7 @@
         }
       }
       .be-sidebar{
-        width: 30%;
+        
       }
       h1.be-entry-title {
         position: relative;
@@ -125,13 +137,13 @@
       }
       .be-sidebar-inner{
         margin-left: 30px;
-        position: sticky;
-        top: 140px;
+        position: relative;
+        width: 30%;
         section.widget{
           margin-bottom: 25px;
           background: #fff;
           padding: 30px;
-          border-radius: 5px;
+          border-radius: 20px;
         }
         h2.widget-title {
           text-transform: uppercase;
@@ -221,22 +233,32 @@
             }
           }
         }
+        .widget_newsletterwidget{
+          position: sticky;
+          top:160px;
+        }
         .tnp.tnp-subscription{
+          margin-bottom: 0;
+          margin-left: 0;
+          max-width:100%;
           input.tnp-submit {
             text-decoration: none;
             background: #00ADEE !important;
             border-radius: 2px;
             color: #fff;
             font-size: 16px !important;
-            padding: 5px 10px;
+            padding: 10px 15px;
             font-weight: 600;
             display: inline-block;
+          }
+          .tnp-field.tnp-field-button {
+            margin-bottom: 0 !important;
           }
         }
       }
     }
   }
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 991.98px) {
     .be-page-content .container {
       display: block;
     }
@@ -252,6 +274,7 @@
       position: relative;
       margin-top: 40px;
       top: 0;
+      width:100%;
     }
     .be-page-content {
       padding: 40px 0;
@@ -261,6 +284,9 @@
     } 
     .be-page-content .container .be-content-inner .be-recent-deal ul {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .be-sidebar-inner section.widget {
+      padding: 20px !important;
     }
   }
 }

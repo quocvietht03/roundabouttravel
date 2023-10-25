@@ -43,6 +43,8 @@ class ElementorWidgets {
 
 		$this->widgets = array(
 			'deals-grid-with-filter',
+			'teams-grid-with-filter',
+			'deals-item',
 
 		);
 
@@ -127,6 +129,8 @@ class ElementorWidgets {
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\DealsGridWithFilter\PJ_DealsGridWithFilter() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\TeamsGridWithFilter\PJ_TeamsGridWithFilter() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\DealsItem\PJ_DealsItem() );
 
 	}
 

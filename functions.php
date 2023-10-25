@@ -247,5 +247,135 @@ function be_sidebar_one_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar News', 'hello_elementor' ),
+			'id'            => 'sidebar-news',
+			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'hello_elementor' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar Reviews', 'hello_elementor' ),
+			'id'            => 'sidebar-reviews',
+			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'hello_elementor' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'be_sidebar_one_widgets_init' );
+
+function create_shortcode_featured_news() {
+
+	$subjects = get_field('be_featured_post'); //checkbox field, return format value only
+
+	$meta_query = array('relation' => 'OR');
+	foreach( $subjects as $subject ) :
+			$meta_query[] = array(
+					'key' => 'be_featured_post',
+					'value' => $subject,
+					'compare' => 'LIKE',
+			);
+	endforeach;
+	
+	$resource_args = array(
+			'post_type' => 'post',
+			'posts_per_page' => 3,
+			'category_name' => 'news',
+			'meta_query' => $meta_query,
+	);
+	
+	$the_query = new WP_Query($resource_args);
+
+	ob_start();
+	if ( $the_query->have_posts() ) :
+		echo "<ul class='be-shortcode-featured-post'>";
+		while ( $the_query->have_posts() ) :
+			$the_query->the_post();
+			?>
+				<li class="be-post-item">
+					<div class="be-post-item-thumb">
+						<?php if ( has_post_thumbnail() ) : ?>
+  						<?php the_post_thumbnail( 'medium' ); ?>
+  					<?php endif; ?>
+					</div>
+					<div class="be-post-item-meta">
+						<a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
+						<span class="be-post-item-meta-date"><?php echo get_the_date(); ?></span>
+					</div>
+				</li>
+
+		<?php endwhile;
+		echo "</ul>";
+		wp_reset_postdata();
+	endif;
+	$list_post = ob_get_contents(); //Lấy toàn bộ nội dung phía trên bỏ vào biến $list_post để return
+
+
+	ob_end_clean();
+
+
+	return $list_post;
+}
+add_shortcode('featured_news', 'create_shortcode_featured_news');
+
+function create_shortcode_featured_reviews() {
+
+	$subjects = get_field('be_featured_post'); //checkbox field, return format value only
+
+	$meta_query = array('relation' => 'OR');
+	foreach( $subjects as $subject ) :
+			$meta_query[] = array(
+					'key' => 'be_featured_post',
+					'value' => $subject,
+					'compare' => 'LIKE',
+			);
+	endforeach;
+	
+	$resource_args = array(
+			'post_type' => 'post',
+			'posts_per_page' => 3,
+			'category_name' => 'reviews',
+			'meta_query' => $meta_query,
+	);
+	
+	$the_query = new WP_Query($resource_args);
+
+	ob_start();
+	if ( $the_query->have_posts() ) :
+		echo "<ul class='be-shortcode-featured-post'>";
+		while ( $the_query->have_posts() ) :
+			$the_query->the_post();
+			?>
+				<li class="be-post-item">
+					<div class="be-post-item-thumb">
+						<?php if ( has_post_thumbnail() ) : ?>
+  						<?php the_post_thumbnail( 'medium' ); ?>
+  					<?php endif; ?>
+					</div>
+					<div class="be-post-item-meta">
+						<a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
+						<span class="be-post-item-meta-date"><?php echo get_the_date(); ?></span>
+					</div>
+				</li>
+
+		<?php endwhile;
+		echo "</ul>";
+		wp_reset_postdata();
+	endif;
+	$list_post = ob_get_contents(); //Lấy toàn bộ nội dung phía trên bỏ vào biến $list_post để return
+
+
+	ob_end_clean();
+
+
+	return $list_post;
+}
+add_shortcode('featured_reviews', 'create_shortcode_featured_reviews');

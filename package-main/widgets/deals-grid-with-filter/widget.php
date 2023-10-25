@@ -184,6 +184,30 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 														<?php the_post_thumbnail( 'medium_large' ); ?>
 													</div>
 												</a>
+												<div class="deal-icon-box">
+													<?php 
+														$icon_box_item     = get_field( 'icon_box_item_i' );
+														$text_box_item = get_field( 'text_box_item_i' );
+														$icon_background_color = get_field( 'icon_background_color' );
+														?>
+														<?php if ( !empty( $icon_box_item ) or !empty( $text_box_item )) { ?>
+														<div class="deal-icon-box-item" style="background: <?php echo $icon_background_color; ?>"><?php if ( !empty( $icon_box_item )) { ?><img src="<?php echo $icon_box_item; ?>" /><?php } ?><span><?php echo $text_box_item; ?></span></div>
+														<?php } ?>
+												</div>
+												<div class="deal-tags">
+													<?php
+														$p_id =  get_the_ID();
+														$p_terms = wp_get_object_terms($p_id, 'deal_tag', array('orderby' => 'term_id', 'order' => 'ASC') );
+															if ( !empty( $p_terms ) ) :
+																$be_tag = array();
+																foreach ( $p_terms as $p_term ) {
+																		$be_tag = $p_term->name;
+																		$be_tag_slug = $p_term->slug;
+																		echo '<a class="'. $be_tag_slug .'">'. $be_tag .'</a>';
+																}
+															endif;
+													?>
+												</div>
 											</div>
 											<div class="deal-content">
 												<h3 class="deal-title">

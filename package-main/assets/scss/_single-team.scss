@@ -1,0 +1,315 @@
+.single-team{
+  .be-team-title-bar {
+    background-image: linear-gradient(180deg, #0078B921 0%, #F0F5F900 76%);
+    padding: 100px 0;
+    h1{
+      color: transparent !important;
+      background: radial-gradient(ellipse, #00aeef, #007ebf);
+      background-clip: text;
+      -webkit-background-clip: text;
+      font-size: 45px;
+      font-weight: 600;
+      text-transform: uppercase
+    }
+    .container{
+      display: block;
+    }
+    span.aioseo-breadcrumb {
+      color: #1E5B99;
+      font-size: 15px;
+      a{
+        color: #1E5B99;
+      }
+    }
+  }
+    .container{
+      display: flex;
+      .be-content-inner{
+        width: 70%;
+        .be-team-info {
+          display: flex;
+          padding: 20px;
+          background: #fff;
+          margin-bottom: 30px;
+          position: relative;
+          border-radius:5px;
+        }
+        header.be-page-header {
+          position: relative;
+          background: #F7F7FB;
+          overflow: hidden;
+          width: 35%;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+          }
+        }
+        .be-page-content{
+          width: 65%;
+          margin-left: 20px;
+        }
+        .be-top-heading {
+          margin-bottom: 20px;
+        }
+        .be-meta-post{
+          .be_team_position {
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+          }
+          a.be_team_email{
+            color:#00ADEE;
+          }
+        }
+        nav.navigation.post-navigation{
+          .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            a{
+              text-decoration: none;
+              background: #00ADEE;
+              border-radius:2px;
+              color: #fff;
+              font-size: 14px;
+              padding: 5px 10px;
+              font-weight: 600;
+              display: inline-block;
+            }
+          }
+        }
+        .be-recent-deal{
+          margin-top: 50px;
+          h3{
+            font-size:20px;
+          }
+          ul{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            padding: 0;
+            margin: 0;
+            li.deal-item{
+              list-style-type: none;
+              padding: 0;
+              &::before{
+                content: none;
+              }
+              .thumb{
+                position: relative;
+                overflow: hidden;
+                padding-bottom: 70%;
+                background: #e7e6e4;
+                z-index: 1;
+                margin-bottom: 15px;
+                img {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  -webkit-transition: all 1.5s cubic-bezier(0.11, 0.52, 0.53, 0.79) 0s;
+                  transition: all 1.5s cubic-bezier(0.11, 0.52, 0.53, 0.79) 0s;
+                  margin-top: 0;
+                }
+              }
+              .content-d{
+                a{
+                  font-size: 16px;
+                  font-weight: 600;
+                  text-decoration: none;
+                  padding-bottom: 10px;
+                  color: #00418b;
+                }
+              }
+            }
+          }
+        }
+      }
+      .be-sidebar{
+        width: 30%;
+        margin-bottom: 50px;
+      }
+      h1.be-entry-title {
+        position: relative;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #00448A;
+        margin-bottom: 10px;
+        margin-top: 0;
+      }
+      .be-sidebar-inner{
+        margin-left: 30px;
+        position: sticky;
+        top: 140px;
+        section.widget{
+          margin-bottom: 25px;
+          background: #fff;
+          padding: 30px;
+          border-radius: 5px;
+        }
+        h2.widget-title {
+          text-transform: uppercase;
+          font-size: 18px;
+          font-weight: 600;
+          position: relative;
+          padding-bottom: 10px;
+          color:#00418b;
+          &::after{
+            content: "";
+            position: absolute;
+            background-color: #00ADEE;
+            width: 130px;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+          }
+        }
+        ul{
+          padding-left: 0;
+          list-style-type: none;
+          li{
+            margin-bottom: 15px;
+          }
+        }
+        form.search-form {
+          position: relative;
+          label{
+            width: 100%;
+            input.search-field {
+              padding-right: 40px;
+            }
+          }
+          input.search-submit {
+            position: absolute;
+            right: 0;
+            border: none;
+            font-size: 0;
+            height: 100%;
+            width: 40px;
+            z-index: 9;
+            &:hover{
+              background-color: transparent;
+            }
+            &:focus{
+              background-color: transparent;
+              border: none;
+              outline: none;
+            }
+            &:active{
+              background-color: transparent;
+              border: none;
+              outline: none;
+            }
+          }
+          &::after{
+            content: "\f002";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            right: 10px;
+            position: absolute;
+            top: 12px;
+          }
+        }
+        .widget_recent_entries{
+          li{
+            a{
+              color: #00448A;
+              font-weight: 600;
+            }
+            span.post-date {
+              font-size: 14px;
+              display: block; 
+            }
+          }
+        }
+        .widget_categories{
+          li{
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            a{
+              background-color: #00ADEE;
+              padding: 6px 12px;
+              color: #fff;
+              display: inline-block;
+            }
+          }
+        }
+        .tnp.tnp-subscription{
+          margin-bottom: 0;
+          margin-left: 0;
+          max-width:100%;
+          input.tnp-submit {
+            text-decoration: none;
+            background: #00ADEE !important;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 16px !important;
+            padding: 10px 15px;
+            font-weight: 600;
+            display: inline-block;
+          }
+          .tnp-field.tnp-field-button {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+  }
+  @media only screen and (max-width: 991.98px) {
+    .container {
+      display: block;
+    }
+    .container .be-content-inner {
+      width: 100%;
+    }
+    .container .be-sidebar {
+      width: 100%;
+    }
+    .container .be-sidebar-inner {
+      margin-left: 0;
+      border-radius: 5px;
+      position: relative;
+      margin-top: 40px;
+      top: 0;
+    }
+    .container h1.be-entry-title {
+      font-size: 28px;
+    } 
+    .container .be-content-inner .be-recent-deal ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: 767.98px) {
+    .be-team-info {
+      display: block !important;
+      header.be-page-header {
+        width: 100% !important;
+        margin-bottom: 20px;
+        img{
+          position: relative !important;
+        }
+      }
+      .be-page-content {
+        width: 100% !important;
+        margin-left: 0px !important;
+      }
+    }
+    .be-team-title-bar h1 {
+      font-size: 35px;
+    }
+    .be-sidebar-inner section.widget {
+      padding: 20px !important;
+    }
+  }
+}

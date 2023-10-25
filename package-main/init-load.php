@@ -13,7 +13,9 @@ define( 'PJ_DEV_MODE', true ); // enable to compiler scssphp
 require( PJ_DIR . 'vendor/autoload.php' );
 require( PJ_DIR . 'posts.php' );
 require( PJ_DIR . 'deals.php' );
+require( PJ_DIR . 'teams.php' );
 require( PJ_DIR . 'hooker.php' );
 require( PJ_DIR . 'helper.php' );
 require( PJ_DIR . 'static.php' );
+require( PJ_DIR . 'shortcodes.php' );
 require( PJ_DIR . 'widgets/widgets.php' );

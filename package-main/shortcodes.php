@@ -314,6 +314,7 @@ $deal_name        = get_the_title($deal_id);
 $classes      = wp_get_post_terms( $deal_id, 'deal_class' );
 $airlines     = wp_get_post_terms( $deal_id, 'deal_airline' );
 $price        = get_post_meta( $deal_id, 'deal_price', true );
+$price_fm     = number_format($price, 0, ',', ',');
 $price_tax    = get_field( 'deal_price_tax', $deal_id );
 
 $class_titles   = [];
@@ -376,11 +377,11 @@ if ( empty($deal_id ) ) {
             <div class="right">
                 <div class="deal-price">
                     From
-                    <span>$<?php echo $price; ?></span>
+                    <span>$<?php echo $price_fm; ?></span>
 
                     <?php 
                     if ( $price_tax ) {
-                        echo '<span class="tax">(inc taxes)</span>';
+                        echo $price_tax;
                     }
                     ?>
                 </div>

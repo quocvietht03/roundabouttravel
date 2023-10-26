@@ -233,7 +233,7 @@ class PJ_TeamsGridWithFilter extends Widget_Base {
                           <div class="team-email"><a href=""><?php the_field('be-team-email'); ?></a></div>
                         </div>
 												<div class="team-desc">
-													<?php echo wp_trim_words( get_the_excerpt(), 35, '' ); ?>
+													<?php echo get_the_content(); ?>
 												</div>
 											</div>
 										</div>

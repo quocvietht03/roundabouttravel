@@ -7,6 +7,7 @@
 	$page_title        = !empty( $destinations ) ? $destinations[0]->name : get_the_title();
 
 	$price        = get_post_meta( $post->ID, 'deal_price', true );
+    $price_fm     = number_format($price, 0, ',', ',');
 	$price_tax    = get_field( 'deal_price_tax' );
 	$seasons      = get_post_meta( $post->ID, 'deal_seasons', true );
 	$departure    = get_post_meta( $post->ID, 'deal_departure_ports', true );
@@ -245,8 +246,8 @@ function rbt_setBookingInfo() {
                                 <?php endif; ?>
                                 <?php if ( !empty($price) ) : ?>
                                 <div class="deal-feature-item deal-price">
-                                    From <span>$<?php echo $price; ?><?php if ( $price_tax ) : ?> inc
-                                        taxes<?php endif; ?></span>
+                                <span>From</span> $<?php echo $price_fm; ?>
+                                        <?php if ( $price_tax ) : ?><?php echo $price_tax; ?><?php endif; ?>
                                 </div>
                                 <?php endif; ?>
                             </div>

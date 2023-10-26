@@ -105,16 +105,16 @@
                                 <?php echo wp_trim_words( get_the_excerpt(), 40, ' ...' ); ?>
                             </div>
                             <?php
-                                $price     = get_field( 'deal_price' );
-                                $price_fm     = number_format($price, 0, ',', ',');
-                                $price_tax = get_field( 'deal_price_tax' );
-                                if ( !empty( $price ) ) {
-                                ?>
-                                    <div class="deal-price"><span>From</span> $<?php echo $price_fm; ?>
-                                        <?php if ( $price_tax ) : ?><?php echo $price_tax; ?><?php endif; ?></div>
-                                    <?php
-                                }
-                            ?>
+                        $price     = get_field( 'deal_price' );
+                        //$price_fm     = number_format($price, 0, ',', ',');
+                        $price_tax = get_field( 'deal_price_tax' );
+                        if ( !empty( $price ) ) {
+                          ?>
+                            <div class="deal-price"><span>From</span> $<?php echo $price; ?>
+                                <?php if ( $price_tax ) : ?><?php echo $price_tax; ?><?php endif; ?></div>
+                            <?php
+                        }
+                      ?>
                         </a>
                         </div>
                         

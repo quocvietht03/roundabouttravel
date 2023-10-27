@@ -15,8 +15,8 @@
     <div class="container">
         <section class="sidebar-blog-ss">
             <div class="be-sidebar-inner">
-                <div class="posts-filter-form-wrap">
-                    <form class="posts-filter-form" action="/news/" method="get">
+                <div class="posts-filter-form-wrap be-decktop-s">
+                    <form class="posts-filter-form" action="/reviews/airfare/" method="get">
                         <h2 class="posts-filter-title-cc">Artical Filters</h2>
                         <input type="hidden" name="post_search_submitted" value="1" />
                         <div class="form-field form-field-search">
@@ -59,6 +59,45 @@
             </div>
         </section>
         <section class="posts-main-ss">
+            <div class="posts-filter-form-wrap be-mobile-s">
+                    <form class="posts-filter-form" action="/reviews/airfare/" method="get">
+                        <h2 class="posts-filter-title-cc">Artical Filters</h2>
+                        <input type="hidden" name="post_search_submitted" value="1" />
+                        <div class="form-field form-field-search">
+                            <input name="post_search_keyword" placeholder="Keyword" type="text"
+                                value="<?php echo $_GET['post_search_keyword']; ?>" />
+                        </div>
+                        <div class="form-field form-field-class">
+                            <?php
+									wp_dropdown_categories( array(
+										'show_option_all' => 'Class Types',
+										'orderby'         => 'NAME',
+										'hide_empty'      => false,
+										'id'              => 'post_search_class',
+										'name'            => 'post_search_class',
+										'selected'        => $_GET['post_search_class'],
+										'taxonomy'        => 'post_class'
+									) );
+								?>
+                        </div>
+                        <div class="form-field form-field-airline">
+                            <?php
+									wp_dropdown_categories( array(
+										'show_option_all' => 'Airline',
+										'orderby'         => 'NAME',
+										'hide_empty'      => false,
+										'id'              => 'post_search_airline',
+										'name'            => 'post_search_airline',
+										'selected'        => $_GET['post_search_airline'],
+										'taxonomy'        => 'post_airline'
+									) );
+								?>
+                        </div>
+                        <div class="form-field form-field-submit">
+                            <input value="SEARCH" type="submit">
+                        </div>
+                    </form>
+                </div>            
             <div class="posts-main-content">
 
                 <div class="deals-results">

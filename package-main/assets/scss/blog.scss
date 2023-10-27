@@ -10,6 +10,7 @@
         position: relative;
         padding-bottom: 10px;
         color:#00418b;
+        width: 100%;
         &::after{
           content: "";
           position: absolute;
@@ -368,6 +369,7 @@
             position: relative;
             padding-bottom: 10px;
             color:#00418b;
+            width: 100%;
             &::after{
               content: "";
               position: absolute;
@@ -665,5 +667,10 @@
         color: #adadad;
       }
     }
+  }
+}
+@media only screen and (min-width: 767.98px) and (max-width: 1023.98px)  {
+  .blog .posts-main-ss .posts-filter-form-wrap .posts-filter-form .form-field.form-field-submit, .archive .posts-main-ss .posts-filter-form-wrap .posts-filter-form .form-field.form-field-submit {
+    margin-bottom: 20px;
   }
 }

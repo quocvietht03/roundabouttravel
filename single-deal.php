@@ -20,6 +20,7 @@
 	$change_fee   = get_post_meta( $post->ID, 'deal_change_fee', true );
 	$lead_in_price   = get_post_meta( $post->ID, 'lead_in_price', true );
 	$baggage   = get_post_meta( $post->ID, 'baggage', true );
+    $deal_additional   = get_post_meta( $post->ID, 'deal_additional', true );
 	$classes      = wp_get_post_terms( $post->ID, 'deal_class' );
 	$destinations = wp_get_post_terms( $post->ID, 'deal_destination' );
 	$airlines     = wp_get_post_terms( $post->ID, 'deal_airline' );
@@ -122,6 +123,11 @@ function rbt_setBookingInfo() {
                     <div class="deal-post-content post-content-format">
                         <?php the_content(); ?>
                     </div>
+                    <?php if ( !empty( $deal_additional ) ) : ?>
+                        <div class="deal_additional-item">
+                            <?php echo $deal_additional; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="deal-note">
                         <h3 class="deal-note-title">Note</h3>
                         <div class="deal-note-list">

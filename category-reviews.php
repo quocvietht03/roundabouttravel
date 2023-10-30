@@ -9,11 +9,11 @@
 			</div>		
 		</div>
 		<div class="be-review-swticher">
-			<a href="" class="be-review-airfare">
+			<a href="/reviews/airfare/" class="be-review-airfare">
 				<div class="airfare-icon"><img src='<?php echo get_template_directory_uri(); ?>/assets/images/plane-ticket.png' /></div>
 				<span>Airfare</span>
 			</a>
-			<a href="" class="be-review-lounge">
+			<a href="/reviews/lounges/" class="be-review-lounge">
 				<div class="lounge-icon"><img src='<?php echo get_template_directory_uri(); ?>/assets/images/airport.png' /></div>
 				<span>Lounge</span>
 			</a>

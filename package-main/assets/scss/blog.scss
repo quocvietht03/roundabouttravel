@@ -351,6 +351,25 @@
     }
   }
 }
+.category-reviews{
+  section.posts-hero-ss.page-title-bar{
+    .container{
+      position: relative;
+    }
+    .be-review-swticher {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 0;
+      a{
+        margin: 10px 15px;
+        display: inline-block;
+        text-align: center;
+        color: #1E5B99;
+      }
+    }
+  }
+}
 .be-blog-main-ss{
   padding: 80px 0;
   .container{

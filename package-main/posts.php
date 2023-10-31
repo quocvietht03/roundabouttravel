@@ -28,7 +28,7 @@ function add_post_class_taxonomy() {
 		'labels'            => $labels,
 		'show_ui'           => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'editorials' ),
+		'rewrite'           => array( 'slug' => 'reviews' ),
 		'show_in_nav_menus' => false
 
 	) );

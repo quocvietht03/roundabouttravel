@@ -3,7 +3,7 @@
 <section class="posts-hero-ss page-title-bar">
 	<div class="container">
 		<div class="hero-content">
-			<h1 class="page-title">Lounges</h1>
+			<h1 class="page-title">Lounges Reviews</h1>
 			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
 				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">Lounges</span>
 			</div>		
@@ -27,7 +27,7 @@
 			<div class="be-sidebar-inner">
 				<div class="posts-filter-form-wrap be-decktop-s">
 					<form class="posts-filter-form" action="/reviews/lounges/" method="get">
-						<h2 class="posts-filter-title-cc">ARTICLE FILTERS</h2>
+						<h2 class="posts-filter-title-cc">Article Filter</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
 							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />

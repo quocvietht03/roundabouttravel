@@ -3,7 +3,7 @@
 <section class="posts-hero-ss page-title-bar">
     <div class="container">
         <div class="hero-content">
-            <h1 class="page-title">Airfare</h1>
+            <h1 class="page-title">Airfare Reviews</h1>
             <div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
                     <a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span
                     class="aioseo-breadcrumb">Airfare</span>
@@ -27,7 +27,7 @@
             <div class="be-sidebar-inner">
                 <div class="posts-filter-form-wrap be-decktop-s">
                     <form class="posts-filter-form" action="/reviews/airfare/" method="get">
-                        <h2 class="posts-filter-title-cc">Artical Filters</h2>
+                        <h2 class="posts-filter-title-cc">Article Filter</h2>
                         <input type="hidden" name="post_search_submitted" value="1" />
                         <div class="form-field form-field-search">
                             <input name="post_search_keyword" placeholder="Keyword" type="text"

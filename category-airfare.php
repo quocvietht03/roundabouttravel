@@ -9,6 +9,16 @@
                     class="aioseo-breadcrumb">Airfare</span>
             </div>
         </div>
+        <div class="be-review-swticher">
+			<a href="/reviews/airfare/" class="be-review-airfare">
+				<div class="airfare-icon"><img src='<?php echo get_template_directory_uri(); ?>/assets/images/plane-ticket.png' /></div>
+				<span>Airfare</span>
+			</a>
+			<a href="/reviews/lounges/" class="be-review-lounge">
+				<div class="lounge-icon"><img src='<?php echo get_template_directory_uri(); ?>/assets/images/airport.png' /></div>
+				<span>Lounge</span>
+			</a>
+		</div>
     </div>
 </section>
 <div class="be-blog-main-ss">

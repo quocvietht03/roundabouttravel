@@ -823,12 +823,13 @@
                     display: block;
                     padding: 15px;
                     border-top: 1px solid #fafafa;
+                    background: #d2e4f0;
                     li{
                         font-size: 16px;
                         position: relative;
                         padding-left: 8px;
                         display: inline-block;
-                        margin: 0 25px;
+                        margin: 0 15px;
                         &:before{
                             content: "-";
                             font-size: 14px;

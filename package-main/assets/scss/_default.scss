@@ -107,6 +107,14 @@ body {
       line-height: 1.5;
       text-decoration: underline;
       color: #555555;
+      position: relative;
+      overflow: hidden;
+      background: #EAEAEA;
+      padding-bottom: 66%;
+      line-height: 1.2em;
+      display: inline-block;
+      border-radius: 20px !important;
+      width: 100%;
       &:hover {
         color: $accent-color;
       }
@@ -138,9 +146,6 @@ body {
       max-width: 100%;
       text-align: center;
       display: flex;
-      overflow: hidden;
-      background: #EAEAEA;
-      padding-bottom: 66%;
       &.aligncenter {
         margin: 16px auto;
       }

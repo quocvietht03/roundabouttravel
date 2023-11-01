@@ -3,9 +3,9 @@
 <section class="posts-hero-ss page-title-bar">
 	<div class="container">
 		<div class="hero-content">
-			<h1 class="page-title">Business Class</h1>
+			<h1 class="page-title">First Class</h1>
 			<div class="aioseo-breadcrumbs"><span class="aioseo-breadcrumb">
-				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">Business Class</span>
+				<a href="/" title="Home">Home</a></span><span class="aioseo-breadcrumb-separator"> » </span><span class="aioseo-breadcrumb">First Class</span>
 			</div>		
 		</div>
 		<div class="be-review-swticher">
@@ -34,7 +34,7 @@
 						</div>
 						<div class="form-field form-field-class">
 							<select>
-								<option value="0" selected="selected">Business Class</option>
+								<option value="0" selected="selected">First Class</option>
 							</select>
 						</div>
 						<div class="form-field form-field-airline">
@@ -68,7 +68,7 @@
 						</div>
 						<div class="form-field form-field-class">
 							<select>
-								<option value="0" selected="selected">Business Class</option>
+								<option value="0" selected="selected">First Class</option>
 							</select>
 						</div>
 						<div class="form-field form-field-airline">

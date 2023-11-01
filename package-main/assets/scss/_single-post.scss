@@ -290,3 +290,21 @@
     }
   }
 }
+/** blog post image 16:9 **/
+.single .post-content-format img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 500px !important;
+  background: darkgray;
+  border-radius: 20px !important;
+}
+@media only screen and (max-width: 991.98px) {
+  .single .post-content-format img {
+    max-height: 400px !important;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .single .post-content-format img {
+    max-height: 300px !important;
+  }
+}

@@ -300,3 +300,11 @@
   margin: 0 !important;
   float: left;
 }
+.single .post-content-format figure a{
+  margin: 0 !important;
+}
+@media only screen and (max-width: 1023.98px) {
+  .single .post-content-format img {
+    aspect-ratio: auto;
+  }
+}

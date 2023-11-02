@@ -38,5 +38,11 @@
       clickable: true,
     },
   });
-
+  $('.single .post-content-format img').each(function(){
+    var imageUrl = $(this).attr('src');
+    $(this).parent().append( "<div class='be-bg-blur'></div>" );
+    $(this).parent().children(".be-bg-blur").attr('style', 'background-image: url("' + imageUrl +'")');
+    $(this).parent().css({'display':'inline-block','position':'relative'});
+    $(this).parent().children(".be-bg-blur").css({'position':'absolute','background-size':'cover','filter':'blur(8px)','-webkit-filter':'blur(8px)','width':'100%','height':'calc(100% - 32px)','top':'16px','left':'0','z-index':'-1'});
+    });
 }) (jQuery);

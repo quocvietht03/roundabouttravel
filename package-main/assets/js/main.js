@@ -38,7 +38,7 @@
       clickable: true,
     },
   });
-  $('.single .post-content-format img').each(function(){
+  $('.single .post-content-format p img').each(function(){
     var imageUrl = $(this).attr('src');
     $(this).parent().append( "<div class='be-bg-blur'></div>" );
     $(this).parent().children(".be-bg-blur").attr('style', 'background-image: url("' + imageUrl +'")');

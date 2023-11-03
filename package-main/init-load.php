@@ -19,4 +19,5 @@ require( PJ_DIR . 'helper.php' );
 require( PJ_DIR . 'static.php' );
 require( PJ_DIR . 'shortcodes.php' );
 require( PJ_DIR . 'shortcode_planmytrip_map.php' );
+require( PJ_DIR . 'shortcode_planmytrip_classic.php' );
 require( PJ_DIR . 'widgets/widgets.php' );

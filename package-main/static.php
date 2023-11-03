@@ -21,6 +21,7 @@
         wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
 
         wp_enqueue_script( 'planmytrip-map-js', PJ_URI . 'assets/js/planmytrip-map.js', ['jquery'], PJ_VERSION, true );
+        wp_enqueue_script( 'planmytrip-classic-js', PJ_URI . 'assets/js/planmytrip-classic-new.js', ['jquery'], PJ_VERSION, true );
 
         // jQuery Form - Plan My Trip Classic
         wp_enqueue_script( 'vaccrue-jquery-form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js', array( 'jquery' ), '3.50' );

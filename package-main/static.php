@@ -20,6 +20,8 @@
         wp_enqueue_script( 'price-my-airfare-js', PJ_URI . 'assets/js/price-my-airfare.js', ['jquery'], PJ_VERSION, true );
         wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
 
+        wp_enqueue_script( 'booking-js', PJ_URI . 'assets/js/booking.js', ['jquery'], PJ_VERSION, true );
+
         // jQuery Form - Plan My Trip Classic
         wp_enqueue_script( 'vaccrue-jquery-form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js', array( 'jquery' ), '3.50' );
         wp_enqueue_script( 'jquery-cookie', '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array( 'jquery' ), '1.4.1' );

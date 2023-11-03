@@ -18,4 +18,5 @@ require( PJ_DIR . 'hooker.php' );
 require( PJ_DIR . 'helper.php' );
 require( PJ_DIR . 'static.php' );
 require( PJ_DIR . 'shortcodes.php' );
+require( PJ_DIR . 'shortcode_booking.php' );
 require( PJ_DIR . 'widgets/widgets.php' );

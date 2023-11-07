@@ -1,0 +1,1007 @@
+/* variables */
+:root
+{
+	--pmtmap-primary-color: #4074A8;
+    --pmtmap-secondary-color: #608BB7;
+    --pmtmap-field-text-color: #555555;
+    --pmtmap-text-color: rgb(255,255,255);
+    --pmtmap-field-color: #fff;
+}
+
+.plan-my-trip-map-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}	
+
+/* sidebar */
+.plan-my-trip-map-wrapper .sidebar
+{
+    background: #aad3df !important;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+
+}
+@media only screen and (min-width: 1200px){
+	.col-xl-6{
+		flex: 0 0 auto;
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 1024px){
+	.sidebar-inner{
+		display:none;
+	}
+}
+.plan-my-trip-map-wrapper a{
+    text-decoration: underline;
+}
+
+.plan-my-trip-map-wrapper .sidebar-inner
+{
+    position: relative;
+	bottom: 30px;
+    position: absolute;
+    min-width: 100%;
+    padding: 2% 5% 2%;
+	z-index:500;
+	height:300px;
+	
+}
+.plan-my-trip-map-wrapper .logo
+{
+    display: flex;
+    align-items: center;
+	max-width: 150px;
+	margin-left: auto;
+	z-index:500;
+	top:20px;
+	right:50px;
+	position: absolute;
+}
+
+@media only screen and (max-width: 768px){
+	.plan-my-trip-map-wrapper .sidebar {
+		height: 50vh;
+		overflow: hidden;
+	}
+	.plan-my-trip-map-wrapper .logo{
+		display:none;
+	}
+}
+.plan-my-trip-map-wrapper .logo-icon
+{
+    width: auto;
+}
+.plan-my-trip-map-wrapper .logo-icon img
+{
+    width: 100%;
+}
+.plan-my-trip-map-wrapper .logo-text
+{
+    font-size: 37px;
+    color: var(--pmtmap-text-color);
+    font-weight: bold;
+    margin-left: 3px;
+}
+.plan-my-trip-map-wrapper .sidebar-text h3
+{
+    font-size: 24px;
+    color: #4074A8;
+    line-height: 1.2;
+	font-family: "Outfit";
+	display: inline-block;
+}
+.plan-my-trip-map-wrapper .sidebar-text p
+{
+    width: 90%;
+    font-size: 18px;
+    font-family: "Outfit";
+    color: #9FB9D4;
+    line-height: 1.4;
+}
+.plan-my-trip-map-wrapper .sidebar-text
+{
+    bottom: 0;
+	padding:30px;
+	border-radius:20px;
+	background:#E2ECF5;
+}
+.plan-my-trip-map-wrapper .step-bar
+{
+    margin-top: 20px;
+}
+.plan-my-trip-map-wrapper .step-bar .steps_count
+{
+    font-size: 15px;
+    display: block;
+    color: #0081C3;
+    font-weight: bold;
+    line-height: 1.1;
+	display: inline-block;
+      
+}
+.plan-my-trip-map-wrapper .step-bar h3
+{
+    font-size: 23px;
+    color: #0081C3;
+    line-height: 0.9;
+    margin-top: 10px;
+	font-family: "Outfit";
+}
+.plan-my-trip-map-wrapper .step-bar-inner
+{
+    width: 80%;
+    background-color: var(--pmtmap-text-color);
+    height: 19px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+.plan-my-trip-map-wrapper .step-bar-inner .move-bar
+{
+    width: 20%;
+    border-radius: inherit;
+    height: inherit;
+    background-color: #80D4F5;
+    transition: 0.2s all linear;
+}
+
+.plan-my-trip-map-wrapper .steps-area
+{
+    position: relative;
+}
+
+
+/* step counter */
+.plan-my-trip-map-wrapper .step-counter
+{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+}
+.plan-my-trip-map-wrapper .step-counter-inner
+{
+    display: flex;
+    margin-left: 70px;
+}
+.plan-my-trip-map-wrapper .step-type
+{
+    display: flex;
+    align-items: center;
+    width: 33.333%;
+}
+.plan-my-trip-map-wrapper .step-type .step-type-icon
+{
+    border-radius: 50%;
+    background-color: var(--pmtmap-field-color);
+    min-width: 58px;
+    height: 58px;
+    display: grid;
+    border: solid 2px transparent;
+    place-items: center;
+    transition: 0.2s all linear;
+  }
+.plan-my-trip-map-wrapper .step-type-icon i
+{
+    font-size: 22px;
+    color: var(--pmtmap-field-text-color);
+    transition: 0.2s all linear;
+}
+.plan-my-trip-map-wrapper .step-type span
+{
+    font-size: 18px;
+    color: var(--pmtmap-field-text-color);
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-left: 20px;
+    transition: 0.2s all linear;
+}
+.plan-my-trip-map-wrapper .step-type::after
+{
+    content: "";
+    display: block;
+    background-color: rgb(0, 0, 0);
+    width: 41px;
+    height: 2px;
+    margin: 0 auto;
+    transition: 0.2s all linear;
+}
+.plan-my-trip-map-wrapper .step-type.no-line::after
+{
+    display: none;
+}
+.plan-my-trip-map-wrapper .step-type.active::after
+{
+    background-color: var(--pmtmap-primary-color);
+}
+.plan-my-trip-map-wrapper .step-type.active .step-type-icon
+{
+    border-color: var(--pmtmap-primary-color);
+    background-color: var(--pmtmap-text-color);
+}  
+.plan-my-trip-map-wrapper .step-type.active .step-type-icon i
+{
+    color: var(--pmtmap-primary-color);
+}
+.plan-my-trip-map-wrapper .step-type.active span
+{
+    color: var(--pmtmap-primary-color);
+}
+
+/* form */
+.plan-my-trip-map-wrapper .form
+{
+    padding-bottom:120px;
+}
+.plan-my-trip-map-wrapper form
+{
+    height: auto;
+}
+.plan-my-trip-map-wrapper .steps 
+{
+    height: auto;
+}
+.plan-my-trip-map-wrapper .wrapper
+{
+    width: 100%;
+    height: 50px;
+    height: auto;
+    margin-top: 40px;
+    padding-left: 8%;
+	padding-right: 8%;
+	margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* step 1 */
+
+.plan-my-trip-map-wrapper .input-field
+{
+    align-items: center;
+    margin-bottom: 10px;
+}
+.plan-my-trip-map-wrapper .input-field label, .radio-field label
+{
+    font-size: 18px;
+    width: 100%;
+    color: var(--pmtmap-field-text-color);
+    font-weight: bold;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.plan-my-trip-map-wrapper .input-field input, .select-field select
+{
+    border-radius: 2px;
+    background-color: var(--pmtmap-field-color);
+    width: 100%;
+    height: 68px;
+    border: solid 2px transparent;
+    transition: 0.2s all linear;
+    padding-left: 20px;
+    font-size: 18px;
+    color: rgb(137, 137, 137);  
+}
+.plan-my-trip-map-wrapper .input-field input:focus, .select-field select:focus
+{
+    outline: none;
+    font-size:18px;
+    border-color: var(--pmtmap-primary-color);
+    background-color: var(--pmtmap-text-color);
+}
+
+
+.plan-my-trip-map-wrapper .select-field select
+{
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+.plan-my-trip-map-wrapper .select-field
+{
+    position: relative;
+}
+.plan-my-trip-map-wrapper .select-field select+span::after
+{
+    content: "\f0d7";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 15px;
+    text-align: center;
+    line-height: 28px;
+    color: var(--pmtmap-field-text-color);   
+    border-radius: 50%;
+    background-color: var(--pmtmap-text-color);
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 30%;
+    right: 20px;
+    pointer-events: none;
+      
+}
+
+
+.plan-my-trip-map-wrapper .input-field input[type=date]
+{
+    position: relative;
+    cursor: pointer;
+}
+
+.plan-my-trip-map-wrapper .input-field textarea
+{
+    border-radius: 2px;
+    background-color: var(--pmtmap-field-color);
+    width: 100%;
+    border: solid 2px transparent;
+    transition: 0.2s all linear;
+    padding: 20px;
+    font-size: 18px;
+    color: rgb(137, 137, 137);  
+}
+.plan-my-trip-map-wrapper .input-field textarea:focus
+{
+    outline: none;
+    font-size: 18px; 
+    border-color: var(--pmtmap-primary-color);
+    background-color: var(--pmtmap-text-color);
+}
+
+.plan-my-trip-map-wrapper .checkboxFields
+{	
+	margin-bottom:25px;
+}
+
+.plan-my-trip-map-wrapper .checkboxFields input[type=checkbox]
+{
+	border: solid 2px var(--pmtmap-field-color);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+	vertical-align: middle;
+}
+
+.plan-my-trip-map-wrapper .checkboxFields  label{
+	font-size:18px;
+	vertical-align:middle;
+}
+
+/* date-picker style */
+.plan-my-trip-map-wrapper ::-webkit-datetime-edit 
+{
+     padding: 1em;
+}
+.plan-my-trip-map-wrapper ::-webkit-datetime-edit-fields-wrapper
+{
+    background: transparent;
+    font-family: "Outfit";
+    margin-left: 20px;
+}
+.plan-my-trip-map-wrapper ::-webkit-calendar-picker-indicator
+{
+    background-image: url(../images/planmytrip-map/calender-indicator.png);
+    position: absolute;
+    left: 20px;
+}
+
+.plan-my-trip-map-wrapper ::-webkit-datetime-edit-text
+{
+    padding: 0 0.3em;
+}
+
+
+
+
+
+
+
+.plan-my-trip-map-wrapper .radio-field
+{
+    height: auto;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.plan-my-trip-map-wrapper .radio-field-opt
+{
+    border-top: solid 3px var(--pmtmap-field-color);
+    border-bottom: solid 3px var(--pmtmap-field-color);
+    height: 100%;
+    line-height: 68px;
+}
+.plan-my-trip-map-wrapper .radio-field-opt label
+{
+    display: inline;
+}
+.plan-my-trip-map-wrapper .radio-field-opt input[type=radio]
+{
+    -webkit-appearance: none;
+    border: solid 2px var(--pmtmap-field-color);
+    border-radius: 50%;
+    min-width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+}
+.plan-my-trip-map-wrapper .radio-field-opt input[type=radio]:checked::before
+{
+    content: "\f107";
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 23px;
+    color: var(--pmtmap-text-color);
+}
+.plan-my-trip-map-wrapper .radio-field-opt input[type=radio]:checked
+{
+    background-color: var(--pmtmap-secondary-color);
+    border-color: var(--pmtmap-secondary-color);
+    position: relative;
+
+}
+.plan-my-trip-map-wrapper .radio-field p
+{
+    font-size: 18px;
+    width: 65%;
+    font-weight: 500;
+    color: rgb(132, 140, 149);
+}
+.plan-my-trip-map-wrapper .next-prev
+{
+    width: 100%;
+    height: 68px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+.plan-my-trip-map-wrapper .next-prev .step1
+{
+    width: 100% !important;
+}
+.plan-my-trip-map-wrapper .next-prev button
+{
+    height: 100%;
+    width: 50%;
+    font-size: 18px;
+    color: var(--pmtmap-text-color);
+    font-weight: 400;
+  }
+  .plan-my-trip-map-wrapper .next-prev .prev
+  {
+    background-color: var(--pmtmap-field-text-color);
+    
+    border: solid 2px var(--pmtmap-field-text-color);
+  }
+  .plan-my-trip-map-wrapper .next-prev .next, .next-prev .apply
+  {
+    background-color: var(--pmtmap-primary-color);
+    
+    border: solid 2px var(--pmtmap-primary-color);
+  }
+
+  /* step 2 */
+  .plan-my-trip-map-wrapper .form#step2, .form#step3
+  {
+
+  }
+.plan-my-trip-map-wrapper .main-heading
+{
+    font-size: 23px;
+    color: var(--pmtmap-field-text-color);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.plan-my-trip-map-wrapper .check-field
+{
+    margin-bottom: 40px;
+}
+.plan-my-trip-map-wrapper .check-field-single
+{
+    width: 100%;
+    height: 170px;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+.plan-my-trip-map-wrapper .check-field-single img
+{
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+}
+.plan-my-trip-map-wrapper .check-field-single input[type=radio]
+{
+    -webkit-appearance: none;
+    border-radius: 6px;
+    background-color: var(--pmtmap-field-color);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 2px transparent;
+    cursor: pointer;
+    transition: 0.2s all linear;
+
+}
+.plan-my-trip-map-wrapper .check-field-single input[type=radio]:checked
+{
+    border-color: var(--pmtmap-primary-color);
+    box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.07);
+}
+.plan-my-trip-map-wrapper .check-field-single input[type=radio]:checked::before
+{  
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 15px;
+    text-align: center;
+    line-height: 25px;
+    color: var(--pmtmap-text-color);
+    background-color: var(--pmtmap-primary-color);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+      
+}
+
+.plan-my-trip-map-wrapper .check-field .radioIconLabel{
+	text-align:center;
+	z-index:20;
+	cursor: pointer;
+	padding-top:10px;
+}
+
+.plan-my-trip-map-wrapper .check-field .insurance-type
+{
+    font-size: 16px;
+    color: rgb(71, 71, 71);
+    margin-top: 12px;
+    font-weight: 500;
+    display: block;
+}
+.plan-my-trip-map-wrapper #step2 .input-field label
+{
+    margin-bottom: 10px;
+}
+
+/* step 3 */
+.plan-my-trip-map-wrapper #step3 .block
+{
+    border-top: solid 3px var(--pmtmap-field-color);
+    border-bottom:  solid 3px var(--pmtmap-field-color);
+}
+
+.plan-my-trip-map-wrapper .step3-img
+{
+    border-radius: 6px;
+    background-color: var(--pmtmap-field-color);
+    width: 100%;
+    height: auto;
+}
+.plan-my-trip-map-wrapper .step3-img img
+{
+    width: 100%;
+}
+.plan-my-trip-map-wrapper .img-text
+{
+    font-size: 15px;
+    color: var(--pmtmap-field-text-color);
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+.plan-my-trip-map-wrapper .gender-field
+{
+    border-radius: 4px;
+    background-color: var(--pmtmap-field-color);
+    height: 68px;
+    width: 100%;
+    line-height: 68px;
+}
+.plan-my-trip-map-wrapper .gender-single
+{
+    display: flex;
+    place-items: center;
+
+}
+.plan-my-trip-map-wrapper .gender-single label
+{
+    font-size: 18px;
+    color: rgb(24, 24, 24);
+    font-weight: bold;
+    margin-left: 10px;
+}
+.plan-my-trip-map-wrapper .gender-single input[type=radio]
+{
+    -webkit-appearance: none;
+    border: solid 2px rgb(201, 210, 228);
+    border-radius: 50%;
+    background-color: var(--pmtmap-text-color);
+    height: 21px;   
+    width: 21px;
+    transition: 0.2s all linear;
+    cursor: pointer;
+}
+.plan-my-trip-map-wrapper .gender-single input[type=radio]:checked
+{
+    background-color: var(--pmtmap-primary-color);
+    border-color: var(--pmtmap-primary-color);
+}
+
+
+
+.plan-my-trip-map-wrapper #error
+{
+    position: static;
+}
+
+
+.plan-my-trip-map-wrapper .invalid
+{
+  border: solid 2px #ff4444 !important;
+  position: relative;
+  color: #ff4444 !important;
+}
+
+
+/*** tool tip ***/
+
+.plan-my-trip-map-wrapper .eztooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.plan-my-trip-map-wrapper .eztooltip .tooltiptext {
+  visibility: hidden;
+  width: 330px;
+  background-color: #9FB9D4;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 20px;
+  font-weight:normal;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.plan-my-trip-map-wrapper .eztooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/*** Other form css***/
+
+.plan-my-trip-map-wrapper #steps .addMore
+{
+	padding: 15px 35px 15px 35px;
+    background: #00ADEE;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 50px 50px 50px 50px;
+	transition: all .3s;
+    display: inline-block;
+}
+
+.plan-my-trip-map-wrapper #steps .addMore:hover
+{
+    background-color: #6abae3;
+	color: #FFFFFF;
+}
+
+.plan-my-trip-map-wrapper #steps hr{
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.plan-my-trip-map-wrapper .helpbox
+{
+	padding:50px;
+	background: #E2ECF5;
+	border-radius:25px;
+	margin-top:20px;
+}
+
+.plan-my-trip-map-wrapper .helpbox p
+{
+	margin:0;
+}
+
+.plan-my-trip-map-wrapper input::placeholder {
+color: #cdcdcd;
+opacity: 1;
+}
+
+.plan-my-trip-map-wrapper ::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #aaa;
+}
+
+
+.plan-my-trip-map-wrapper .separator
+{
+	margin-bottom: 30px;
+    border-bottom: solid #4074A8 5px;
+	width:120px;
+	display: block;
+	padding-top:10px;
+}
+
+
+.plan-my-trip-map-wrapper .nextCityTitle
+{
+	vertical-align: middle;
+}
+
+.plan-my-trip-map-wrapper .nextCityTitle i
+{
+	font-size: 20px;
+	color: #4074A8;
+	margin-left: 20px;
+}	
+
+.plan-my-trip-map-wrapper .nextCityTitle span
+{
+	font-size: 20px;
+	color: #555;
+	font-weight:600;
+}	
+
+/*** Airport search CSS***/
+
+.plan-my-trip-map-wrapper .airport-search__results{
+	max-height:200px;
+	overflow:auto;
+    position: absolute;
+    z-index: 300;
+    width: auto;
+}
+
+.plan-my-trip-map-wrapper .airport-search__result
+{
+	background-color: #4074A8 !important;
+    padding: 1rem 2rem;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    animation: fadeIn 1s ease forwards;
+	cursor: pointer;
+}
+
+.plan-my-trip-map-wrapper .airport-search__result h5{
+    color: #F0F5F9;
+    margin: 0;
+}
+
+/** Loader **/
+.plan-my-trip-map-wrapper #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display:none;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+/*** responsive things ***/
+/*L-desktop*/
+
+@media (min-device-width:  1600px)
+{
+    
+}
+
+/*L-laptops*/
+@media(max-width: 1440px)
+{
+    .plan-my-trip-map-wrapper .step-type span
+    {
+        font-size: 16px;
+    }
+    .plan-my-trip-map-wrapper .wrapper
+    {
+        width: 90%;
+    }
+    .plan-my-trip-map-wrapper .step-counter-inner
+    {
+        margin-left: 10px;
+    }
+    
+
+    
+}
+
+/*laptops/tablets*/
+@media(max-width: 1024px)
+{
+    .plan-my-trip-map-wrapper .tab-100
+    {
+        width: 100%;
+    }
+    .plan-my-trip-map-wrapper .tab-50
+    {
+        width: 50%;
+    }
+    .plan-my-trip-map-wrapper .tab-33
+    {
+        width: 33.333333%;
+        margin-bottom: 15px;
+    }
+    .plan-my-trip-map-wrapper .step-type span
+    {
+        font-size: 14px;
+    }
+    .plan-my-trip-map-wrapper .wrapper
+    {
+        width: 90%;
+    }
+    .plan-my-trip-map-wrapper .step-counter-inner
+    {
+        margin-left: 10px;
+    }
+    .plan-my-trip-map-wrapper .step-type .step-type-icon
+    {
+        min-width: 38px;
+        height: 38px;
+    }
+    .plan-my-trip-map-wrapper .step-type .step-type-icon i
+    {
+        font-size: 17px;
+    }
+    .plan-my-trip-map-wrapper .step-type::after
+    {
+        margin:  0 15px;
+        width: 31px;
+    }
+    .plan-my-trip-map-wrapper .radio-field p
+    {
+        width: 85%;
+    }
+    .plan-my-trip-map-wrapper .sidebar-text h2
+    {
+        font-size: 40px;
+    }
+    .plan-my-trip-map-wrapper .sidebar
+    {
+        padding: 45px 60px 90px;
+    }
+    .plan-my-trip-map-wrapper .sidebar-text p
+    {
+        width: 100%;
+        font-size: 13px;
+    }
+
+
+}
+
+
+/*tablets*/
+@media (max-width: 768px)
+{
+    .plan-my-trip-map-wrapper .tab-sm-100
+    {
+        width: 100%;
+    }
+    .plan-my-trip-map-wrapper .tab-sm-50
+    {
+        width: 50%;
+    }
+    .plan-my-trip-map-wrapper .sidebar
+    {
+        order: 2;
+    }
+}
+
+
+/*Smart phone*/
+@media(max-width: 576px)
+{
+    .plan-my-trip-map-wrapper .mob-100
+    {
+        width: 100%;
+    }
+    .plan-my-trip-map-wrapper .mob-50
+    {
+        width: 50%;
+    }
+    .plan-my-trip-map-wrapper .step-counter
+    {
+        display: none;
+    }
+    .plan-my-trip-map-wrapper .step-bar-inner
+    {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .plan-my-trip-map-wrapper .sidebar
+    {
+        order: 2;
+        padding: 45px 20px 90px;
+    }
+    .plan-my-trip-map-wrapper .sidebar-text h2
+    {
+        font-size: 35px;
+    }
+    .plan-my-trip-map-wrapper .sidebar-text p
+    {
+        font-size: 12px;
+    }
+    .plan-my-trip-map-wrapper .wrapper
+    {
+        width: 95%;
+        margin-left:  auto;
+        margin-right:  auto;
+    }
+    .plan-my-trip-map-wrapper .input-field label, .radio-field label
+    {
+        text-align: left;
+    }
+    .plan-my-trip-map-wrapper .form#step2, .form#step3
+    {
+        padding-left: 0;
+    }
+    .plan-my-trip-map-wrapper .gender-field
+    {
+        height: auto;
+    }
+    .plan-my-trip-map-wrapper .gender-field .border-end
+    {
+        border: 0 !important;
+        border-bottom: solid 1px var(--bs-border-color) !important;
+    }
+    .plan-my-trip-map-wrapper .gender-single
+    {
+        padding-left: 10px;
+    }
+
+}
+
+
+

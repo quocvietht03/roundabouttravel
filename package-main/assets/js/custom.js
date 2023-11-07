@@ -50,9 +50,7 @@ divs.hide().first().show(); // hide all divs except first
 
 function next()
 {
-    $('html, body').animate({
-        scrollTop: $('.plan-my-trip-map-wrapper').offset().top -150
-    }, 200);
+	window.scrollTo(0,0);
 	currentStepCounter++;
 	console.log("Current Step: " + currentStepCounter);
     divs.eq(now).hide();
@@ -101,6 +99,7 @@ function formvalidate(stepnumber)
     }
     else
     {
+      
       if($(this).prop('required'))
       {
         $(this).addClass('invalid');
@@ -115,10 +114,10 @@ function formvalidate(stepnumber)
   }).get();
   
 
-
   // console.log(inputvalue);
 
   inputschecked = inputvalue.every(Boolean);
+
   // console.log(inputschecked);
 }
 
@@ -134,14 +133,9 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(1);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
-                $('html, body').animate({
-                    scrollTop: $('#error').offset().top -200
-                }, 200);
             }
             else
             {
-                $('.reveal').remove();
                 next();
             }
         })
@@ -154,11 +148,6 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(2);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
-                $('html, body').animate({
-                    scrollTop: $('#error').offset().top -200
-                }, 200);
-
             }
             else
             {
@@ -166,7 +155,6 @@ $(document).ready(function()
 				if(originMarker.isPopupOpen() == true){
 					originMarker.togglePopup();
 				}
-                $('.reveal').remove();
                 next();
             }
         })
@@ -179,14 +167,9 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(3);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
-                $('html, body').animate({
-                    scrollTop: $('#error').offset().top -200
-                }, 200);
             }
             else
             {
-                $('.reveal').remove();
                 next();
             }
         })
@@ -212,28 +195,24 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(4);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
-                $('html, body').animate({
-                    scrollTop: $('#error').offset().top -200
-                }, 200);
             }
             
 			// check if email is valid
             else if(emailFormat == false)
             {
                 // console.log("enter valid email address");
-                $('.reveal').remove();
-                $('#error').append('<div class="reveal alert alert-danger">Enter Valid email address!</div>');
-                $('html, body').animate({
-                    scrollTop: $('#error').offset().top -200
-                }, 200);
+                (function (el) {
+                    setTimeout(function () {
+                        el.children().remove('.reveal');
+                    }, 3000);
+                }($('#error').append('<div class="reveal alert alert-danger">Enter Valid email address!</div>')));
                 if(emailFormat == true)
                 {
-                  $("#email").removeClass('invalid');
+                  $("#mail-email").removeClass('invalid');
                 }
                 else
                 {
-                  $("#email").addClass('invalid');
+                  $("#mail-email").addClass('invalid');
                 }
             }
             
@@ -242,16 +221,15 @@ $(document).ready(function()
                 
                 if(!$('#agreement').is(':checked')){
                     $("#agreementRow").addClass('invalid');
-                    $('.reveal').remove();
-                    $('#error').append('<div class="reveal alert alert-danger">Please accept Terms & Conidition before you submit.</div>');
-                    $('html, body').animate({
-                        scrollTop: $('#error').offset().top -200
-                    }, 200);
+                    (function (el) {
+                        setTimeout(function () {
+                            el.children().remove('.reveal');
+                        }, 3000);
+                    }($('#error').append('<div class="reveal alert alert-danger">Please accept Terms & Conidition before you submit.</div>')));
                 } else {
                     $("#agreementRow").removeClass('invalid');
-                    $('.reveal').remove();
                     
-                    //$("#sub").html("<img src='../wp-content/themes/roundabouttravel/package-main/assets/images/planmytrip-map/loading.gif'>");
+                    $("#sub").html("<img src='assets/images/loading.gif'>");
                     // var dataString = $("#step1, #step2, #step3").serialize() + '&' + $.param(attachment);
                     
                     var dataString = new FormData(document.getElementById("steps"));
@@ -294,7 +272,7 @@ $(document).ready(function()
                     // send form to send.php
                     $.ajax({
                              type: "POST",
-                            url: "../wp-content/themes/roundabouttravel/package-main/form-handling/planmytrip-post.php",
+                            url: "handling/send.php",
                             data: dataString,
                               processData: false,
                              contentType: false,
@@ -303,7 +281,7 @@ $(document).ready(function()
     
                                 $("#sub").html("Success!");
                                 
-                                window.location = "https://www.roundabouttravel.com.au/thank-you/";
+                                window.location = "https://www.roundabouttravel.com.au/inquiry-submitted/";
                                 
                              },
                              error: function(data, status)
@@ -326,12 +304,12 @@ function toggleDisplay() {
   var x = document.getElementById("loader");
   if (window.getComputedStyle(x).display === "none") {
     x.style.display = "block";
-	const mainBodyWrapper =  document.querySelector('.plan-my-trip-map-wrapper');
+	const mainBodyWrapper =  document.querySelector('.bodyWrapper');
 	mainBodyWrapper.style.cssText = 'pointer-events: none;opacity: 0.5;';
 	document.body.style.overflowY = "hidden";
   } else {
     x.style.display = "none";
-	const mainBodyWrapper =  document.querySelector('.plan-my-trip-map-wrapper');
+	const mainBodyWrapper =  document.querySelector('.bodyWrapper');
 	mainBodyWrapper.style.cssText = 'pointer-events: all;opacity: 1;';
 	document.body.style.overflowY = "auto";
   }
@@ -626,20 +604,20 @@ $(document).ready(function(){
 
 //set up initial marker Icon
 var originIcon = L.icon({
-    iconUrl: '../wp-content/themes/roundabouttravel/package-main/assets/images/planmytrip-map/planmt-marker.png',
+    iconUrl: './assets/images/planmt-marker.png',
     iconSize:     [50, 50], // size of the icon
 	iconAnchor:   [25, 50],
     popupAnchor:  [0, -40] // point from which the popup should open relative to the iconAnchor
 });
 
 var d1Icon = L.icon({
-    iconUrl: '../wp-content/themes/roundabouttravel/package-main/assets/images/planmytrip-map/direction1.png',
+    iconUrl: './assets/images/direction1.png',
     iconSize:     [68.5, 50], // size of the icon
 	iconAnchor:   [100, 70]
 });
 
 var d2Icon = L.icon({
-    iconUrl: '../wp-content/themes/roundabouttravel/package-main/assets/images/planmytrip-map/direction2.png',
+    iconUrl: './assets/images/direction2.png',
     iconSize:     [68.5, 50], // size of the icon
 	iconAnchor:   [-30, 70]
 });

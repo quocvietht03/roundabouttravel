@@ -217,7 +217,8 @@ class PJ_DealsGridWithFilter extends Widget_Base {
 												</h3>
 												<?php
 													$price     = get_field( 'deal_price' );
-													$price_fm  = number_format($price, 0, ',', ',');
+													$price_fm  = number_format(floatval($price), 0, ',', ',');
+													    
 				  								$price_tax = get_field( 'deal_price_tax' );
 													if ( !empty( $price ) ) {
 														?>

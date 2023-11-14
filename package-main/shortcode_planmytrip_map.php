@@ -3,6 +3,9 @@
 add_shortcode( 'sc_plan_my_trip_map', 'sc_plan_trip_map' );
 function sc_plan_trip_map()
 {
+    wp_enqueue_script( 'planmytrip-map-js', PJ_URI . 'assets/js/planmytrip-map.js', ['jquery'], PJ_VERSION, true );
+    wp_enqueue_script( 'bootstrap-js', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.js', ['jquery'], PJ_VERSION, true );
+    wp_enqueue_style( 'bootstrap-css', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.css', false, PJ_VERSION );
 ?>
 
     <main>
@@ -60,7 +63,7 @@ function sc_plan_trip_map()
                     </div>
                 </div>
 
-                <form id="steps" method="post" enctype="multipart/form-data">
+                <form id="steps" method="post" autocomplete="off" enctype="multipart/form-data">
 
                     <div class="show-section wrapper">
                         <div id="error"></div>
@@ -360,10 +363,10 @@ function sc_plan_trip_map()
 								</div>
 								<div class="checkboxFields row">
 									<div class="col-md-12" id="agreementRow">
-									    <input id="agreement" class="agreement"  name="agreement" type="checkbox" checked="checked"/><label for="agreement">I agree to the <a href="https://www.roundabouttravel.com.au/about/legal/" target="_blank">terms and conditions</a>.</label>
+									    <input id="agreement" class="agreement"  name="agreement" type="checkbox" checked="checked"/><label for="agreement">By submitting I agree to the <a href="https://www.roundabouttravel.com.au/about/legal/" target="_blank">terms and conditions</a>.</label>
 									</div>
 								</div>
-								<input type="hidden" id="sourceID" name="sourceID" value="RATPLANTRIP">
+								<input type="hidden" id="sourceID" name="sourceID" value="RATPLANMYTRIPMAP">
 								<input id="ip" type="hidden" name="ip" value="<?php echo $ip;?>">
                             </div>
                             <div class="next-prev">

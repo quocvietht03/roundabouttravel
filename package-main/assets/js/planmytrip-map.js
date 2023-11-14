@@ -1,5 +1,5 @@
 /*** Default Form Behaviour ***/
-
+(function($) {
 var currentStepCounter = 1;
 var totalStepsCounter = 0;
 // next prev
@@ -20,6 +20,7 @@ function showActiveStep()
         $(".step-bar-inner .move-bar").css('width', PersentageString);
         $("#completion-rate").html(PersentageString);
         $("#showstep").html('1');
+        
     }
     else if (currentStepCounter == 4)
     {
@@ -30,6 +31,8 @@ function showActiveStep()
         $(".step-bar-inner .move-bar").css('width', PersentageString);
         $("#completion-rate").html(PersentageString);
         $("#showstep").html('3');
+        
+        //Set Max boundary + pan to all markers
 		panView();
     }
     else
@@ -39,6 +42,7 @@ function showActiveStep()
         $(".step-bar-inner .move-bar").css('width', PersentageString);
         $("#completion-rate").html(PersentageString);
         $("#showstep").html('2');
+        
     }
 }
 
@@ -134,7 +138,7 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(1);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
+                $('#error').html('<div class="reveal alert alert-danger">Please fill in all the required fields.</div>');
                 $('html, body').animate({
                     scrollTop: $('#error').offset().top -200
                 }, 200);
@@ -154,7 +158,7 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(2);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
+                $('#error').html('<div class="reveal alert alert-danger">Please fill in all the required fields.</div>');
                 $('html, body').animate({
                     scrollTop: $('#error').offset().top -200
                 }, 200);
@@ -179,7 +183,7 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(3);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
+                $('#error').html('<div class="reveal alert alert-danger">Please fill in all the required fields.</div>');
                 $('html, body').animate({
                     scrollTop: $('#error').offset().top -200
                 }, 200);
@@ -212,7 +216,7 @@ $(document).ready(function()
             if(inputschecked == false)
             {
                 formvalidate(4);
-                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required field.</div>');
+                $('#error').append('<div class="reveal alert alert-danger">Please fill in all the required fields.</div>');
                 $('html, body').animate({
                     scrollTop: $('#error').offset().top -200
                 }, 200);
@@ -223,7 +227,7 @@ $(document).ready(function()
             {
                 // console.log("enter valid email address");
                 $('.reveal').remove();
-                $('#error').append('<div class="reveal alert alert-danger">Enter Valid email address!</div>');
+                $('#error').append('<div class="reveal alert alert-danger">Please enter a valid email address.</div>');
                 $('html, body').animate({
                     scrollTop: $('#error').offset().top -200
                 }, 200);
@@ -243,7 +247,7 @@ $(document).ready(function()
                 if(!$('#agreement').is(':checked')){
                     $("#agreementRow").addClass('invalid');
                     $('.reveal').remove();
-                    $('#error').append('<div class="reveal alert alert-danger">Please accept Terms & Conidition before you submit.</div>');
+                    $('#error').append('<div class="reveal alert alert-danger">Please accept the Terms & Conidition before you submit.</div>');
                     $('html, body').animate({
                         scrollTop: $('#error').offset().top -200
                     }, 200);
@@ -303,7 +307,7 @@ $(document).ready(function()
     
                                 $("#sub").html("Success!");
                                 
-                                window.location = "https://www.roundabouttravel.com.au/thank-you/";
+                                window.location.assign('/thank-you/');
                                 
                              },
                              error: function(data, status)
@@ -456,8 +460,7 @@ searchInput.addEventListener("blur", function(evt){
 			if(evt.relatedTarget ===null){
 				//Trigger form validation show red
 				$(this).addClass('invalid');
-				//TODO ADD CODE to prevent next step if any of them are invalid class input field
-				
+
 				//Update the input field
 				var fieldValue = document.getElementById(this.id).closest(".destinationSuggest").querySelector('.airport__name').innerHTML;
 				var airportLat = document.getElementById(this.id).closest(".destinationSuggest").querySelector('.airport__lat').innerHTML;
@@ -503,6 +506,7 @@ searchInput.addEventListener("blur", function(evt){
     /** Form Behaviour - hide stay row if transit only is clicked **/
     $("#transit").click(function(event){ 
         console.log(this.id);
+        drawDesMarkers(this.id);
     	if (this.checked) {
     	    console.log("TRANSIT CHECKED");
     		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
@@ -510,6 +514,16 @@ searchInput.addEventListener("blur", function(evt){
     	    console.log("TRANSIT UNCHECKED");
     		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
     	}
+    });
+    
+    $("#stay").change(function(event){
+        console.log(this.id);
+        drawDesMarkers(this.id);
+    });
+
+    $("#period").change(function(event){
+        console.log(this.id);
+        drawDesMarkers(this.id);
     });
 
 
@@ -540,29 +554,14 @@ $(document).ready(function(){
 			var elementID = "destination".concat((x+1));
 			const searchInput = document.getElementById(elementID);
 			
-			//Add Listner - Detect field input
+			//Add Listner - Detect Search Airport field input
 			searchInput.addEventListener("input", function(evt){
 				//console.log("ID PRE TRIGGER: "+this.id);
 				searchairport(this.id, this.value)
 			});
 			
-			elementID = "transit".concat((x+1));
-			const transitInput = document.getElementById(elementID);
 			
-			//Add Listner - Detect transit is clicked
-			transitInput.addEventListener("click", function(evt){
-                console.log(this.id);
-            	if (this.checked) {
-            	    console.log("TRANSIT CHECKED");
-            		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
-            	} else {
-            	    console.log("TRANSIT UNCHECKED");
-            		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
-            	}
-			});
-			
-
-			searchInput.addEventListener("blur", function(evt){
+            searchInput.addEventListener("blur", function(evt){
 				//when input field out focus
 				console.log("BLUR TRIGGERED ID: "+this.id);
 				if(evt.relatedTarget ===null){
@@ -602,6 +601,50 @@ $(document).ready(function(){
 					}
 				}
 			});
+			
+			
+			//Add Listner - Detect transit is clicked
+			elementID = "transit".concat((x+1));
+			const transitInput = document.getElementById(elementID);
+			transitInput.addEventListener("click", function(evt){
+                console.log(this.id);
+                drawDesMarkers(this.id);
+            	if (this.checked) {
+            	    console.log("TRANSIT CHECKED");
+            		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
+            	} else {
+            	    console.log("TRANSIT UNCHECKED");
+            		$(this).closest( ".groupFields" ).find(".stayRow").toggle();
+            	}
+			});
+			
+			
+			//Add Listner - Detect self is clicked
+			elementID = "self".concat((x+1));
+			const selfInput = document.getElementById(elementID);
+			selfInput.addEventListener("change", function(evt){
+                console.log(this.id);
+                drawDesMarkers(this.id);
+			});
+
+			//Add Listner - Detect stay is clicked
+			elementID = "stay".concat((x+1));
+			const stayInput = document.getElementById(elementID);
+			stayInput.addEventListener("change", function(evt){
+                console.log(this.id);
+                drawDesMarkers(this.id);
+			});
+			
+			//Add Listner - Detect period is clicked
+			elementID = "period".concat((x+1));
+			const periodInput = document.getElementById(elementID);
+			periodInput.addEventListener("change", function(evt){
+                console.log(this.id);
+                drawDesMarkers(this.id);
+			});
+			
+
+			
 			x++;
             counter++; //Increase field counter
 
@@ -792,6 +835,8 @@ InfantEl.onchange = (event) => {
 	}
 }
 
+
+
 /** Step 3 **/
 
 //GO EAST / GO WEST -> Continents option
@@ -811,9 +856,7 @@ function panView(){
 	
 	//prevent move drag outside the bound
 	map.setMaxBounds(group.getBounds());
-	map.on('drag', function() {
-	   map.panInsideBounds(bounds, { animate: false });
-	});
+
 	
 	//close all popup
 	map.closePopup();
@@ -822,21 +865,21 @@ function panView(){
 
 function drawDesMarkers(FieldChangedID){
 
-	//TODO UNSET SET MAX BOUNDS ANI (prevent move drag outside the bound
+    //Unset Boundry which set for step 4 (in case people go back)
+	map.setMaxBounds(null);
 	
-	
-	console.log("MARKERS DRAWING");
-	console.log(FieldChangedID);
+	//console.log("MARKERS DRAWING");
+	//console.log(FieldChangedID);
 	//clear MARKERS
 	for(var i=0; i < DesMarkers.length; i++){
-		console.log("DESKMARKER LIST");
-		console.log(DesMarkers[i]);
+		//console.log("DESKMARKER LIST");
+		//console.log(DesMarkers[i]);
 		if(DesMarkers[i] instanceof L.Marker){
 			map.removeLayer(DesMarkers[i]);
 		}
 	}	
 	
-	//TODO clear CURVE LINES
+	// clear CURVE LINES
 	geodesic.setLatLngs([]);
 	
 	DesMarkers = [];
@@ -850,37 +893,67 @@ function drawDesMarkers(FieldChangedID){
 	AllMapMarkersGroup = [];
 	AllMapMarkersGroup.push(originMarker);
 	
+	var currentNumber = 0;
+	
 	for (var i=0; i < destinationInputfields.length; i++){
-		console.log(destinationInputfields[i].value);
-		console.log(destinationInputfields[i].dataset.lat);
-		console.log(destinationInputfields[i].dataset.lng);
+		//console.log(destinationInputfields[i].value);
+		//console.log(destinationInputfields[i].dataset.lat);
+		//console.log(destinationInputfields[i].dataset.lng);
 		if(destinationInputfields[i].dataset.lat === undefined || destinationInputfields[i].dataset.lng === undefined ){
 		    break;
 		}
 		DesMarkers[i] = L.marker([destinationInputfields[i].dataset.lat,destinationInputfields[i].dataset.lng], {icon: originIcon}).addTo(map);
-		var popContents = (i+1) + " Stop<br/><b>"+destinationInputfields[i].value+"</b><br/>For " + stayInputfields[i].value + " " + periodInputfields[i].value;
+		var popContents = "Number " + (i+1) + " Stop<br/><b>"+destinationInputfields[i].value+"</b>";
 		if(transitInputfields[i].checked == true){
 			popContents = popContents + "<br/>Transit Only";
+		}else {
+		    popContents = popContents + "<br/>For " + stayInputfields[i].value + " " + periodInputfields[i].value
 		}
 		if(selfInputfields[i].checked == true) {
 			popContents = popContents + "<br/>Own Transport to thie destination";
 		}
 		DesMarkers[i].bindPopup(popContents);
-		//TODO + detect feild change and call update POPUP
 		
+
 		
 		//current Changed field auto toggle popup if it is closed 
 		var desInputfieldsID = destinationInputfields[i].id;
 		if(desInputfieldsID == FieldChangedID && DesMarkers[i].isPopupOpen() == false){
 			DesMarkers[i].togglePopup();
+			currentNumber = i;
+		}
+		
+		var transitInputfieldsID = transitInputfields[i].id;
+		if(transitInputfieldsID == FieldChangedID && DesMarkers[i].isPopupOpen() == false){
+			DesMarkers[i].togglePopup();
+			currentNumber = i;
+		}
+		
+		var selfInputfieldsID = selfInputfields[i].id;
+		if(selfInputfieldsID == FieldChangedID && DesMarkers[i].isPopupOpen() == false){
+			DesMarkers[i].togglePopup();
+			currentNumber = i;
+		}
+		
+		var stayInputfieldsID = stayInputfields[i].id;
+		if(stayInputfieldsID == FieldChangedID && DesMarkers[i].isPopupOpen() == false){
+			DesMarkers[i].togglePopup();
+			currentNumber = i;
+		}
+		
+		var periodInputfieldsID = periodInputfields[i].id;
+		if(periodInputfieldsID == FieldChangedID && DesMarkers[i].isPopupOpen() == false){
+			DesMarkers[i].togglePopup();
+			currentNumber = i;
 		}
 		
 		//build all marker list
 		AllMapMarkersGroup.push(DesMarkers[i]);
 		
-		//pan view to the lastest marker
+		console.log("CURRENT NUMBER: "+currentNumber);
+		//pan view to the marker which updated
 		if(i==destinationInputfields.length-1){
-			map.setView([destinationInputfields[i].dataset.lat,destinationInputfields[i].dataset.lng],3);
+			map.setView([destinationInputfields[currentNumber].dataset.lat,destinationInputfields[currentNumber].dataset.lng],3);
 		}	
 	}
 
@@ -890,8 +963,8 @@ function drawDesMarkers(FieldChangedID){
 	//Draw Line
 	var latlng =[];
 	for(var i=0; i< AllMapMarkersGroup.length; i++){
-		console.log(AllMapMarkersGroup[i]._latlng.lat);
-		console.log(AllMapMarkersGroup[i]._latlng.lng);
+		//console.log(AllMapMarkersGroup[i]._latlng.lat);
+		//console.log(AllMapMarkersGroup[i]._latlng.lng);
 
 		var latlng1 = new L.LatLng(AllMapMarkersGroup[i]._latlng.lat, AllMapMarkersGroup[i]._latlng.lng);
 		latlng.push(latlng1);
@@ -910,3 +983,4 @@ function drawDesMarkers(FieldChangedID){
 	
 
 }
+})(jQuery);

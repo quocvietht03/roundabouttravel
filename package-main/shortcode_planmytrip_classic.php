@@ -3,12 +3,12 @@
 add_shortcode( 'sc_plan_my_trip_classic', 'sc_plan_trip_classic' );
 function sc_plan_trip_classic()
 {
+    wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
 ?>
 <div class="page-template-template-plan-trip">
     <div class="main">
+        <div id="loader" class="loader"></div>
         <div id="main" role="main" class="clearfix">
-            <h2 id="buildtripheading"></h2>
-            <form id="buildtripform" action="#"></form>
             <ul class="steps">
                 <li><span id="step1">Step 1</span></li>
                 <li><span id="step2">Step 2</span></li>
@@ -18,7 +18,11 @@ function sc_plan_trip_classic()
                 <h3></h3>
                 <ul>
                 </ul>
+                <h4></h4>
             </div>
+            
+            <h2 id="buildtripheading"></h2>
+            <form id="buildtripform" action="#"></form>
             <div class="prev-next" style="display:none;">
                 <p class="btn prev"><a href="#"></a></p>
                 <p class="btn next"><a href="#"></a></p>
@@ -115,7 +119,7 @@ function sc_plan_trip_classic()
                     stay?
                 </p>
                 <section class="asiatransit styled-form-elements">
-                    <input type="checkbox" name="" id="asiatransit"> <label for="asiatransit">Transit</label>
+                    <input type="checkbox" name="" id="asiatransit"> <label for="asiatransit">Transit Only</label>
                 </section>
                 <div class="clm2">
                     <div class="box">
@@ -247,6 +251,21 @@ function sc_plan_trip_classic()
                                 </div>
                             </section>
                         </div>
+                        <div class="box">
+                            <section class="number">
+                                How many infants?
+                                <div class="styled-select styled-select-inline">
+                                    <select id="infantno">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5+</option>
+                                    </select>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
                 <div class="question-box">
@@ -263,37 +282,11 @@ function sc_plan_trip_classic()
                     </div>
                     <textarea id="comments" placeholder="Comments"></textarea>
                 </div>
-                <div class="question-box">
-                    <!---<p>Setup Your Account:</p>
-                            <div class="clm2">
-                                <div class="box">
-                                    
-                                </div>
-                                <div class="box">
-                                </div>
-                            </div>--->
-                    <div class="clm2 be-f">
-                        <div class="box">
-                            <input style="display:none;" value="123456" type="password" id="accountpassword"
-                                placeholder="Create Password">
-                        </div>
-                        <div class="box">
-                            <input style="display:none;" value="123456" type="password" id="accountconfirm"
-                                placeholder="Confirm Password">
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div id="dialog" title="Validation Error(s)" style="display:none;">
                 <p>Error</p>
             </div>
-            <?php // DC 12 Aug 2015
-            if (DB_NAME === "argondev_rat") {
-                $bookAppFolder = "bookingdev";
-            } else {
-                $bookAppFolder = "booking";
-            } ?>
-            <input type="hidden" id="bookingdirectory" value="<?php print $bookAppFolder; ?>" style="display:none;" />
         </div>
         <!--#main -->
     </div>

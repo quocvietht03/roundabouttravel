@@ -808,7 +808,8 @@ opacity: 1;
   border-top: 16px solid #3498db;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
-  display:none;
+  display: none;
+  opacity: 1 !important;
 }
 
 @-webkit-keyframes spin {

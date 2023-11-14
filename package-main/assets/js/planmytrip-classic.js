@@ -1,3 +1,4 @@
+(function($) {
 var continents = new Array(
     {val:'asia', text:'Asia'},
     {val:'africa', text:'Africa'},
@@ -377,12 +378,13 @@ function bindEastWestButtons(){
 }
 
 $(document).ready(function(){
-    window.bookingDirectory = $('input[id="bookingdirectory"]').val();
     loadStepScreen('direction');
     bindEastWestButtons();
     
     $('div.prev-next > p > a').click(function(e){
         if(process(e)){
+            console.log("next step button a");
+            document.getElementById("main").scrollIntoView();
             return true;
         } else {
             return false;
@@ -394,7 +396,7 @@ var stepScreens = {
 
     direction: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'directionform',
         step: 'step1',
         helpButton: true,
@@ -404,7 +406,7 @@ var stepScreens = {
 
     continentNumber: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentNumberform',
         step: 'step1',
         helpButton: true,
@@ -414,7 +416,7 @@ var stepScreens = {
 
     continentDetailsFirst: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentSelectform',
         step: 'step1',
         helpButton: true,
@@ -425,7 +427,7 @@ var stepScreens = {
 
     continentDetailsSecond: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentSelectform',
         step: 'step1',
         helpButton: true,
@@ -436,7 +438,7 @@ var stepScreens = {
 
     continentDetailsThird: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentSelectform',
         step: 'step1',
         helpButton: true,
@@ -447,7 +449,7 @@ var stepScreens = {
 
     continentDetailsFourth: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentSelectform',
         step: 'step1',
         helpButton: true,
@@ -458,7 +460,7 @@ var stepScreens = {
 
     continentDetailsFifth: {
         //background: '/wp-content/themes/rat/img/bg-step1.jpg',
-        heading: 'Step1 - Build my trip',
+        heading: 'Step 1 - Build my trip',
         form: 'continentSelectform',
         step: 'step1',
         helpButton: true,
@@ -469,7 +471,7 @@ var stepScreens = {
 
     itinerary: {
         //background: '/wp-content/themes/rat/img/bg-step2.jpg',
-        heading: 'Step2 - Design my Itinerary',
+        heading: 'Step 2 - Design my Itinerary',
         form: 'itineraryform',
         step: 'step2',
         helpButton: true,
@@ -479,7 +481,7 @@ var stepScreens = {
 
     preview: {
         //background: '/wp-content/themes/rat/img/bg-step3.jpg',
-        heading: 'Step3 - Details and Preview',
+        heading: 'Step 3 - Details and Preview',
         form: 'previewform',
         step: 'step3',
         helpButton: true,
@@ -529,13 +531,12 @@ var state = {
     preview: {
         adultNo: '',
         childrenNo: '',
+        infantNo: '',
         firstName: '',
         lastName: '',
         phone: '',
         comments: '',
         accountEmail: '',
-        accountPassword: '',
-        accountConfirm: '',
     },
 };
 
@@ -600,6 +601,8 @@ function updateState(stateStep){
             $('#adultno > option:contains("'+state.preview.adultNo+'")').prop('selected',true);
         if(state.preview.childrenNo != '')
             $('#childrenno > option:contains("'+state.preview.childrenNo+'")').prop('selected',true);
+        if(state.preview.infantNo != '')
+            $('#infantno > option:contains("'+state.preview.infantNo+'")').prop('selected',true);
         if(state.preview.firstName != '')
             $('#firstname').val(state.preview.firstName);
         if(state.preview.lastName != '')
@@ -610,10 +613,6 @@ function updateState(stateStep){
             $('#comments').val(state.preview.comments);
         if(state.preview.accountEmail != '')
             $('#accountemail').val(state.preview.accountEmail);
-        if(state.preview.accountPassword != '')
-            $('#accountpassword').val(state.preview.accountPassword);
-        if(state.preview.accountConfirm != '')
-            $('#accountconfirm').val(state.preview.accountConfirm);
     }
 }
 
@@ -621,29 +620,30 @@ function populatePreviouslyAnswered(stepScreenToLoad){
     if(stepScreenToLoad == 'direction')
         return;
     $('div.answers').css('display','inherit');
-    $('.answers > h3').html('What you selected');
-    $('.answers > ul').append('<li>Direction: '+toTitleCase(state.direction.direction)+'</li>');
+    $('.answers > ul').append('<li><b>What you selected</b></li>');
+    $('.answers > ul').append('<li><b>Direction</b>: '+toTitleCase(state.direction.direction)+'</li>');
     if(stepScreenToLoad == 'continentNumber')
         return;
-    $('.answers > ul').append('<li>Continents: '+state.continentNumber.continentNumber+'</li>');
+    $('.answers > ul').append('<li><b>Continents</b>: '+state.continentNumber.continentNumber+'</li>');
     if(stepScreenToLoad == 'continentDetailsFirst')
         return;
-    $('.answers > ul').append('<li>First: '+getContinentText(state.continentFirst.continentFirst)+'</li>');
+        
+    $('.answers > h4').html(getContinentText(state.continentFirst.continentFirst));
     if(stepScreenToLoad == 'continentDetailsSecond')
         return;
-    $('.answers > ul').append('<li>Second: '+getContinentText(state.continentSecond.continentSecond)+'</li>');
+    $('.answers > h4').html(getContinentText(state.continentFirst.continentFirst) + ' -> ' + getContinentText(state.continentSecond.continentSecond));
     if(stepScreenToLoad == 'continentDetailsThird')
         return;
-    $('.answers > ul').append('<li>Third: '+getContinentText(state.continentThird.continentThird)+'</li>');
+    $('.answers > h4').html(getContinentText(state.continentFirst.continentFirst) + ' -> ' + getContinentText(state.continentSecond.continentSecond) + ' -> ' + getContinentText(state.continentThird.continentThird));
     if(stepScreenToLoad == 'continentDetailsFourth')
         return;
     if(state.continentNumber.continentNumber > 3){
-        $('.answers > ul').append('<li>Fourth: '+getContinentText(state.continentFourth.continentFourth)+'</li>');
+        $('.answers > h4').html(getContinentText(state.continentFirst.continentFirst) + ' -> ' + getContinentText(state.continentSecond.continentSecond) + ' -> ' + getContinentText(state.continentThird.continentThird) +' -> ' + getContinentText(state.continentFourth.continentFourth));
     }
     if(stepScreenToLoad == 'continentDetailsFifth')
         return;
     if(state.continentNumber.continentNumber > 4){
-        $('.answers > ul').append('<li>Fifth: '+getContinentText(state.continentFifth.continentFifth)+'</li>');
+        $('.answers > h4').html(getContinentText(state.continentFirst.continentFirst) + ' -> ' + getContinentText(state.continentSecond.continentSecond) + ' -> ' + getContinentText(state.continentThird.continentThird) +' -> ' + getContinentText(state.continentFourth.continentFourth) + ' -> ' + getContinentText(state.continentFifth.continentFifth));
     }
     if(stepScreenToLoad == 'itinerary')
         return;
@@ -701,7 +701,7 @@ function addDestination(aElement){
     citiesHTML = $(aElement).parent().parent().parent().children('div.clm2').html();
     detailsHTML = $(aElement).parent().parent().parent().children('section.number').html();
     addedGroupDiv = $(aElement).parent().parent().parent().children('div.extraCities').children('div.group'+$(aElement).parent().parent().parent().children('input[class^="extraCitiesNo"]').val());
-    addedGroupDiv.append(asiaTransitHTML+'<div style="padding-bottom:20px;">'+citiesHTML+'</div>'+'<div class="number">'+detailsHTML+'</div>');
+    addedGroupDiv.append(asiaTransitHTML+'<div style="padding-bottom:20px;justify-content: center;">'+citiesHTML+'</div>'+'<div class="number">'+detailsHTML+'</div>');
     newCountrySelect = addedGroupDiv.find('select[name="country"]');
     newCountrySelect.change(function(){
         countryOnChange($(this).prop('id'),$(this).prop('class'));
@@ -974,10 +974,12 @@ function loadStepScreen(stepScreenToLoad){
     if(stepScreens[stepScreenToLoad].navButtonPrev != ''){
         $('div.prev-next').css('display','inherit');
         $('div.prev-next > p.prev > a').html('');
+        $('div.prev-next').removeClass('step3');
     }
     if(stepScreens[stepScreenToLoad].navButtonNext != ''){
         $('div.prev-next').css('display','inherit');
         $('div.prev-next > p.next > a').html('');
+        $('div.prev-next').addClass(stepScreens[stepScreenToLoad].step);
     }
 
     updateState(stepScreenToLoad);
@@ -1158,13 +1160,12 @@ function process(event){
     } else if(currentScreen == 'preview'){
         state.preview.adultNo = $('#adultno > option:selected').html();
         state.preview.childrenNo = $('#childrenno > option:selected').html();
+        state.preview.infantNo = $('#infantno > option:selected').html();
         state.preview.firstName = $('#firstname').val();
         state.preview.lastName = $('#lastname').val();
         state.preview.phone = $('#phone').val();
         state.preview.comments = $('#comments').val();
         state.preview.accountEmail = $('#accountemail').val();
-        state.preview.accountPassword = $('#accountpassword').val();
-        state.preview.accountConfirm = $('#accountconfirm').val();
         if($(event.target).parent().hasClass('prev')){
             loadStepScreen('itinerary');
             return true;
@@ -1179,12 +1180,7 @@ function process(event){
         if(!validateEmail(state.preview.accountEmail)){
             alertMessage = alertMessage + 'Please enter a valid email address for Your Account.<br>';
         }
-        if(!(state.preview.accountPassword.length > 3)){
-            alertMessage = alertMessage + 'Password must be longer than 3 characters.<br>';
-        }
-        if(state.preview.accountPassword != state.preview.accountConfirm){
-            alertMessage = alertMessage + 'Password and Confirmation do not match.<br>';
-        }
+
         if(alertMessage != ''){
             alertUser(alertMessage);
             return false;
@@ -1192,28 +1188,23 @@ function process(event){
         $('div.prev-next > p.next > a').off();
         $('div.prev-next > p.next > a').click(function(e){
             e.preventDefault();
+            $('div.prev-next > p.next > a').disabled = true;
             return false;
         });
-        $('div.prev-next > p.next > a').html('SUBMITTING...');
+
+        toggleDisplay();
         $.ajax({
             method: "POST",
-            url: "/"+bookingDirectory+"/processmytrip.php",
-            data: { state: state }
+            url: "../wp-content/themes/roundabouttravel/package-main/form-handling/planmytrip-post.php",
+            data: { state: state, sourceID: "RATPLANMYTRIPCLASSIC" }
         })
         .done(function( msg ) {
-            if(msg.substr(msg.length-7,7) == 'success'){
-                //fbq('track', 'Lead');
-                /*ga('send', {
-                    hitType: 'event',
-                    eventCategory: 'RAT',
-                    eventAction: 'plan-my-trip-submitted',
-                    eventLabel: msg
-                });*/
-                window.location.assign('/inquiry-submitted/');
+            if(msg == 'success'){
+                window.location.assign('/thank-you/');
             } else {
                 alertUser( msg );
                 $('div.prev-next > p.next > a').off();
-                $('div.prev-next > p.next > a').html('FINISH');
+                toggleDisplay();
                 $('div.prev-next > p.next > a').click(function(e){
                     if(process(e)){
                         return true;
@@ -1224,7 +1215,7 @@ function process(event){
             }
         }).fail(function(){
             $('div.prev-next > p.next > a').off();
-            $('div.prev-next > p.next > a').html('FINISH');
+            toggleDisplay();
             $('div.prev-next > p.next > a').click(function(e){
                 if(process(e)){
                     return true;
@@ -1238,25 +1229,38 @@ function process(event){
     return true;
 }
 
+function toggleDisplay() {
+  var x = document.getElementById("loader");
+  if (window.getComputedStyle(x).display === "none") {
+    x.style.display = "block";
+	const mainBodyWrapper =  document.querySelector('#main');
+	mainBodyWrapper.style.cssText = 'pointer-events: none;opacity: 0.5;';
+  } else {
+    x.style.display = "none";
+	const mainBodyWrapper =  document.querySelector('#main');
+	mainBodyWrapper.style.cssText = 'pointer-events: all;opacity: 1;';
+  }
+}
+
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
 
 function dateValid(dateString){
-    var dateIsValid = false;
-    $.ajax({
-        method: "POST",
-        url: "/"+bookingDirectory+"/validatedate.php",
-        data: { date: dateString },
-        async: false
-    })
-    .done(function( msg ) {
-        if(msg == 'success'){
-            dateIsValid = true;
-        }
-    });
-    return dateIsValid;
+    const today = new Date()
+    const tomorrow = new Date(today)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    const eighteenMonths = new Date(today)
+    eighteenMonths.setDate(eighteenMonths.getDate() + 547)
+    
+    var targetdate = new Date(dateString+" GMT");
+
+    if(targetdate > tomorrow && targetdate < eighteenMonths){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function alertUser(alertMsg){
@@ -1272,3 +1276,4 @@ function alertUser(alertMsg){
     //return 'You have unsaved changes.';
 //}
 
+})(jQuery);

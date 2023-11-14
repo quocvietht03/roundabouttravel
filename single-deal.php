@@ -7,7 +7,7 @@
 	$page_title        = !empty( $destinations ) ? $destinations[0]->name : get_the_title();
 
 	$price        = get_post_meta( $post->ID, 'deal_price', true );
-    $price_fm     = number_format($price, 0, ',', ',');
+    $price_fm     = number_format(floatval($price), 0, ',', ',');
 	$price_tax    = get_field( 'deal_price_tax' );
 	$seasons      = get_post_meta( $post->ID, 'deal_seasons', true );
 	$departure    = get_post_meta( $post->ID, 'deal_departure_ports', true );
@@ -129,7 +129,7 @@ function rbt_setBookingInfo() {
                         </div>
                     <?php endif; ?>
                     <div class="deal-note">
-                        <h3 class="deal-note-title">Note</h3>
+                        <h3 class="deal-note-title">Notes</h3>
                         <div class="deal-note-list">
                             <?php if ( !empty( $seasons ) ) : ?>
                             <div class="deal-note-item">

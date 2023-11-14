@@ -218,6 +218,8 @@ function rpjc_deal_custom_columns( $column ) {
 		case 'deal-class' :
 
 			$terms = get_the_terms( $post->ID, 'deal_class' );
+			
+			$brands = array();
 
 			if ( $terms ) foreach ( $terms as $term ) $brands[] = $term->name;
 
@@ -228,6 +230,8 @@ function rpjc_deal_custom_columns( $column ) {
 		case 'deal-destination' :
 
 			$terms = get_the_terms( $post->ID, 'deal_destination' );
+			
+			$brands = array();
 
 			if ( $terms ) foreach ( $terms as $term ) $brands[] = $term->name;
 
@@ -238,6 +242,8 @@ function rpjc_deal_custom_columns( $column ) {
 		case 'deal-airline' :
 
 			$terms = get_the_terms( $post->ID, 'deal_airline' );
+			
+			$brands = array();
 
 			if ( $terms ) foreach ( $terms as $term ) $brands[] = $term->name;
 

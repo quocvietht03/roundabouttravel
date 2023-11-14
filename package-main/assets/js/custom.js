@@ -1,5 +1,5 @@
 /*** Default Form Behaviour ***/
-
+(function($) {
 var currentStepCounter = 1;
 var totalStepsCounter = 0;
 // next prev
@@ -888,3 +888,4 @@ function drawDesMarkers(FieldChangedID){
 	
 
 }
+})(jQuery);

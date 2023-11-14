@@ -18,29 +18,29 @@
         wp_enqueue_script( 'gravityform-js', PJ_URI . 'assets/js/gravityform.js', ['jquery'], PJ_VERSION, true );
 
         wp_enqueue_script( 'price-my-airfare-js', PJ_URI . 'assets/js/price-my-airfare.js', ['jquery'], PJ_VERSION, true );
-        wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
+        //wp_enqueue_script( 'planmytrip-js', PJ_URI . 'assets/js/planmytrip-classic.js', ['jquery'], PJ_VERSION, true );
         
         
         
-        wp_enqueue_script( 'bootstrap-js', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.js', ['jquery'], PJ_VERSION, true );
-        wp_enqueue_style( 'bootstrap-css', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.css', false, PJ_VERSION );
+        //wp_enqueue_script( 'bootstrap-js', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.js', ['jquery'], PJ_VERSION, true );
+        //wp_enqueue_style( 'bootstrap-css', PJ_URI . 'assets/libs/bootstrap/bootstrap.min.css', false, PJ_VERSION );
         
         wp_enqueue_script( 'leaflet-js', PJ_URI . 'assets/libs/leaflet/leaflet.js', ['jquery'], PJ_VERSION, true );
         wp_enqueue_script( 'leaflet.geodesic', PJ_URI . 'assets/libs/leaflet/leaflet.geodesic', ['jquery'], PJ_VERSION, true );
         wp_enqueue_style( 'leaflet-css', PJ_URI . 'assets/libs/leaflet/leaflet.css', false, PJ_VERSION );
 
-        wp_enqueue_script( 'planmytrip-map-js', PJ_URI . 'assets/js/planmytrip-map.js', ['jquery'], PJ_VERSION, true );
+        //wp_enqueue_script( 'planmytrip-map-js', PJ_URI . 'assets/js/planmytrip-map.js', ['jquery'], PJ_VERSION, true );
 
         // jQuery Form - Plan My Trip Classic
         //wp_enqueue_script( 'vaccrue-jquery-form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js', array( 'jquery' ), '3.50' );
         //wp_enqueue_script( 'jquery-cookie', '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array( 'jquery' ), '1.4.1' );
 
         wp_enqueue_style( 'animate-css', PJ_URI . 'assets/libs/animate.css/animate.min.css', false, PJ_VERSION );
-        wp_enqueue_style( 'font-awesome-css', PJ_URI . 'assets/libs/font-awesome/all.min.css', false, PJ_VERSION );
+        //wp_enqueue_style( 'font-awesome-css', PJ_URI . 'assets/libs/font-awesome/all.min.css', false, PJ_VERSION );
         
-        wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery',  PJ_URI . 'assets/modules/plan-my-trip/js/jquery.min.js', false, '2.2.4' );
-        wp_enqueue_script( 'jquery' );
+        //wp_deregister_script( 'jquery' );
+        //wp_register_script( 'jquery',  PJ_URI . 'assets/modules/plan-my-trip/js/jquery.min.js', false, '2.2.4' );
+        //wp_enqueue_script( 'jquery' );
 
         wp_enqueue_style( 'jquery-ui-smoothness',  PJ_URI . 'assets/modules/plan-my-trip/css/smoothness/jquery-ui-1.10.4.custom.min.css' );
         wp_enqueue_script( 'jquery-ui-custom',  PJ_URI . 'assets/modules/plan-my-trip/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ) );

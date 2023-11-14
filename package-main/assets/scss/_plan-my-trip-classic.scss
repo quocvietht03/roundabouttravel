@@ -12,30 +12,42 @@
         }
 
         #main{
+            padding-bottom: 20px;
             background-color: #fff;
-            padding: 190px 40px 80px 40px;
             max-width: 100%;
             margin: 0 auto;
             border-radius: 20px;
             position: relative;
-            min-height: calc(100vh - 200px);
+            min-height: calc(100vh - 400px);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             #buildtripheading{
+                margin-top:40px;
                 text-align: center;
                 font-size: 32px;
                 font-weight: 700;
             }
             
             #buildtripform{
+                padding-left: 10%;
+                padding-right: 10%;
                 .question{
                     text-align: center;
                     font-size: 18px;
                     font-weight: 600;
                     color: #555555;
                     margin-bottom: 32px;
+                }
+                h3.be-your-detail{
+                    border-top: 2px solid #BFD1E2;
+                    margin-top: 25px;
+                    padding-top: 25px;
+                }
+                #adultno, #childrenno, #infantno{
+                    max-width: unset !important;
+                    margin-top: 15px;
                 }
                 .continentNumberform{
                     select.continentNumber {
@@ -45,6 +57,7 @@
                 }
                 .narrow, .clm2, .number{
                     select{
+                        margin: auto;
                         color: #00448A;
                         padding: 10px 40px 10px 25px;
                         font-weight: 600;
@@ -57,7 +70,7 @@
                         appearance: none;
                         border-radius: 25px;
                         border: 2px solid #00448A;
-                        max-width: 200px;
+                        max-width: 250px;
                     }
                 }
                 .globe{
@@ -85,6 +98,7 @@
                         align-items: center;
                         height: 60px;
                         &.be-left{
+                            left:10%;
                             &:hover{
                                 .fa-long-arrow-left::before{
                                     background:url('../images/left-hover.png');
@@ -92,6 +106,7 @@
                             }
                         }
                         &.be-right{
+                            right:10% !important;
                             &:hover{
                                 .fa-long-arrow-right::before{
                                      background:url('../images/right-hover.png');
@@ -150,7 +165,7 @@
                         font-weight: bold;
                         transition: 0.5s ease-in-out;
                         padding: 0 30px;
-                        max-width: 200px;
+                        max-width: 250px;
                         margin-top:0;
                         text-align: center;
                         span{
@@ -208,6 +223,10 @@
                         vertical-align: top;
                         display: inline-block;
                         margin-bottom: 32px;
+                        h3{
+                            padding-bottom: 5px;
+                            border-bottom: 2px solid #BFD1E2;
+                        }
                         &:nth-child(1){
                             width: 100%;
                             .question{
@@ -223,13 +242,12 @@
                         }
                         &.continent1 {
                             padding-top: 24px;
-                            border-top: 1px solid #555555;
                         }
                         &.continent1, &.continent2, &.continent3, &.continent4, &.continent5{
                             padding-bottom: 24px;
-                            border-bottom: 1px solid #555555;
                             .clm2{
                                 display: flex;
+                                justify-content: center;
                                 gap: 30px;
                                 // .box{
                                 //     width: 48%;
@@ -255,6 +273,7 @@
                             }
                             .number{
                                 display: flex;
+                                justify-content: center;
                                 flex-wrap: wrap;
                                 align-items: center;
                                 font-size: 16px;
@@ -262,6 +281,7 @@
                                 color: #00448A;
                                 margin-bottom: 16px;
                                 margin-top: 16px;
+
                                 .styled-select{
                                     width: 80px;
                                     margin-left: 16px;
@@ -340,8 +360,10 @@
                                     top: 16px !important;
                                     display: block;
                                     width: 100%;
+                                    text-align: center;
                                     label{
                                         padding-left: 24px;
+                                        position: relative;
                                     }
                                     input[type="checkbox"]{
                                         opacity: 0;
@@ -380,7 +402,7 @@
                                                 content: '';
                                                 position: absolute;
                                                 left: 0;
-                                                top: 4px;
+                                                top: -2px;
                                                 width: 18px;
                                                 height: 18px;
                                                 border: 1px solid #ddd;
@@ -390,7 +412,7 @@
                                                 content: "";
                                                 position: absolute;
                                                 left: 7px;
-                                                top: 7px;
+                                                top: 1px;
                                                 width: 5px;
                                                 height: 10px;
                                                 border: solid #00448A;
@@ -405,7 +427,7 @@
                                                     content: '';
                                                     position: absolute;
                                                     left: 0;
-                                                    top: 0px;
+                                                    top: -2px;
                                                     width: 18px;
                                                     height: 18px;
                                                     border: 1px solid #ddd;
@@ -415,7 +437,7 @@
                                                     content: "";
                                                     position: absolute;
                                                     left: 7px;
-                                                    top: 3px;
+                                                    top: 1px;
                                                     width: 5px;
                                                     height: 10px;
                                                     border: solid #00448A;
@@ -555,7 +577,7 @@
                             font-size: 17px;
                             color: #00448A;
                             margin-bottom: 16px;
-                            text-align: left;
+                            text-align: center;
                             h3{
                                 display: inline-block;
                                 margin-bottom:0;
@@ -564,12 +586,17 @@
                         }
                         .date{
                             position: relative;
-                            max-width: 200px;
+                            max-width: 250px;
+                            margin: auto;
                             input{
                                 margin-right: 8px;
                                 line-height: 30px;
                                 border: 2px solid #00448A;
                                 border-radius: 25px;
+                                color: #00448A;
+                                font-weight: 600;
+                                font-size: 18px;
+                                padding: 10px 40px 10px 25px;
                             }
                             &::after{
                                 content:url(../images/icon-calendar.png);
@@ -583,8 +610,13 @@
                         .asiatransit{
                             margin-bottom: 12px;
                             position: relative;
+                            text-align: center;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #00448A;
                             label{
                                 padding-left: 24px;
+                                position: relative;
                             }
                             input[type="checkbox"]{
                                 opacity: 0;
@@ -623,7 +655,7 @@
                                         content: '';
                                         position: absolute;
                                         left: 0;
-                                        top: 6px;
+                                        top: -2px;
                                         width: 18px;
                                         height: 18px;
                                         border: 1px solid #ddd;
@@ -633,7 +665,7 @@
                                         content: "";
                                         position: absolute;
                                         left: 7px;
-                                        top: 9px;
+                                        top: 1px;
                                         width: 5px;
                                         height: 10px;
                                         border: solid #00448A;
@@ -645,15 +677,20 @@
                             }
                         }
                         .be-your-detail{
-                            margin-top:25px;
+                            border-top: 2px solid #BFD1E2;
+                            margin-top: 25px;
+                            padding-top: 25px;
                         }
                     }
                 }
                 .previewform{
                     .question-box{
                         dl.result{
+                            background: #F0F5F9;
+                            padding:20px;
+                            border-radius: 15px;
                             dd {
-                                background: #ddd;
+                                background: #F0F5F9;
                                 padding: 5px 10px;
                                 margin: 0;
                                 border-radius: 3px;
@@ -760,7 +797,6 @@
             .steps{
                 padding: 0;
                 list-style: none;
-                position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -768,6 +804,7 @@
                 background: #00ADEE;
                 border-radius: 20px 0 0 0;
                 display: flex;
+                margin-bottom:0px;
                 justify-content: space-between;
                 li{
                     text-align: center;
@@ -791,6 +828,7 @@
                         display: inline-block;
                         width: 100%;
                         padding: 25px;
+                        background-color: #00ADEE;
                         &.on{
                             background-color: #00448A;
                             color: #fff;
@@ -802,41 +840,31 @@
                 }
             }
             .answers{
-                position: absolute;
-                top: 65px;
                 width: 100% !important;
                 background: #d2e4f0;
-                height: 90px;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
-                left: 0;
                 h3{
                     font-size: 18px;
                     margin-bottom: 10px;
                     padding-top: 10px;
+                    margin:0;
                 }
                 ul{
-                    padding: 0;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    margin:0;
                     list-style-position: inside;
                     list-style: none;
                     display: block;
-                    padding: 15px;
-                    border-top: 1px solid #fafafa;
-                    background: #d2e4f0;
                     li{
                         font-size: 16px;
                         position: relative;
                         padding-left: 8px;
                         display: inline-block;
                         margin: 0 15px;
-                        &:before{
-                            content: "-";
-                            font-size: 14px;
-                            position: absolute;
-                            left: 0;
-                            top: -1px;
-                        }
+
                     }
                 }
             }
@@ -908,8 +936,9 @@
                 margin-top: 16px;
                 justify-content: space-between;
                 .btn {
-                    margin-bottom: 0;
+                    margin-bottom: 30px;
                     &.prev{
+                        padding-left: 20%;
                         float: left;
                         a{
                             &::before{
@@ -929,6 +958,7 @@
                     }
                     &.next{
                         float: right;
+                        padding-right: 20%;
                         a{
                             &::before{
                                 content: '';
@@ -964,6 +994,20 @@
                         }
                     }
                 }
+                &.step3{
+                    .btn.next{
+                        a{
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            &:before{
+                                content: 'SUBMIT';
+                                background: none;
+                                width: auto;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                }
             }
 
         }
@@ -971,10 +1015,10 @@
     }
     @media(max-width: 767.98px) {
         .main #main {
-            padding: 80px 20px 40px 20px;
             #buildtripheading {
                 font-size: 25px;
                 margin-bottom: 25px;
+                margin-top: 40px;
             }
             // .steps{
             //     width: 100%;
@@ -990,31 +1034,33 @@
                 width: 130px;
                 margin: 2px 5px;
                 &.north_america::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
                 &.south_america::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
                 &.europe::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
                 &.africa::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
                 &.asia::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
                 &.south_pacific::before{
-                    width: 45px;
-                    height: 45px;
+                    width: 60px;
+                    height: 60px;
                 }
             }
             #buildtripform{
+                padding-left: 10px;
+                padding-right: 10px;
                 .direction{
                     button{
                         top: 0;
@@ -1037,6 +1083,12 @@
                 .btn {
                     float: none !important;
                     margin-bottom: 10px;
+                    &.prev{
+                        padding:0;
+                    }
+                    &.next{
+                        padding:0;
+                    }
                     a {
                         padding: 10px 10px;
                         margin: 30px;
@@ -1102,7 +1154,9 @@
                     height: 50px !important;
                 }
                 h3.be-your-detail{
-                    margin-top:20px;
+                    border-top: 2px solid #BFD1E2;
+                    margin-top: 25px;
+                    padding-top: 25px;
                 }
             }
         }
@@ -1117,3 +1171,38 @@
     color: #00448A !important;
     font-weight: bold;
 }
+
+.ui-button-text {
+    padding: 0 !important;
+    line-height: 10px !important;
+}
+
+/** Loader **/
+.page-template-template-plan-trip #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+  opacity: 1 !important;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+

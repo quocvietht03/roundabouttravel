@@ -94,6 +94,8 @@ function get_admin_custom_posts_columns( $column ) {
 
 			$terms = get_the_terms( $post->ID, 'post_class' );
 
+            $brands = array();
+            
 			if ( $terms ) foreach ( $terms as $term ) $brands[] = $term->name;
 
 			if ( $brands ) echo implode( ', ', $brands );
@@ -103,7 +105,9 @@ function get_admin_custom_posts_columns( $column ) {
 		case 'post-airline' :
 
 			$terms = get_the_terms( $post->ID, 'post_airline' );
-
+            
+            $brands = array();
+            
 			if ( $terms ) foreach ( $terms as $term ) $brands[] = $term->name;
 
 			if ( $brands ) echo implode( ', ', $brands );

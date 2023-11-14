@@ -18,7 +18,7 @@
 										'hide_empty'      => false,
 										'id'              => 'deal_search_class',
 										'name'            => 'deal_search_class',
-										'selected'        => $_GET['deal_search_class'],
+										'selected'        => isset($_GET['deal_search_class']) ? $_GET['deal_search_class'] : '',
 										'taxonomy'        => 'deal_class'
 									) );
 								?>
@@ -33,7 +33,7 @@
                                         'order'           => 'ASC',
 										'id'              => 'deal_search_airline',
 										'name'            => 'deal_search_airline',
-										'selected'        => $_GET['deal_search_airline'],
+										'selected'        => isset($_GET['deal_search_airline']) ? $_GET['deal_search_airline'] : '',
 										'taxonomy'        => 'deal_airline'
 									) );
 								?>
@@ -41,11 +41,11 @@
                     <div class="form-field form-field-sort">
                         <label for="deal_search_sort">Sort by</label>
                         <select name="deal_search_sort" id="deal_search_sort">
-                            <option value="price_asc" <?php selected( $_GET['deal_search_sort'], 'price_asc' ); ?>>Price
+                            <option value="price_asc" <?php selected( isset($_GET['deal_search_sort']) ? $_GET['deal_search_sort'] : '', 'price_asc' ); ?>>Price
                                 Ascending</option>
-                            <option value="price_desc" <?php selected( $_GET['deal_search_sort'], 'price_desc' ); ?>>
+                            <option value="price_desc" <?php selected( isset($_GET['deal_search_sort']) ? $_GET['deal_search_sort'] : '', 'price_desc' ); ?>>
                                 Price Descending</option>
-                            <option value="date_added" <?php selected( $_GET['deal_search_sort'], 'date_added' ); ?>>
+                            <option value="date_added" <?php selected( isset($_GET['deal_search_sort']) ? $_GET['deal_search_sort'] : '', 'date_added' ); ?>>
                                 Date Added</option>
                         </select>
                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <?php
                         $price     = get_field( 'deal_price' );
-                        $price_fm     = number_format($price, 0, ',', ',');
+                        $price_fm     = number_format(floatval($price), 0, ',', ',');
                         $price_tax = get_field( 'deal_price_tax' );
                         if ( !empty( $price ) ) {
                           ?>

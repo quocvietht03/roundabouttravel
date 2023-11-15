@@ -231,7 +231,7 @@ body .select2-results__option{
                         }
                     }
                 }
-                img{display: none;}
+                //img{display: none;}
             }
 
         }
@@ -241,7 +241,7 @@ body .select2-results__option{
             input[type="submit"]{
                 margin-bottom: 0;
                 border-radius: 30px;
-                padding: 15px 35px;
+                padding: 15px 30px;
                 font-family: "Outfit", Sans-serif;
                 font-size: 14px;
                 font-weight: 700;
@@ -249,11 +249,12 @@ body .select2-results__option{
                 background-color: #00ADEE;
                 color: #ffffff;
                 border: none;
+                max-width:100%;
                 &:hover{
                     background-color: #00448A;
                 }
             }
-            img{display: none;}
+            //img{display: none;}
         }
 
     }
@@ -271,6 +272,7 @@ body .select2-results__option{
             input{
                 &.gform_previous_button{
                     padding: 8px 0;
+                    font-size: 13px;
                 }
             }
         }
@@ -533,6 +535,7 @@ body .select2-results__option{
                 }
                 .confirm-text{
                     width: calc(100% - 100px);
+                    overflow: scroll;
                 }
             }
         }

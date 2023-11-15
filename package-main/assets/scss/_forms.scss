@@ -204,7 +204,7 @@ body .select2-results__option{
                     &.gform_next_button, &[type="submit"]{
                         margin-bottom: 0;
                         border-radius: 30px;
-                        padding: 15px 35px;
+                        padding: 15px 30px;
                         font-family: "Outfit", Sans-serif;
                         font-size: 14px;
                         font-weight: 700;
@@ -214,6 +214,7 @@ body .select2-results__option{
                         border: none;
                         outline: none;
                         line-height: 1 !important;
+                        max-width: 100%;
                         &:hover{
                             background-color: #00448A;
                         }

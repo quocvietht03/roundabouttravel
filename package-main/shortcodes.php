@@ -20,6 +20,7 @@ if($price == 'POA'){
 }
 
 $price_tax    = get_field( 'deal_price_tax', $deal_id );
+//var_dump($price_tax);
 
 $class_titles   = [];
 $airline_titles = [];
@@ -81,7 +82,12 @@ if ( empty($deal_id ) ) {
             <div class="right">
                 <div class="deal-price">
                     From
-                    <span>$<?php echo $price_fm; ?></span>
+                    <?php if($price == 'POA'){ ?>
+                        <span><?php echo $price_fm; ?></span>
+                    <?php } else{ ?>
+                        <span>$<?php echo $price_fm; ?></span>
+                    <?php } ?>
+                    
 
                     <?php 
                     if ( $price_tax ) {

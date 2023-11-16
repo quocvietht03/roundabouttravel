@@ -30,7 +30,7 @@
 						<h2 class="posts-filter-title-cc">ARTICLE FILTERS</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
-							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo isset($_GET['post_search_keyword']) ? $_GET['post_search_keyword'] : ''; ?>" />
 						</div>
 						<div class="form-field form-field-class">
 							<?php
@@ -40,7 +40,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_class',
 									'name'            => 'post_search_class',
-									'selected'        => $_GET['post_search_class'],
+									'selected'        => isset($_GET['post_search_class']) ? $_GET['post_search_class'] : '',
 									'taxonomy'        => 'post_class'
 								) );
 							?>
@@ -53,7 +53,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_airline',
 									'name'            => 'post_search_airline',
-									'selected'        => $_GET['post_search_airline'],
+									'selected'        => isset($_GET['post_search_airline']) ? $_GET['post_search_airline'] : '',
 									'taxonomy'        => 'post_airline'
 								) );
 							?>
@@ -72,7 +72,7 @@
 						<h2 class="posts-filter-title-cc">ARTICLE FILTERS</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
-							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo isset($_GET['post_search_keyword']) ? $_GET['post_search_keyword'] : ''; ?>" />
 						</div>
 						<div class="form-field form-field-class">
 							<?php
@@ -82,7 +82,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_class',
 									'name'            => 'post_search_class',
-									'selected'        => $_GET['post_search_class'],
+									'selected'        => isset($_GET['post_search_class']) ? $_GET['post_search_class'] : '',
 									'taxonomy'        => 'post_class'
 								) );
 							?>
@@ -95,7 +95,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_airline',
 									'name'            => 'post_search_airline',
-									'selected'        => $_GET['post_search_airline'],
+									'selected'        => isset($_GET['post_search_airline']) ? $_GET['post_search_airline'] : '',
 									'taxonomy'        => 'post_airline'
 								) );
 							?>

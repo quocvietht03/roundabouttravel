@@ -105,6 +105,9 @@ body .select2-results__option{
                         }
                         .ginput_container input{
                             border-color: #FF0000;
+                            &.datepicker{
+                                border-color: #b7c8d9;
+                            }
                         }
                     }
 

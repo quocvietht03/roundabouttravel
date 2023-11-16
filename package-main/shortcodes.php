@@ -3,7 +3,7 @@
 
 function func_show_detail_deal(){
 
-$deal_id = $_GET['deal_id'];
+$deal_id = isset($_GET['deal_id']) ? $_GET['deal_id'] : '';
 
 ob_start();
 

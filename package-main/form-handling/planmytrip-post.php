@@ -24,10 +24,12 @@ if(isset($_POST))
     $destination ='Round the World';
     $branch = 'RAT';
     $status = 'Submitted';
+    $subject ='';
     
     $email_message='';
     
     if( htmlspecialchars($_POST["sourceID"]) == 'RATPLANMYTRIPMAP'){
+        $subject = "Enquiry - [RoundAbout Travel] Plan My Trip Map";
         $cityFrom = $_POST['cityFrom'];
     	$departureDate = $_POST['departureDate'];
     	$TravelClass = $_POST['TravelClass'];
@@ -97,6 +99,8 @@ if(isset($_POST))
     	}
 
     } else if( htmlspecialchars($_POST["sourceID"]) == 'RATPLANMYTRIPCLASSIC'){
+        $subject = "Enquiry - [RoundAbout Travel] Plan My Trip Classic";
+        
         $state = $_POST['state'];
         $direction = $state['direction']['direction'];
         $continentNumber = $state['continentNumber']['continentNumber'];
@@ -117,7 +121,21 @@ if(isset($_POST))
         $prefNotes = $state['preview']['comments'];
         $source = "Web - Plan My Trip Classic";
 
+        //build email message
+    	$email_message .= "<b>First Name</b>: ".clean_string($fname)."<br>";
+    	$email_message .= "<b>Last Name</b>: ".clean_string($lname)."<br>";
+    	$email_message .= "<b>Email</b>: ".clean_string($email)."<br>";
+    	$email_message .= "<b>Telephone</b>: ".clean_string($mobile)."<br><br/>";
+    	$email_message .= "<b>Comments</b>: ".$comments."<br><br>";
+    	$email_message .= "<b>Origin</b>: ".clean_string($cityFrom)."<br>";
+    	$email_message .= "<b>Departure Date</b>: ".clean_string($departureDate)."<br>";
+    	$email_message .= "<b>Travel Class</b>: ".clean_string($TravelClass)."<br>";
+    	$email_message .= "<b>PAX Number Adults/ Children/ Infants</b>: ".clean_string($adults)."/". clean_string($children) ."/" . clean_string($infant) ."<br>"."<br>";
+    	
+    	$email_message .= "<b>Comments</b>: <br>";
+
         $comments  = "Depart from ".$cityFrom .", leaving on ".$departureDate .". Heading ".ucfirst($direction)." to:\n";
+        $email_message .= "Depart from ".$cityFrom .", leaving on ".$departureDate .". Heading ".ucfirst($direction)." to:<br>";
     
         for($i=1; $i<=$continentNumber; $i++){
             if($i==1)
@@ -137,33 +155,27 @@ if(isset($_POST))
                 $asiatransit = $state['itinerary']['extraCities'.$i]['asiatransit'.$cityNo];
                 $makeOwnArrangement = $state['itinerary']['extraCities'.$i]['makeOwnArrangement'.$cityNo];
                 $comments .= ucwords(str_replace('_',' ',$continent))." - ";
+                $email_message .= ucwords(str_replace('_',' ',$continent))." - ";
                 if($asiatransit != 1){
                     $stayAmount = $state['itinerary']['extraCities'.$i]['stayAmount'.$cityNo];
                     $stayUnit = $state['itinerary']['extraCities'.$i]['stayUnit'.$cityNo];
                     $comments .= $country." - ".$city.", staying for ".$stayAmount." ".$stayUnit;
+                    $email_message .= $country." - ".$city.", staying for ".$stayAmount." ".$stayUnit;
                 } else {
                     $stayAmount = '';
                     $stayUnit = '';
                     $comments .= "In transit";
+                    $email_message .= "In transit";
                 }
                 if($makeOwnArrangement == 1){
                     $comments .= ", making own arrangements to next destination";
+                    $email_message .= ", making own arrangements to next destination";
                 }
                 $comments .= "\n";
+                $email_message .= "<br>";
             }
         }
 
-        //build email message
-    	$email_message .= "<b>First Name</b>: ".clean_string($fname)."<br>";
-    	$email_message .= "<b>Last Name</b>: ".clean_string($lname)."<br>";
-    	$email_message .= "<b>Email</b>: ".clean_string($email)."<br>";
-    	$email_message .= "<b>Telephone</b>: ".clean_string($mobile)."<br><br/>";
-    	$email_message .= "<b>Comments</b>: ".$comments."<br><br>";
-    	$email_message .= "<b>Origin</b>: ".clean_string($cityFrom)."<br>";
-    	$email_message .= "<b>Departure Date</b>: ".clean_string($departureDate)."<br>";
-    	$email_message .= "<b>Travel Class</b>: ".clean_string($TravelClass)."<br>";
-    	$email_message .= "<b>PAX Number Adults/ Children/ Infants</b>: ".clean_string($adults)."/". clean_string($children) ."/" . clean_string($infant) ."<br>"."<br>";
-        $email_message .= "<b>Comments</b>: ". $comments ."<br>"."<br>";
     }
 
 
@@ -179,9 +191,9 @@ if(isset($_POST))
         $mailer = new Swift_Mailer($transport);
     
         //Creating message
-        $message = (new Swift_Message('Enquiry - [RoundAbout Travel] Plan My Trip Map'))
-            ->setFrom(['info@roundabouttravel.com.au' => 'RoundAbout Travel'])
-            ->setTo(["kenny@roundabouttravel.com.au" => "Kenny Chau"])
+        $message = (new Swift_Message($subject))
+            ->setFrom(['email@roundabouttravel.com.au' => 'RoundAbout Travel'])
+            ->setTo(["kenny@roundabouttravel.com.au" => "Kenny Chau", "info@roundabouttravel.com.au" => "RoundAbout Travel"])
             ->setContentType("text/html")
             ->setBody($email_message)
         ;

@@ -1014,6 +1014,9 @@
 
     }
     @media(max-width: 767.98px) {
+        #main {
+            min-height: 550px !important;
+        }
         .main #main {
             #buildtripheading {
                 font-size: 25px;

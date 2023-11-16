@@ -13,7 +13,12 @@ $deal_name        = get_the_title($deal_id);
 $classes      = wp_get_post_terms( $deal_id, 'deal_class' );
 $airlines     = wp_get_post_terms( $deal_id, 'deal_airline' );
 $price        = get_post_meta( $deal_id, 'deal_price', true );
-$price_fm     = number_format($price, 0, ',', ',');
+if($price == 'POA'){
+    $price_fm     = $price;
+} else{
+    $price_fm     = number_format($price, 0, ',', ',');
+}
+
 $price_tax    = get_field( 'deal_price_tax', $deal_id );
 
 $class_titles   = [];

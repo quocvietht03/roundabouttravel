@@ -1,5 +1,5 @@
 /*** Default Form Behaviour ***/
-(function($) {
+
 var currentStepCounter = 1;
 var totalStepsCounter = 0;
 // next prev
@@ -544,7 +544,7 @@ $(document).ready(function(){
         //Check maximum number of input fields
         if(counter < maxField){ 
 
-			var fieldHTML = '<div class="groupFields"><hr><div class="input-field row"><div class="col-sm-12 nextCityTitle"><span>Next Destination City</span><a href="javascript:void(0)" class="remove_button"><i class="fa-solid fa-xmark"></i></a></div><div class="input-field row"></div><div class="destinationSuggest"><input required type="text" class="destination" id="destination'+ (x+1) +'" name="destination[]" placeholder="Type e.g. LAX, London, Paris, etc to search..." list="destinationList"/><div id="airportList'+ (x+1) +'" class="airportList airport-search__results"></div></div></div><div class="checkboxFields row"><div class="col-md-6"><input id="transit'+ (x+1) +'" class="transit"  name="transit[]" type="checkbox"/><label>Transit Only</label></div><div class="col-md-6"><input id="self'+ (x+1) +'" class="self" name="self[]" type="checkbox"/><label>Own transport to this destination</label></div></div><div class="input-field row stayRow"><div class="col-md-12"><h5>How long will you stay?</h5></div>	<div class="col-md-6"><div class="select-field"><select id="stay'+ (x+1) +'" name="stay[]" ><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>	<option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>	<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select><span></span></div></div>	<div class="col-md-6"><div class="select-field"><select id="period'+ (x+1) +'" name="period[]"><option>Day(s)</option><option>Week(s)</option><option>Month(s)</option></select><span></span></div></div></div></div>';
+			var fieldHTML = '<div class="groupFields"><hr><div class="input-field row"><div class="col-sm-12 nextCityTitle"><span>Next Destination City</span><a href="javascript:void(0)" class="remove_button"><i class="fa-solid fa-xmark"></i></a></div><div class="input-field row"></div><div class="destinationSuggest"><input required type="search" class="destination" id="destination'+ (x+1) +'" name="destination[]" placeholder="Type e.g. LAX, London, Paris, etc to search..." list="destinationList"/><div id="airportList'+ (x+1) +'" class="airportList airport-search__results"></div></div></div><div class="checkboxFields row"><div class="col-md-6"><input id="transit'+ (x+1) +'" class="transit"  name="transit[]" type="checkbox"/><label>Transit Only</label></div><div class="col-md-6"><input id="self'+ (x+1) +'" class="self" name="self[]" type="checkbox"/><label>Own transport to this destination</label></div></div><div class="input-field row stayRow"><div class="col-md-12"><h5>How long will you stay?</h5></div>	<div class="col-md-6"><div class="select-field"><select id="stay'+ (x+1) +'" name="stay[]" ><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>	<option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>	<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select><span></span></div></div>	<div class="col-md-6"><div class="select-field"><select id="period'+ (x+1) +'" name="period[]"><option>Day(s)</option><option>Week(s)</option><option>Month(s)</option></select><span></span></div></div></div></div>';
 
 
             $(wrapper).append(fieldHTML); //Add field html
@@ -728,13 +728,12 @@ originMarker.bindPopup("<b>Leaving From: </b>Sydney");
 
 var CityFromField = document.getElementById('cityFrom');
 var OriginMarkerCor = [-33.8688,151.2093];
-
 //var directionMarker;
 //var directionMarkerSelected = false;
 
 CityFromField.onchange = (event) => {
 	CityFromFieldValue = event.target.value;
-	//console.log("Selecting Field: " + CityFromFieldValue);
+	
 	/*
 	if(directionMarker instanceof L.Marker){
 		map.removeLayer(directionMarker);
@@ -758,9 +757,11 @@ CityFromField.onchange = (event) => {
 			}
 			*/
 			map.panTo(new L.LatLng([originList[j][1]],[originList[j][2]]));
+			
 			break;
 		}
 	}
+	console.log("Selecting Field: " + CityFromField.value);
 					
 }
 
@@ -788,7 +789,6 @@ direction2.onchange = (event) => {
 */
 /** STEP 2 INFO TO POP UP **/
 
-var FromCity = document.getElementById('cityFrom').value;
 var departureDate = document.getElementById('departureDate');
 var TravelClass = document.getElementById('TravelClass');
 var AdultEl = document.getElementById('adult');
@@ -797,7 +797,7 @@ var InfantEl = document.getElementById('infant');
 
 departureDate.onchange = (event) => {
 	console.log(departureDate.value);
-	originMarker.bindPopup("<b>Leaving From: </b>"+FromCity+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
+	originMarker.bindPopup("<b>Leaving From: </b>"+document.getElementById('cityFrom').value+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
 	if(originMarker.isPopupOpen() == false){
 		originMarker.togglePopup();
 	}
@@ -805,7 +805,7 @@ departureDate.onchange = (event) => {
 
 TravelClass.onchange = (event) => {
 	console.log(TravelClass.value);
-	originMarker.bindPopup("<b>Leaving From: </b>"+FromCity+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
+	originMarker.bindPopup("<b>Leaving From: </b>"+document.getElementById('cityFrom').value+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
 	if(originMarker.isPopupOpen() == false){
 		originMarker.togglePopup();
 	}
@@ -813,7 +813,7 @@ TravelClass.onchange = (event) => {
 
 AdultEl.onchange = (event) => {
 	console.log(AdultEl.value);
-	originMarker.bindPopup("<b>Leaving From: </b>"+FromCity+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
+	originMarker.bindPopup("<b>Leaving From: </b>"+document.getElementById('cityFrom').value+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
 	if(originMarker.isPopupOpen() == false){
 		originMarker.togglePopup();
 	}
@@ -821,7 +821,7 @@ AdultEl.onchange = (event) => {
 
 ChildrenEl.onchange = (event) => {
 	console.log(ChildrenEl.value);
-	originMarker.bindPopup("<b>Leaving From: </b>"+FromCity+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
+	originMarker.bindPopup("<b>Leaving From: </b>"+document.getElementById('cityFrom').value+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
 	if(originMarker.isPopupOpen() == false){
 		originMarker.togglePopup();
 	}
@@ -829,7 +829,7 @@ ChildrenEl.onchange = (event) => {
 
 InfantEl.onchange = (event) => {
 	console.log(InfantEl.value);
-	originMarker.bindPopup("<b>Leaving From: </b>"+FromCity+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
+	originMarker.bindPopup("<b>Leaving From: </b>"+document.getElementById('cityFrom').value+"<br/><b>Departure Date: </b>"+departureDate.value+"<br/><b>Travel Class: </b>"+TravelClass.value +"<br/><b>Travelling with </b>"+AdultEl.value+" Adults " +ChildrenEl.value+" Children " +InfantEl.value+" Infants ");
 	if(originMarker.isPopupOpen() == false){
 		originMarker.togglePopup();
 	}
@@ -983,4 +983,3 @@ function drawDesMarkers(FieldChangedID){
 	
 
 }
-})(jQuery);

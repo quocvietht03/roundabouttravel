@@ -22,7 +22,7 @@ function sc_plan_trip_map()
 					<article class="sidebar-text">
 						<h3>Round The World Trip Planner</h3>
 						<p>
-							Not sure what to do? Talk to our consultant and let us help you make your trip easier! Call us today on <u>1300 318 227</u>.
+							Not sure what to do? Talk to our expert consultants and let us help you make your trip easier! Call us today on <u>1300 318 227</u>.
 						</p>
 						
 						<div class="step-bar">
@@ -52,7 +52,7 @@ function sc_plan_trip_map()
                             <div class="step-type-icon">
                                 <i class="fa-solid fa-map-location-dot"></i>
                             </div>
-                            <span>Iteinery</span>
+                            <span>Itinerary </span>
                         </div>
                         <div class="step-type no-line">
                             <div class="step-type-icon">
@@ -190,30 +190,30 @@ function sc_plan_trip_map()
 									<label>How many travellers in this trip?</label>
                                     <div class="col-md-4">
                                         <div class="input-field row">
-                                            <div class="col-xl-6">
+                                            <div class="col-5">
                                                 <input type="text" name="adult" id="adult" value="1">
                                             </div>
-                                            <div class="col-xl-6">
+                                            <div class="col-7">
                                                 <label for="adult">Adults (11+)</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-field row">
-                                            <div class="col-xl-6">
+                                            <div class="col-5">
                                                 <input type="text" name="children" id="children" value="0">
                                             </div>
-                                            <div class="col-xl-6">
+                                            <div class="col-7">
                                                 <label for="children">Children (2-11)</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-field row">
-                                            <div class="col-xl-6">
+                                            <div class="col-5">
                                                 <input type="text" name="infant" id="infant" value="0">
                                             </div>
-                                            <div class="col-xl-6">
+                                            <div class="col-7">
                                                 <label for="infant">Infants (< 2)</label>
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@ function sc_plan_trip_map()
 									<div class="groupFields">
 										<div class="input-field row">
 											<div class="destinationSuggest">
-												<input required type="text" class="destination" id="destination1" name="destination[]" placeholder="Type e.g. LAX, London, Paris, etc to search..." list="destinationList"/>
+												<input required type="search" class="destination" id="destination1" name="destination[]" placeholder="Type e.g. LAX, London, Paris, etc to search..." list="destinationList"/>
 												<div id="airportList" class="airportList airport-search__results"></div>
 											</div>
 										</div>
@@ -363,11 +363,11 @@ function sc_plan_trip_map()
 								</div>
 								<div class="checkboxFields row">
 									<div class="col-md-12" id="agreementRow">
-									    <input id="agreement" class="agreement"  name="agreement" type="checkbox" checked="checked"/><label for="agreement">By submitting I agree to the <a href="https://www.roundabouttravel.com.au/about/legal/" target="_blank">terms and conditions</a>.</label>
+									    <input id="agreement" class="agreement"  name="agreement" type="checkbox" checked="checked"/><label for="agreement">By submitting I agree to the <a href="https://www.roundabouttravel.com.au/about/legal/" target="_blank"><u>terms and conditions</u></a>.</label>
 									</div>
 								</div>
 								<input type="hidden" id="sourceID" name="sourceID" value="RATPLANMYTRIPMAP">
-								<input id="ip" type="hidden" name="ip" value="<?php echo $ip;?>">
+								<input id="ip" type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
                             </div>
                             <div class="next-prev">
                                 <button type="button" class="prev">Previous Step</button>

@@ -281,6 +281,7 @@ function sc_plan_trip_classic()
                         </div>
                     </div>
                     <textarea id="comments" placeholder="Comments"></textarea>
+                    <p>By submitting I agree to the <a href="https://www.roundabouttravel.com.au/about/legal/" target="_blank"><u>terms and conditions</u></a>.</p>
                 </div>
 
             </div>

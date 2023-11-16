@@ -250,12 +250,17 @@ function rbt_setBookingInfo() {
                                     <span class="value"><?php echo implode( ', ', $class_titles ); ?></span>
                                 </div>
                                 <?php endif; ?>
-                                <?php if ( !empty($price) ) : ?>
-                                <div class="deal-feature-item deal-price">
-                                From <span>$<?php echo $price_fm; ?>
-                                        <?php if ( $price_tax ) : ?><?php echo $price_tax; ?><?php endif; ?></span>
-                                </div>
-                                <?php endif; ?>
+                                <?php
+                                 if($price == 'POA'){ ?>
+                                    <div class="deal-feature-item deal-price">
+                                    From <span>POA</span>
+                                    </div>
+                                 <?php } elseif ( !empty($price) ){ ?>
+                                    <div class="deal-feature-item deal-price">
+                                    From <span>$<?php echo $price_fm; ?>
+                                            <?php if ( $price_tax ) : ?><?php echo $price_tax; ?><?php endif; ?></span>
+                                    </div>
+                                 <?php } ?>
                             </div>
 
                             <div class="deal-cta">

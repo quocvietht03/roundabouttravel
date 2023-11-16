@@ -329,6 +329,9 @@
 {
     position: relative;
     cursor: pointer;
+    min-width: 93%;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .plan-my-trip-map-wrapper .input-field textarea
@@ -767,6 +770,10 @@ opacity: 1;
 	font-weight:600;
 }	
 
+.plan-my-trip-map-wrapper #agreement {
+    display: none;
+}
+
 /*** Airport search CSS***/
 
 .plan-my-trip-map-wrapper .airport-search__results{
@@ -793,6 +800,7 @@ opacity: 1;
     color: #F0F5F9;
     margin: 0;
 }
+
 
 /** Loader **/
 .plan-my-trip-map-wrapper #loader {
@@ -961,6 +969,7 @@ opacity: 1;
         width: 100%;
         z-index: 1000;
     }
+    
     .plan-my-trip-map-wrapper .sidebar
     {
         order: 2;
@@ -1001,7 +1010,22 @@ opacity: 1;
     {
         padding-left: 10px;
     }
-
+    .plan-my-trip-map-wrapper .helpbox
+    {
+    	padding:20px;
+    	background: #E2ECF5;
+    	border-radius:25px;
+    	margin-top:20px;
+    }
+    .plan-my-trip-map-wrapper .checkboxFields label {
+        font-size: 14px;
+    }
+    .plan-my-trip-map-wrapper .desFormInputsWrapper input{
+        margin-bottom: 10px;
+    }
+    .plan-my-trip-map-wrapper .desFormInputsWrapper select{
+        margin-bottom: 10px;
+    }
 }
 
 

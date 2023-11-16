@@ -30,7 +30,7 @@
 						<h2 class="posts-filter-title-cc">Article Filter</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
-							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo isset($_GET['post_search_keyword']) ? $_GET['post_search_keyword'] : ''; ?>" />
 						</div>
 						<div class="form-field form-field-class">
 							<select>
@@ -45,7 +45,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_airline',
 									'name'            => 'post_search_airline',
-									'selected'        => $_GET['post_search_airline'],
+									'selected'        => isset($_GET['post_search_airline']) ? $_GET['post_search_airline'] : '',
 									'taxonomy'        => 'post_airline'
 								) );
 							?>
@@ -64,7 +64,7 @@
 						<h2 class="posts-filter-title-cc">ARTICLE FILTERS</h2>
 						<input type="hidden" name="post_search_submitted" value="1" />
 						<div class="form-field form-field-search">
-							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo $_GET['post_search_keyword']; ?>" />
+							<input name="post_search_keyword" placeholder="Keyword" type="text" value="<?php echo isset($_GET['post_search_keyword']) ? $_GET['post_search_keyword'] : ''; ?>" />
 						</div>
 						<div class="form-field form-field-class">
 							<select>
@@ -79,7 +79,7 @@
 									'hide_empty'      => false,
 									'id'              => 'post_search_airline',
 									'name'            => 'post_search_airline',
-									'selected'        => $_GET['post_search_airline'],
+									'selected'        => isset($_GET['post_search_airline']) ? $_GET['post_search_airline'] : '',
 									'taxonomy'        => 'post_airline'
 								) );
 							?>

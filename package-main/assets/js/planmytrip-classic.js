@@ -1,3 +1,5 @@
+(function ($) {
+    'use strict';
 var continents = new Array(
     {val:'asia', text:'Asia'},
     {val:'africa', text:'Africa'},
@@ -1275,3 +1277,4 @@ function alertUser(alertMsg){
     //return 'You have unsaved changes.';
 //}
 
+}) (jQuery);

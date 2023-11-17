@@ -1,5 +1,7 @@
 /*** Default Form Behaviour ***/
-
+(function ($) {
+  'use strict';
+  
 var currentStepCounter = 1;
 var totalStepsCounter = 0;
 // next prev
@@ -95,7 +97,7 @@ var inputschecked = false;
 function formvalidate(stepnumber)
 {
   // check if the required fields are empty
-  inputvalue = $("#step"+stepnumber+" :input").not("button").map(function()
+  var inputvalue = $("#step"+stepnumber+" :input").not("button").map(function()
   {
     if(this.value.length > 0)
     {
@@ -732,7 +734,7 @@ var OriginMarkerCor = [-33.8688,151.2093];
 //var directionMarkerSelected = false;
 
 CityFromField.onchange = (event) => {
-	CityFromFieldValue = event.target.value;
+	var CityFromFieldValue = event.target.value;
 	
 	/*
 	if(directionMarker instanceof L.Marker){
@@ -983,3 +985,4 @@ function drawDesMarkers(FieldChangedID){
 	
 
 }
+}) (jQuery);
